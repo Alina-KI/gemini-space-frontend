@@ -1,0 +1,57 @@
+.header{
+    background-color: rgba(35, 95, 134, 0.733);
+    position: fixed;
+    width: 100%;
+    font-size: 24px;
+    display: block;
+    margin-bottom: 20px;
+}
+.header_container{
+    max-width: 1070px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+.logo{
+    max-width: 50px;
+    /*grid-area: logo;*/
+    display: inline;
+    vertical-align: middle;
+    margin: 0 10px;
+}
+.header_name_project a, .login_name a{
+    text-decoration: none;
+    color: #c8e9e9;
+    outline: none;
+}
+.logo_name{
+    flex: 1 1 auto;
+}
+.header_search{
+    background-color: rgba(186, 217, 217, 0.833);
+    border-radius: 9px;
+    color: white;
+    padding: 10px;
+    border: none;
+    outline: none;
+    margin: 10px 0;
+}
+.search{
+    flex: 1 1 auto;
+    padding-right: 20%;
+}
+.login_logo{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-size: cover;
+    display: inline-block;
+    vertical-align: middle;
+    margin: 5px 10px;
+}
+.login_name{
+    color: #c8e9e9;
+    align-items: center;
+}

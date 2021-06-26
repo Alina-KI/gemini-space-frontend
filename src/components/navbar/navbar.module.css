@@ -1,0 +1,24 @@
+.container{
+    margin: 0 10px 0 0;
+    border: #02024a 1px solid;
+    border-radius: 20px;
+    text-align: center;
+    padding: 20px 10px;
+    font-size: 20px;
+}
+.component{
+    list-style: none;
+    padding: 5px;
+}
+.el{
+    text-decoration: none;
+    color: #02024a;
+    padding: 5px 20px;
+    border: transparent 1px solid;
+    transition: .5s;
+}
+.el:hover{
+    border-radius: 10px;
+    border: #98d2d2 1px solid;
+    color: blue;
+}

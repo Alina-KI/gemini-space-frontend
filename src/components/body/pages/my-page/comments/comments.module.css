@@ -1,0 +1,28 @@
+.comments {
+    font-size: 18px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+.comment {
+    padding: 15px;
+    display: flex;
+    transition: 1.5s;
+    border-bottom: 1px #98d2d2 solid;
+}
+.infAva {
+    display: flex;
+}
+.ava {
+    width: 70px;
+    height: 70px;
+    background-size: cover;
+    border-radius: 50%;
+}
+.ava:hover {
+    cursor: pointer;
+}
+.avaName:hover {
+    cursor: pointer;
+    color: blue;
+    transition: .5s;
+}

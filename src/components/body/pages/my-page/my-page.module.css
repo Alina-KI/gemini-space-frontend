@@ -1,0 +1,52 @@
+.container {
+    margin-bottom: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+.avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background-size: cover;
+    display: inline-block;
+    transition: 1s;
+}
+
+.avatar:hover {
+    cursor: pointer;
+    -webkit-transform: scale(1.5);
+    -ms-transform: scale(1.5);
+    transform: scale(1.5);
+}
+
+.name_data {
+    display: inline-block;
+    margin-left: 20px;
+    padding-top: 20px;
+}
+
+.NameUser {
+    text-decoration: none;
+    font-size: 24px;
+    color: #02024a;
+    border-bottom: 1px solid transparent;
+    transition: .6s linear;
+}
+
+.TextDate {
+    font-size: 18px;
+    margin: 0;
+    cursor: default;
+}
+
+.NameUser:hover {
+    border-bottom: 1px solid #98d2d2;
+    color: blue;
+}
+
+.comments {
+    margin: 0;
+    padding: 0;
+}

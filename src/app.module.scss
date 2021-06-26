@@ -1,0 +1,31 @@
+html, body {
+  background-color: #f0f8ff;
+}
+
+.App {
+  padding: 0;
+  font-size: 20px;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 0 auto;
+  padding: 80px 10px 10px 0;
+  max-width: 1070px;
+}
+
+.footer {
+  background: #424c4c;
+  font-size: 20px;
+  margin-top: 20px;
+  width: 100%;
+}
+
+.containerFooter {
+  color: #bad9d9;
+  max-width: 1070px;
+  margin: 0 auto;
+  text-align: center;
+}
