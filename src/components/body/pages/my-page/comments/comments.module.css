@@ -2,12 +2,13 @@
     font-size: 18px;
     max-width: 800px;
     margin: 0 auto;
+    color: rgb(76, 47, 31);
 }
 .comment {
     padding: 15px;
     display: flex;
     transition: 1.5s;
-    border-bottom: 1px #98d2d2 solid;
+    border-bottom: 1px rgb(222, 167, 128) solid;
 }
 .infAva {
     display: flex;
@@ -23,6 +24,6 @@
 }
 .avaName:hover {
     cursor: pointer;
-    color: blue;
+    color: rgb(175, 56, 48);
     transition: .5s;
 }

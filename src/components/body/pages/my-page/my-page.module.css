@@ -8,7 +8,7 @@
 .avatar {
     width: 120px;
     height: 120px;
-    border-radius: 50%;
+    border-radius: 10%;
     background-size: cover;
     display: inline-block;
     transition: 1s;
@@ -30,7 +30,7 @@
 .NameUser {
     text-decoration: none;
     font-size: 24px;
-    color: #02024a;
+    color: rgb(76, 47, 31);
     border-bottom: 1px solid transparent;
     transition: .6s linear;
 }
@@ -42,8 +42,8 @@
 }
 
 .NameUser:hover {
-    border-bottom: 1px solid #98d2d2;
-    color: blue;
+    border-bottom: 1px solid rgb(181, 65, 24);
+    color: rgb(181, 65, 24);
 }
 
 .comments {

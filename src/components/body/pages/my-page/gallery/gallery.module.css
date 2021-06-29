@@ -24,16 +24,16 @@
 .whole_gallery{
     text-decoration: none;
     font-size: 20pt;
-    color: #02024a;
+    color: rgb(76, 47, 31);
     display: flex;
     border-bottom: 1px solid transparent;
     transition: .4s linear;
 }
 .gallery:hover{
-    border: 1px solid #98d2d2;
+    border: 1px solid rgb(175, 162, 127);
     cursor: pointer;
 }
 .whole_gallery:hover{
-    border-bottom: 1px solid #98d2d2;
-    color: blue;
+    border-bottom: 1px solid rgb(175, 162, 127);
+    color: rgb(175, 56, 48);
 }

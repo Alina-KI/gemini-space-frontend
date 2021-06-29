@@ -1,5 +1,5 @@
 import React from 'react'
-import s from './header.module.css'
+import s from './header.module.scss'
 import logo from '../../images/logo.svg'
 import avatar from '../../images/1.jpg'
 import { NavLink } from 'react-router-dom'

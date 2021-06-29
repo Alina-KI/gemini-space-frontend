@@ -1,6 +1,6 @@
 .container{
     margin: 0 10px 0 0;
-    border: #02024a 1px solid;
+    border: rgba(62, 73, 67, 0.5) 1px solid;
     border-radius: 20px;
     text-align: center;
     padding: 20px 10px;
@@ -12,13 +12,13 @@
 }
 .el{
     text-decoration: none;
-    color: #02024a;
+    color: rgb(62, 73, 67);
     padding: 5px 20px;
     border: transparent 1px solid;
     transition: .5s;
 }
 .el:hover{
     border-radius: 10px;
-    border: #98d2d2 1px solid;
-    color: blue;
+    border: rgb(188, 183, 145) 1px solid;
+    color: rgb(175, 56, 48);
 }

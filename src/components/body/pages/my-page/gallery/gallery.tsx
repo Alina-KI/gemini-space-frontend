@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom'
 import photo1 from '../../../../../images/16.jpg'
 import photo2 from '../../../../../images/11.jpg'
 import photo3 from '../../../../../images/4.jpg'
-import photo4 from '../../../../../images/5.jpg'
+import photo4 from '../../../../../images/17.jpg'
 
 export const Gallery = () => {
   return (
