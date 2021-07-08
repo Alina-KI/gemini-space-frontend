@@ -1,10 +1,8 @@
 import React from 'react'
-import { MyPage } from './pages/my-page/my-page'
+import { Routes } from '../../routes'
 
 export const Body = () => {
   return (
-    <div>
-      <MyPage/>
-    </div>
+    <Routes />
   )
 }
