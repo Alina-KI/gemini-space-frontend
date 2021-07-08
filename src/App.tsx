@@ -4,21 +4,18 @@ import { BrowserRouter } from 'react-router-dom'
 import { Header } from './components/header/header'
 import { Navbar } from './components/navbar/navbar'
 import { Body } from './components/body/body'
+import { Footer } from './components/footer/footer'
 
 export const App = () => {
   return (
     <BrowserRouter>
       <div className="App">
-        <Header/>
+        <Header />
         <div className={s.container}>
-          <Navbar/>
-          <Body/>
+          <Navbar />
+          <Body />
         </div>
-        <div className={s.footer}>
-          <div className={s.containerFooter}>
-            Footer
-          </div>
-        </div>
+        <Footer />
       </div>
     </BrowserRouter>
   )

@@ -4,7 +4,7 @@ import { api } from '../api'
 
 export function useUsers() {
   const [users, setUsers] = useState<User[]>([])
-  const [isLoading, setIsLoading] = useState(false)
+  const [isLoading, setIsLoading] = useState(true)
   const [error, setError] = useState('')
 
   useEffect(() => {
@@ -12,7 +12,7 @@ export function useUsers() {
     api.get<User[]>('/users')
       .then(res => setUsers(res.data))
       .catch(error => setError(error))
-      .finally(() => setIsLoading(false))
+      .finally(() => setIsLoading(true))
   }, [])
 
   return {

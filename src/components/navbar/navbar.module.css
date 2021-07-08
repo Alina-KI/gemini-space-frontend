@@ -1,4 +1,5 @@
 .container{
+    position: fixed;
     margin: 0 10px 0 0;
     border: rgba(62, 73, 67, 0.5) 1px solid;
     border-radius: 20px;
