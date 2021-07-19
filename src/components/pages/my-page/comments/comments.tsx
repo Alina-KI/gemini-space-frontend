@@ -1,6 +1,6 @@
 import React from 'react'
 import s from './comments.module.css'
-import ava from '../../../../../images/13.jpg'
+import ava from '../../../../images/13.jpg'
 
 type Props = {
   text: string

@@ -1,14 +1,14 @@
 import React from 'react'
 import s from './user-list.module.scss'
-import { useUsers } from '../../../../../hooks/use-users'
-import { Loader } from '../../../../shared/loader/loader'
-import avatar from '../../../../../images/1.jpg'
+import { useUsers } from '../../../../hooks/use-users'
+import { Loader } from '../../../shared/loader/loader'
+import avatar from '../../../../images/17.jpg'
 
 export const UserList = () => {
   const { users, isLoading, error } = useUsers()
 
   if (isLoading) return <Loader />
-  if (error) return <div>{error}</div>
+  if (error) return <div>error</div>
 
   return (
     <div className={s.container}>

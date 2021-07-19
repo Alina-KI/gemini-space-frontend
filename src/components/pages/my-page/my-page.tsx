@@ -1,6 +1,6 @@
 import React from 'react'
 import s from './my-page.module.css'
-import avatar from '../../../../images/1.jpg'
+import avatar from '../../../images/1.jpg'
 import { NavLink } from 'react-router-dom'
 import { Gallery } from './gallery/gallery'
 import { Comments } from './comments/comments'

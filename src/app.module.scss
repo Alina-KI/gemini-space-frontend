@@ -2,9 +2,12 @@ html, body {
   background-color: rgb(212, 206, 194);
 }
 
-.App {
+.app {
   padding: 0;
   font-size: 20px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 .container {
@@ -13,4 +16,8 @@ html, body {
   margin: 0 auto;
   padding: 80px 10px 10px 0;
   max-width: 1070px;
+  flex: 1 1 auto;
+}
+.routeContainer{
+  max-width: 802px;
 }
