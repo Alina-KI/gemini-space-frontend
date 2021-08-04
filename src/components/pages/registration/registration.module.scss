@@ -1,0 +1,45 @@
+.container{
+  display: flex;
+  flex-direction: column;
+
+  .textInput{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  input{
+    border-radius: 9px;
+    padding: 10px;
+    border: 1px solid rgba(222, 167, 128, 0.833);
+    outline: none;
+    margin: 10px 0;
+  }
+
+  button{
+    font-size: 18px;
+    border-radius: 30px;
+    padding: 10px 50px;
+    color: dimgray;
+    border: 1px solid rgba(222, 167, 128, 0.833);
+    outline: none;
+    margin: 10px 0;
+    transition: 1s;
+  }
+  button:hover{
+    cursor: pointer;
+    color: #2E2B26;
+    background: rgba(222, 167, 128, 0.833);
+  }
+  .inputError{
+    display: flex;
+    align-items: center;
+
+    .error{
+      color: rgba(175, 56, 48);
+      text-align: center;
+      margin-left: 10px;
+    }
+  }
+}
