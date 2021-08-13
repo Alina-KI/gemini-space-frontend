@@ -5,6 +5,10 @@
     font-size: 26px;
     display: block;
     margin-bottom: 20px;
+    z-index: 1;
+    @media (max-width: 1000px){
+        font-size: 20px;
+    }
 }
 .header_container{
     max-width: 1070px;
@@ -19,6 +23,9 @@
     display: inline;
     vertical-align: middle;
     margin: 0 10px;
+    @media (max-width: 1000px){
+        display: none;
+    }
 }
 .header_name_project a, .login_name a{
     text-decoration: none;
@@ -41,6 +48,9 @@
 .search{
     flex: 1 1 auto;
     padding-right: 20%;
+    @media (max-width: 660px){
+        padding: 0;
+    }
 }
 .login_logo{
     width: 50px;
@@ -49,4 +59,47 @@
     display: inline-block;
     vertical-align: middle;
     margin: 5px 10px;
+}
+.burger_menu{
+    margin: 0 10px;
+    border: none;
+    background-size: cover;
+    background-color: transparent;
+    width: 40px;
+    height: 40px;
+}
+.menu{
+    position: absolute;
+    height: 100vh;
+    width: 50vh;
+    background-color: #F2F1ED;
+    display: none;
+}
+
+.line {
+    fill:none;
+    transition: stroke-dasharray 400ms, stroke-dashoffset 400ms;
+    stroke:#000;
+    stroke-width:5.5;
+    stroke-linecap:round;
+}
+.ham3 .top {
+    stroke-dasharray: 40 130;
+}
+.ham3 .middle {
+    stroke-dasharray: 40 140;
+}
+.ham3 .bottom {
+    stroke-dasharray: 40 205;
+}
+.ham3.active .top {
+    stroke-dasharray: 75 130;
+    stroke-dashoffset: -63px;
+}
+.ham3.active .middle {
+    stroke-dashoffset: -102px;
+}
+.ham3.active .bottom {
+    stroke-dasharray: 110 205;
+    stroke-dashoffset: -86px;
 }

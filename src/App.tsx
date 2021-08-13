@@ -12,14 +12,15 @@ export const App = () => {
       <div className={s.app}>
         <Header />
         <div className={s.container}>
-          <Navbar />
+          <div className={s.navbar}>
+            <Navbar />
+          </div>
           <div className={s.routeContainer}>
             <Routes />
           </div>
         </div>
         <Footer />
       </div>
-      {/*1000px burger-menu*/}
     </BrowserRouter>
   )
 }
