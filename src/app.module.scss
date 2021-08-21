@@ -19,8 +19,8 @@ html, body {
   z-index: 0;
 }
 .navbar{
-  margin: 0 10px 0 0;
-  @media (max-width: 1000px){
+  margin: 0 10px;
+  @media (max-width: 1030px){
     display: none;
   }
 }

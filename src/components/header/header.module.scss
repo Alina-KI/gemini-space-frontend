@@ -1,105 +1,174 @@
-.header{
-    background-color: rgba(175, 56, 48, 0.733);
-    position: fixed;
-    width: 100%;
-    font-size: 26px;
-    display: block;
-    margin-bottom: 20px;
-    z-index: 1;
-    @media (max-width: 1000px){
-        font-size: 20px;
-    }
+.header {
+  background-color: rgba(175, 56, 48, 0.733);
+  position: fixed;
+  width: 100%;
+  font-size: 26px;
+  display: block;
+  margin-bottom: 20px;
+  z-index: 1;
+  @media (max-width: 710px) {
+    font-size: 20px;
+  }
 }
-.header_container{
-    max-width: 1070px;
-    margin: 0 auto;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
+
+.header_container {
+  max-width: 1070px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
 }
-.logo{
-    max-width: 50px;
-    display: inline;
-    vertical-align: middle;
-    margin: 0 10px;
-    @media (max-width: 1000px){
-        display: none;
-    }
+
+.logo {
+  max-width: 50px;
+  display: inline;
+  vertical-align: middle;
+  margin: 0 10px;
+  @media (max-width: 1030px) {
+    display: none;
+  }
 }
-.header_name_project a, .login_name a{
-    text-decoration: none;
-    color: rgb(46, 43, 38);
-    outline: none;
-    align-items: center;
+
+.header_name_project a, .login_name a {
+  text-decoration: none;
+  color: rgb(46, 43, 38);
+  outline: none;
+  align-items: center;
 }
-.logo_name{
-    flex: 1 1 auto;
+
+.header_name_project {
+  @media (max-width: 1030px) {
+    margin-left: 60px;
+  }
 }
-.header_search{
-    background-color: rgba(222, 167, 128, 0.833);
-    border-radius: 9px;
-    color: white;
-    padding: 10px;
-    border: none;
-    outline: none;
-    margin: 10px 0;
+
+.logo_name {
+  flex: 1 1 auto;
 }
-.search{
-    flex: 1 1 auto;
-    padding-right: 20%;
-    @media (max-width: 660px){
-        padding: 0;
-    }
+
+.header_search {
+  font-size: 16px;
+  background-color: rgba(222, 167, 128, 0.833);
+  border-radius: 9px;
+  color: white;
+  padding: 10px;
+  border: none;
+  outline: none;
+  margin: 10px 0;
+  @media (max-width: 710px) {
+    font-size: 14px;
+  }
+  @media (max-width: 520px) {
+    font-size: 12px;
+  }
+  @media (max-width: 370px) {
+    display: none;
+  }
 }
-.login_logo{
-    width: 50px;
-    height: 50px;
-    background-size: cover;
-    display: inline-block;
-    vertical-align: middle;
-    margin: 5px 10px;
+
+.search {
+  flex: 1 1 auto;
+  padding-right: 20%;
+  @media (max-width: 660px) {
+    padding: 0;
+  }
 }
-.burger_menu{
-    margin: 0 10px;
-    border: none;
-    background-size: cover;
-    background-color: transparent;
+
+.login_logo {
+  width: 50px;
+  height: 50px;
+  background-size: cover;
+  display: inline-block;
+  vertical-align: middle;
+  margin: 5px 10px;
+  @media (max-width: 550px) {
     width: 40px;
     height: 40px;
+  }
 }
-.menu{
-    position: absolute;
-    height: 100vh;
-    width: 50vh;
-    background-color: #F2F1ED;
+
+.login_name {
+  @media (max-width: 500px) {
     display: none;
+  }
+}
+
+.burger_menu {
+  background-color: transparent;
+  border: none;
+  position: absolute;
+  z-index: 2;
+  @media (min-width: 1031px) {
+    display: none;
+  }
+}
+
+.menu {
+  position: fixed;
+  height: 100vh;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  background-color: #F2F1ED;
+  display: none;
+  font-size: 30px;
+  @media (min-width: 561px) {
+    width: 70vh;
+  }
+}
+
+.navbar {
+  display: block;
+}
+
+.active_menu{
+  display: flex;
+  justify-content: center;
+  padding-top: 45px;
 }
 
 .line {
-    fill:none;
-    transition: stroke-dasharray 400ms, stroke-dashoffset 400ms;
-    stroke:#000;
-    stroke-width:5.5;
-    stroke-linecap:round;
+  fill: none;
+  transition: stroke-dasharray 400ms, stroke-dashoffset 400ms;
+  stroke: #000;
+  stroke-width: 5.5;
+  stroke-linecap: round;
 }
-.ham3 .top {
-    stroke-dasharray: 40 130;
+
+.ham{
+  width: 50px;
 }
-.ham3 .middle {
-    stroke-dasharray: 40 140;
+
+.ham .top {
+  stroke-dasharray: 40 130;
 }
-.ham3 .bottom {
-    stroke-dasharray: 40 205;
+
+.ham .middle {
+  stroke-dasharray: 40 140;
 }
-.ham3.active .top {
-    stroke-dasharray: 75 130;
-    stroke-dashoffset: -63px;
+
+.ham .bottom {
+  stroke-dasharray: 40 205;
 }
-.ham3.active .middle {
-    stroke-dashoffset: -102px;
+
+.ham.active .top {
+  stroke-dasharray: 75 130;
+  stroke-dashoffset: -63px;
 }
-.ham3.active .bottom {
-    stroke-dasharray: 110 205;
-    stroke-dashoffset: -86px;
+
+.ham.active .middle {
+  stroke-dashoffset: -102px;
+}
+
+.ham.active .bottom {
+  stroke-dasharray: 110 205;
+  stroke-dashoffset: -86px;
+}
+
+.active {
+  display: flex;
+  justify-content: center;
+  width: 80px;
 }

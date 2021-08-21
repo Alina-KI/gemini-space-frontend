@@ -5,10 +5,18 @@
     text-align: center;
     padding: 20px 10px;
     font-size: 20px;
+    @media (max-width: 1030px) {
+        border: none;
+        font-size: 25px;
+        max-width: 300px;
+    }
 }
 .component{
     list-style: none;
     padding: 5px;
+    @media (max-width: 1030px) {
+        padding: 10px 30px;
+    }
 }
 .el{
     text-decoration: none;
@@ -16,6 +24,9 @@
     padding: 5px 20px;
     border: transparent 1px solid;
     transition: .5s;
+    @media (max-width: 1030px) {
+        padding: 0;
+    }
 }
 .el:hover{
     border-radius: 10px;
