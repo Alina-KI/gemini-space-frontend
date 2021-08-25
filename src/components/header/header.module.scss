@@ -6,9 +6,6 @@
   display: block;
   margin-bottom: 20px;
   z-index: 1;
-  @media (max-width: 710px) {
-    font-size: 20px;
-  }
 }
 
 .header_container {
@@ -56,10 +53,10 @@
   border: none;
   outline: none;
   margin: 10px 0;
-  @media (max-width: 710px) {
+  @media (max-width: 500px) {
     font-size: 14px;
   }
-  @media (max-width: 520px) {
+  @media (max-width: 400px) {
     font-size: 12px;
   }
   @media (max-width: 370px) {
@@ -82,10 +79,6 @@
   display: inline-block;
   vertical-align: middle;
   margin: 5px 10px;
-  @media (max-width: 550px) {
-    width: 40px;
-    height: 40px;
-  }
 }
 
 .login_name {
@@ -123,10 +116,14 @@
   display: block;
 }
 
-.active_menu{
+.active_menu {
   display: flex;
-  justify-content: center;
+  align-items: center;
+  flex-direction: column;
   padding-top: 45px;
+  @media (max-width: 400px) {
+    padding-top: 65px;
+  }
 }
 
 .line {
@@ -137,8 +134,8 @@
   stroke-linecap: round;
 }
 
-.ham{
-  width: 50px;
+.ham {
+  width: 60px;
 }
 
 .ham .top {
@@ -171,4 +168,33 @@
   display: flex;
   justify-content: center;
   width: 80px;
+}
+
+.active_background {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: transparent;
+}
+
+.search_navbar {
+  position: absolute;
+  font-size: 20px;
+  background-color: rgba(212, 206, 194, .5);
+  border-radius: 9px;
+  border: none;
+  color: black;
+  padding: 10px;
+  top: 10px;
+  width: 60%;
+  left: 25%;
+  outline: none;
+  @media (max-width: 400px) {
+    position: static;
+  }
+}
+.search_navbar:hover, .search_navbar:active{
+  background-color: rgb(212, 206, 194);
 }

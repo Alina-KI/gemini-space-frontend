@@ -4,8 +4,10 @@ import avatar from '../../../images/1.jpg'
 import { NavLink } from 'react-router-dom'
 import { Gallery } from './gallery/gallery'
 import { Comments } from './comments/comments'
+// import { authStore, UserLoginType } from '../../../store/auth-store'
 
 export const MyPage = () => {
+  // const user = authStore.user as UserLoginType
   return (
     <div className={s.myPage}>
       <div className={s.container}>

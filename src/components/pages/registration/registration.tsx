@@ -2,7 +2,7 @@ import React from 'react'
 import s from './registration.module.scss'
 import { SubmitHandler, useForm } from 'react-hook-form'
 
-type Registration = {
+export type Registration = {
   login: string
   password: string
   email: string
@@ -13,7 +13,7 @@ type Registration = {
 }
 
 export const Registration = () => {
-  const { register, handleSubmit, watch, formState: { errors } } = useForm<Registration>()
+  const { register, handleSubmit, formState: { errors } } = useForm<Registration>()
   const onSubmit: SubmitHandler<Registration> = data => {
     console.log(data)
   }

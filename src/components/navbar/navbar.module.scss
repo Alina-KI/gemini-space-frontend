@@ -8,14 +8,15 @@
     @media (max-width: 1030px) {
         border: none;
         font-size: 25px;
-        max-width: 300px;
+        width: 300px;
     }
 }
 .component{
     list-style: none;
     padding: 5px;
     @media (max-width: 1030px) {
-        padding: 10px 30px;
+        margin-bottom: 15px;
+        border-bottom: 1px solid black;
     }
 }
 .el{
