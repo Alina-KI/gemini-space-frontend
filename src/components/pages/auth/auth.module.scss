@@ -1,10 +1,25 @@
-.container{
+.container {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  font-size: 25px;
+  width: 350px;
+  @media (max-width: 400px) {
+    width: 100%;
+  }
 
-  input{
+  .textInput {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    @media (max-width: 400px) {
+      flex-direction: column;
+      align-items: start;
+    }
+  }
+
+  input {
+    font-size: 16px;
     border-radius: 9px;
     padding: 10px;
     border: 1px solid rgba(222, 167, 128, 0.833);
@@ -12,8 +27,10 @@
     margin: 10px 0;
   }
 
-  button{
-    font-size: 18px;
+  button {
+    font-size: 25px;
+    font-family: 'Viaoda Libre', cursive;
+    letter-spacing: 2px;
     border-radius: 30px;
     padding: 10px 50px;
     color: dimgray;
@@ -22,19 +39,40 @@
     margin: 10px 0;
     transition: 1s;
   }
-  button:hover{
+
+  button:hover {
     cursor: pointer;
     color: #2E2B26;
     background: rgba(222, 167, 128, 0.833);
   }
-  .inputError{
+
+  .inputError {
     display: flex;
     align-items: center;
 
-    .error{
+    .error {
       color: rgba(175, 56, 48);
       text-align: center;
       margin-left: 10px;
+    }
+  }
+
+  .div_link{
+    text-align: center;
+    letter-spacing: 2px;
+
+    .link {
+      text-decoration: none;
+      color: rgb(46, 43, 38);
+      outline: none;
+    }
+
+    .link_registration {
+      margin-right: 15px;
+    }
+
+    .link_auth {
+      margin-left: 15px;
     }
   }
 }

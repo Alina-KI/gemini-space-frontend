@@ -21,16 +21,17 @@ class AuthStore {
 
   registration(data: Registration) {
     this.isLoading = true
-    api.post('/user/registration', data)
+    return api.post('/user/registration', data)
       .then(res => {
-        console.log(res)
+        this.user = jwtDecode(res.data.token)
+        console.log(this.user)
+        localStorage.setItem('user', JSON.stringify(this.user))
       })
       .catch(error => {
-        console.log(error.message)
+        this.error = error.message
+        throw new Error()
       })
-      .finally(() => {
-        this.isLoading = false
-      })
+      .finally(() => this.isLoading = false)
   }
 
   login(data: Auth) {
@@ -45,9 +46,7 @@ class AuthStore {
         this.error = error.message
         throw new Error()
       })
-      .finally(() => {
-        this.isLoading = false
-      })
+      .finally(() => this.isLoading = false)
   }
 
 }

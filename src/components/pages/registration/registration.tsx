@@ -1,6 +1,8 @@
 import React from 'react'
 import s from './registration.module.scss'
 import { SubmitHandler, useForm } from 'react-hook-form'
+import { NavLink, useHistory } from 'react-router-dom'
+import { authStore } from '../../../store/auth-store'
 
 export type Registration = {
   login: string
@@ -13,9 +15,11 @@ export type Registration = {
 }
 
 export const Registration = () => {
+  const history = useHistory()
   const { register, handleSubmit, formState: { errors } } = useForm<Registration>()
   const onSubmit: SubmitHandler<Registration> = data => {
-    console.log(data)
+    // console.log(data)
+    authStore.registration(data).then(() => history.push('/user'))
   }
 
   return (
@@ -67,7 +71,9 @@ export const Registration = () => {
               required: { value: true, message: 'This field is required' },
               minLength: { value: 6, message: 'Phone cannot be less than 6 characters' },
               maxLength: { value: 12, message: 'Phone cannot exceed 12 characters' },
-              pattern: { value: /^\d{3}\d{3}\d{4}/i, message: 'The number phone is not in the correct format' }
+              pattern: {
+                value: /^\d{3}\d{3}\d{4}/i,
+                message: 'The number phone is not in the correct format. Try to start the phone number with 8.' }
             })}
             type="text" placeholder="1302461037" />
           {errors?.phone &&
@@ -101,6 +107,11 @@ export const Registration = () => {
         </div>
       </div>
       <button type="submit">Registration</button>
+      <div className={s.div_link}>
+        <NavLink className={`${s.link} ${s.link_registration}`} to="/registration">Registration</NavLink>
+        /
+        <NavLink className={`${s.link} ${s.link_auth}`} to="/auth">Login</NavLink>
+      </div>
     </form>
   )
 }

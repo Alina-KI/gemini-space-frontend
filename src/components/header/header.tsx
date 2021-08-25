@@ -50,7 +50,7 @@ export const Header = () => {
           <input type="text" placeholder="Search..." className={s.header_search} />
         </div>
         <div className={s.login}>
-          <span className={s.login_name}><NavLink to="/aut">Alis</NavLink></span>
+          <span className={s.login_name}><NavLink to="/auth">Alis</NavLink></span>
           <NavLink to="/user/:pk">
             <div className={s.login_logo} style={{ backgroundImage: `url("${avatar}")` }} />
           </NavLink>

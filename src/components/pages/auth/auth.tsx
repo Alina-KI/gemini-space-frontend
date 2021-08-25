@@ -3,7 +3,7 @@ import s from './auth.module.scss'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { Loader } from '../../shared/loader/loader'
 import { authStore } from '../../../store/auth-store'
-import { useHistory } from 'react-router-dom'
+import { NavLink, useHistory } from 'react-router-dom'
 import { ErrorDisplay } from '../../shared/error-display/error-display'
 
 export type Auth = {
@@ -27,7 +27,7 @@ export const AuthPage = () => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className={s.container}>
-      <div>
+      <div className={s.textInput}>
         <p>Login:</p>
         <div className={s.inputError}>
           <input
@@ -40,7 +40,7 @@ export const AuthPage = () => {
           <p className={s.error}>* {errors.login.message} </p>}
         </div>
       </div>
-      <div>
+      <div className={s.textInput}>
         <p>Name:</p>
         <div className={s.inputError}>
           <input
@@ -53,7 +53,7 @@ export const AuthPage = () => {
           <p className={s.error}>* {errors.name.message} </p>}
         </div>
       </div>
-      <div>
+      <div className={s.textInput}>
         <p>Email:</p>
         <div className={s.inputError}>
           <input
@@ -65,7 +65,7 @@ export const AuthPage = () => {
           <p className={s.error}>* {errors.email.message} </p>}
         </div>
       </div>
-      <div>
+      <div className={s.textInput}>
         <p>Password:</p>
         <div className={s.inputError}>
           <input
@@ -79,6 +79,11 @@ export const AuthPage = () => {
         </div>
       </div>
       <button type="submit">Login</button>
+      <div className={s.div_link}>
+        <NavLink className={`${s.link} ${s.link_registration}`} to="/registration">Registration</NavLink>
+        /
+        <NavLink className={`${s.link} ${s.link_auth}`} to="/auth">Login</NavLink>
+      </div>
     </form>
   )
 }
