@@ -41,31 +41,6 @@ export const AuthPage = () => {
         </div>
       </div>
       <div className={s.textInput}>
-        <p>Name:</p>
-        <div className={s.inputError}>
-          <input
-            {...register('name', {
-              required: { value: true, message: 'This field is required' },
-              maxLength: { value: 100, message: 'Login cannot exceed 100 characters' }
-            })}
-            type="text" placeholder="Name" />
-          {errors?.name &&
-          <p className={s.error}>* {errors.name.message} </p>}
-        </div>
-      </div>
-      <div className={s.textInput}>
-        <p>Email:</p>
-        <div className={s.inputError}>
-          <input
-            {...register('email', {
-              required: { value: true, message: 'This field is required' }
-            })}
-            type="text" placeholder="Email" />
-          {errors?.email &&
-          <p className={s.error}>* {errors.email.message} </p>}
-        </div>
-      </div>
-      <div className={s.textInput}>
         <p>Password:</p>
         <div className={s.inputError}>
           <input

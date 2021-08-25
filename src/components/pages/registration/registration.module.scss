@@ -3,6 +3,10 @@
   flex-direction: column;
   font-size: 25px;
   width: 350px;
+  height: 100%;
+  @media (max-width: 500px) {
+    width: 300px;
+  }
   @media (max-width: 400px) {
     width: 100%;
   }
@@ -12,7 +16,7 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    @media (max-width: 400px) {
+    @media (max-width: 470px) {
       flex-direction: column;
       align-items: start;
     }
@@ -24,7 +28,13 @@
     padding: 10px;
     border: 1px solid rgba(222, 167, 128, 0.833);
     outline: none;
-    margin: 10px 0;
+    margin: 10px;
+    @media (min-width: 331px) {
+      width: 100%;
+    }
+    @media (max-width: 250px) {
+      width: 190px;
+    }
   }
 
   button {
@@ -47,11 +57,20 @@
   }
 
   .inputError {
-    position: relative;
 
     .error {
       color: rgba(175, 56, 48);
       text-align: center;
+    }
+
+    .date_of_birth{
+      width: 100%;
+    }
+  }
+
+  .b_registration{
+    @media (max-width: 400px) {
+      margin-top: 20px;
     }
   }
 

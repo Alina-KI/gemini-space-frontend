@@ -10,11 +10,15 @@
 
 .header_container {
   max-width: 1070px;
+  width: 100%;
   margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
+  @media (max-width: 371px) {
+    height: 50px;
+  }
 }
 
 .logo {
@@ -27,7 +31,7 @@
   }
 }
 
-.header_name_project a, .login_name a {
+.header_name_project a, .login_name a, .login a {
   text-decoration: none;
   color: rgb(46, 43, 38);
   outline: none;
@@ -70,6 +74,10 @@
   @media (max-width: 660px) {
     padding: 0;
   }
+}
+
+.login{
+  margin-right: 20px;
 }
 
 .login_logo {
@@ -120,9 +128,9 @@
   display: flex;
   align-items: center;
   flex-direction: column;
-  padding-top: 45px;
+  padding-top: 110px;
   @media (max-width: 400px) {
-    padding-top: 65px;
+    padding-top: 80px;
   }
 }
 

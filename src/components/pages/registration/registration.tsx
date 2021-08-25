@@ -5,13 +5,15 @@ import { NavLink, useHistory } from 'react-router-dom'
 import { authStore } from '../../../store/auth-store'
 
 export type Registration = {
-  login: string
-  password: string
-  email: string
-  phone: number
   name: string
   surname: string
-  age: number
+  lastname: string
+  dateOfBirth: string
+  phone: number
+  town: string
+  login: string
+  email: string
+  password: string
 }
 
 export const Registration = () => {
@@ -51,6 +53,23 @@ export const Registration = () => {
         </div>
       </div>
       <div className={s.textInput}>
+        <p>Lastname:</p>
+        <div className={s.inputError}>
+          <input {...register('lastname')} type="text" placeholder="Lastname" />
+        </div>
+      </div>
+      <div className={s.textInput}>
+        <p>Date of Birth:</p>
+        <div className={s.inputError}>
+          <input className={s.date_of_birth}
+            {...register('dateOfBirth')}
+            type="date" value="2018-07-22"
+            min="1990-01-01" max="2021-12-31" />
+          {errors?.dateOfBirth &&
+          <p className={s.error}>* {errors.dateOfBirth.message} </p>}
+        </div>
+      </div>
+      <div className={s.textInput}>
         <p>Email:</p>
         <div className={s.inputError}>
           <input
@@ -61,6 +80,12 @@ export const Registration = () => {
             type="text" placeholder="john@gmail.com" />
           {errors?.email &&
           <p className={s.error}>* {errors.email.message} </p>}
+        </div>
+      </div>
+      <div className={s.textInput}>
+        <p>Town:</p>
+        <div className={s.inputError}>
+          <input {...register('town')} type="text" placeholder="town" />
         </div>
       </div>
       <div className={s.textInput}>
@@ -106,7 +131,7 @@ export const Registration = () => {
           <p className={s.error}>* {errors.password.message} </p>}
         </div>
       </div>
-      <button type="submit">Registration</button>
+      <button className={s.b_registration} type="submit">Registration</button>
       <div className={s.div_link}>
         <NavLink className={`${s.link} ${s.link_registration}`} to="/registration">Registration</NavLink>
         /

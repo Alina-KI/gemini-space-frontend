@@ -24,7 +24,6 @@
 .name_data {
     display: inline-block;
     margin-left: 20px;
-    padding-top: 20px;
 }
 
 .NameUser {
@@ -37,7 +36,7 @@
 
 .TextDate {
     font-size: 18px;
-    margin: 0;
+    margin: 10px 0;
     cursor: default;
 }
 

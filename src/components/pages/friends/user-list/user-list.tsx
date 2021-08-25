@@ -3,12 +3,13 @@ import s from './user-list.module.scss'
 import { useUsers } from '../../../../hooks/use-users'
 import { Loader } from '../../../shared/loader/loader'
 import avatar from '../../../../images/17.jpg'
+import { ErrorDisplay } from '../../../shared/error-display/error-display'
 
 export const UserList = () => {
   const { users, isLoading, error } = useUsers()
 
   if (isLoading) return <Loader />
-  if (error) return <div>error</div>
+  if (error) return <ErrorDisplay message={'Error'}/>
 
   return (
     <div className={s.container}>

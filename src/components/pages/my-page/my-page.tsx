@@ -4,17 +4,18 @@ import avatar from '../../../images/1.jpg'
 import { NavLink } from 'react-router-dom'
 import { Gallery } from './gallery/gallery'
 import { Comments } from './comments/comments'
-// import { authStore, UserLoginType } from '../../../store/auth-store'
+import { authStore, UserLoginType } from '../../../store/auth-store'
 
 export const MyPage = () => {
-  // const user = authStore.user as UserLoginType
+  const user = authStore.user as UserLoginType
   return (
     <div className={s.myPage}>
       <div className={s.container}>
         <div className={s.avatar} style={{ backgroundImage: `url("${avatar}")` }} />
         <div className={s.name_data}>
-          <NavLink to="/user/:pk" className={s.NameUser}>Alis Red</NavLink>
-          <p className={s.TextDate}>Date of Birth: 20.06.2002</p>
+          <NavLink to="/user/:pk" className={s.NameUser}>{user.name} {user.surname} {user.lastname}</NavLink>
+          <p className={s.TextDate}>Date of Birth: {user.dateOfBirth}</p>
+          <p className={s.TextDate}>Town: {user.town}</p>
         </div>
       </div>
       <Gallery />
@@ -23,10 +24,7 @@ export const MyPage = () => {
         <Comments text={'Hello'} />
         <Comments text={'Red'} />
         <Comments text={'Hi'} />
-        <Comments text={'Однако лучшим подходом является использование только изображения, ' +
-        'центрированного внутри элемента div , который имеет подходящее фоновое изображение, ' +
-        'повторяющееся по горизонтали. Фоновое изображение будет представлять собой кусок того же ' +
-        'цвета, что и общий фон страницы, но с горизонтальной линией посередине.'} />
+        <Comments text={'Be honorable.Never yearn the lover, for you cannot feel it.'} />
       </div>
     </div>
   )

@@ -6,6 +6,11 @@ import jwtDecode from 'jwt-decode'
 
 export type UserLoginType = {
   name: string
+  surname: string
+  lastname: string
+  dateOfBirth: string
+  phone: number
+  town: string
   login: string
   email: string
 }

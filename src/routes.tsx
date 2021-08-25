@@ -14,7 +14,7 @@ export const Routes = () => {
       <Route path="/message" component={Message} exact/>
       <Route path="/auth" component={AuthPage} exact/>
       <Route path="/registration" component={Registration} exact/>
-      <Route path="/" component={() => <Redirect to="/user"/>} />
+      <Route path="/" component={() => <Redirect to="/auth"/>} />
     </Switch>
   )
 }
