@@ -4,18 +4,19 @@ import avatar from '../../../images/1.jpg'
 import { NavLink } from 'react-router-dom'
 import { Gallery } from './gallery/gallery'
 import { Comments } from './comments/comments'
-import { authStore, UserLoginType } from '../../../store/auth-store'
+// import { authStore, UserLoginType } from '../../../store/auth-store'
 
 export const MyPage = () => {
-  const user = authStore.user as UserLoginType
+  // const user = authStore.user as UserLoginType
   return (
     <div className={s.myPage}>
       <div className={s.container}>
         <div className={s.avatar} style={{ backgroundImage: `url("${avatar}")` }} />
         <div className={s.name_data}>
-          <NavLink to="/user/:pk" className={s.NameUser}>{user.name} {user.surname} {user.lastname}</NavLink>
-          <p className={s.TextDate}>Date of Birth: {user.dateOfBirth}</p>
-          <p className={s.TextDate}>Town: {user.town}</p>
+          <NavLink to="/user/:pk" className={s.NameUser}>Alis Red</NavLink>
+          {/*{user.name} {user.surname} {user.lastname}*/}
+          <p className={s.TextDate}>Date of Birth: 20.06.2002</p>
+          <p className={s.TextDate}>Town: Moscow</p>
         </div>
       </div>
       <Gallery />

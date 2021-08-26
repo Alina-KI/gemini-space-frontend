@@ -126,6 +126,19 @@ export const Registration = () => {
               required: { value: true, message: 'This field is required' },
               maxLength: { value: 100, message: 'Password cannot exceed 100 characters' }
             })}
+            type="password" placeholder="Password" />
+          {errors?.password &&
+          <p className={s.error}>* {errors.password.message} </p>}
+        </div>
+      </div>
+      <div className={s.textInput}>
+        <p>Repeat password:</p>
+        <div className={s.inputError}>
+          <input
+            {...register('password', {
+              required: { value: true, message: 'This field is required' },
+              maxLength: { value: 100, message: 'Password cannot exceed 100 characters' }
+            })}
             type="text" placeholder="Password" />
           {errors?.password &&
           <p className={s.error}>* {errors.password.message} </p>}

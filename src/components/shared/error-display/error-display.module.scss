@@ -1,8 +1,205 @@
-.container{
-  color: rgb(175, 56, 48);
+.container {
+  color: black;
   word-break: break-word;
   margin: 0 20px;
-  @media (min-width: 700px) {
-    font-size: 22px;
+  letter-spacing: 1px;
+  width: 800px;
+  @media (max-width: 860px) {
+    width: 700px;
+  }
+  @media (max-width: 750px) {
+    width: 600px;
+  }
+  @media (max-width: 660px) {
+    width: 100%;
+    margin: 0;
+  }
+  @media (max-width: 420px) {
+    width: 100vw;
+  }
+
+  .container_text {
+    margin: 0 50px;
+    @media (max-width: 420px) {
+      margin: 0 30px;
+    }
+    @media (max-width: 301px) {
+      padding: 0 10px;
+    }
+  }
+
+  .connect {
+    padding: 30px 0;
+    margin: 30px 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    background-color: rgba(grey, .5);
+    @media (max-width: 420px) {
+      flex-direction: column;
+      padding: 20px 30px;
+    }
+    @media (max-width: 301px) {
+      padding: 20px 10px;
+    }
+
+    .con {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      font-size: 26px;
+      @media (max-width: 420px) {
+        flex-direction: row;
+        position: relative;
+        margin-top: 20px;
+        justify-content: start;
+        align-items: baseline;
+      }
+    }
+
+    .image_browser {
+      background-image: url("../../../images/info/browser.svg");
+      position: relative;
+      width: 100px;
+      height: 100px;
+      margin-bottom: 25px;
+      @media (max-width: 560px) {
+        width: 80px;
+        height: 80px;
+      }
+      @media (max-width: 420px) {
+        width: 0;
+        height: 0;
+      }
+      @media (max-width: 301px) {
+        display: none;
+      }
+    }
+
+    .image_cloud {
+      background-image: url("../../../images/info/cloud.svg");
+      position: relative;
+      width: 100px;
+      height: 100px;
+      margin-bottom: 25px;
+      @media (max-width: 560px) {
+        width: 80px;
+        height: 80px;
+      }
+      @media (max-width: 420px) {
+        width: 0;
+        height: 0;
+      }
+      @media (max-width: 301px) {
+        display: none;
+      }
+    }
+
+    .image_host {
+      background-image: url("../../../images/info/host.svg");
+      position: relative;
+      width: 100px;
+      height: 100px;
+      margin-bottom: 25px;
+      @media (max-width: 560px) {
+        width: 80px;
+        height: 80px;
+      }
+      @media (max-width: 420px) {
+        width: 0;
+        height: 0;
+      }
+      @media (max-width: 301px) {
+        display: none;
+      }
+    }
+
+    .checked {
+      position: absolute;
+      bottom: -20px;
+      left: 30px;
+      width: 40px;
+      height: 40px;
+      background-image: url("../../../images/info/checked.svg");
+      @media (max-width: 560px) {
+        width: 30px;
+        height: 30px;
+        left: 25px;
+      }
+      @media (max-width: 420px) {
+        position: relative;
+        top: -25px;
+        left: 75vw;
+      }
+    }
+
+    .cross {
+      position: absolute;
+      bottom: -10px;
+      left: 35px;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background-color: white;
+      @media (max-width: 560px) {
+        width: 20px;
+        height: 20px;
+        left: 30px;
+      }
+      @media (max-width: 420px) {
+        position: relative;
+        top: -25px;
+        left: 77vw;
+      }
+
+      &::before {
+        content: '';
+        position: absolute;
+        display: inline-block;
+        width: 40px;
+        height: 40px;
+        top: -5px;
+        left: -5px;
+        background-image: url("../../../images/info/cross.svg");
+        @media (max-width: 560px) {
+          width: 30px;
+          height: 30px;
+        }
+      }
+    }
+
+    .who {
+      font-size: 16px;
+      @media (max-width: 420px) {
+        position: absolute;
+        top: -15px;
+      }
+    }
+
+    .name_what {
+      margin-top: 10px;
+      color: rgba(black, .5);
+    }
+
+    .success {
+      color: rgb(164, 255, 0);
+      @media (max-width: 420px) {
+        margin-left: 20px;
+      }
+      @media (max-width: 320px) {
+        margin-left: 10px;
+      }
+    }
+
+    .error {
+      color: rgb(197, 37, 39);
+      @media (max-width: 420px) {
+        margin-left: 20px;
+      }
+      @media (max-width: 320px) {
+        margin-left: 10px;
+      }
+    }
   }
 }
