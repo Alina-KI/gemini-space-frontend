@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useMemo, useRef, useState } from 'react'
 import s from './comments.module.css'
 import ava from '../../../../images/13.jpg'
 import image from '../../../../images/ornaments-for-comments/tracery.svg'
@@ -11,14 +11,33 @@ type Props = {
 }
 
 export const Comments = (props: Props) => {
+  const [isActive, setIsActive] = useState(false)
+  const textRef = useRef<HTMLDivElement>(null)
+  const [textHeight, setTextHeight] = useState<number | null>(null)
+
+  useEffect(() => {
+    setTextHeight(textRef.current?.clientHeight as number)
+    console.log(textHeight)
+    // if (textHeight >= 50)
+  }, [textRef.current?.clientHeight])
+
+  const [isOverflowText, setIsOverflowText] = useState(true)
+
+  const toggleIsActive = () => setIsActive(isActive => !isActive)
+
   return (
     <div className={s.comments}>
       <img className={s.frame1} src={frameTop} alt="frame" />
       <img className={s.frame2} src={frameBottom} alt="frame" />
       <div className={s.comment}>
         <div className={s.avatar} style={{ backgroundImage: `url("${ava}")` }}/>
-        <div className={s.text}>{props.text}</div>
+        <div className={`${s.text}`}>
+          <p ref={textRef} className={`${s.textContent} ${isActive && s.text_active}`}>
+            {props.text}
+          </p>
+        </div>
       </div>
+      {isOverflowText && <div onClick={toggleIsActive} className={s.showMore}>{isActive ? 'Hide' : 'Show more'}</div>}
       <div className={s.bottomLine}>
         <div className={s.separation}>
           <hr className={s.line} />

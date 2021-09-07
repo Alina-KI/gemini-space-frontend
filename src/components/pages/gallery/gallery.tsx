@@ -34,60 +34,60 @@ export const Gallery = () => {
         {/*    </div>*/}
         {/*  )*/}
         {/*})}*/}
-        <div className={s.content}>
+        <span className={s.content}>
           <img className={s.image} src={picture1} alt="img" />
-        </div>
-        <div className={s.content}>
+        </span>
+        <span className={s.content}>
           <img className={s.image} src={picture2} alt="img" />
-        </div>
-        <div className={s.content}>
+        </span>
+        <span className={s.content}>
           <img className={s.image} src={picture3} alt="img" />
-        </div>
-        <div className={s.content}>
+        </span>
+        <span className={s.content}>
           <img className={s.image} src={picture4} alt="img" />
-        </div>
-        <div className={s.content}>
+        </span>
+        <span className={s.content}>
           <img className={s.image} src={picture5} alt="img" />
-        </div>
-        <div className={s.content}>
+        </span>
+        <span className={s.content}>
           <img className={s.image} src={picture6} alt="img" />
-        </div>
-        <div className={s.content}>
+        </span>
+        <span className={s.content}>
           <img className={s.image} src={picture7} alt="img" />
-        </div>
-        <div className={s.content}>
+        </span>
+        <span className={s.content}>
           <img className={s.image} src={picture8} alt="img" />
-        </div>
-        <div className={s.content}>
+        </span>
+        <span className={s.content}>
           <img className={s.image} src={picture9} alt="img" />
-        </div>
-        <div className={s.content}>
+        </span>
+        <span className={s.content}>
           <img className={s.image} src={picture10} alt="img" />
-        </div>
-        <div className={s.content}>
+        </span>
+        <span className={s.content}>
           <img className={s.image} src={picture11} alt="img" />
-        </div>
-        <div className={s.content}>
+        </span>
+        <span className={s.content}>
           <img className={s.image} src={picture12} alt="img" />
-        </div>
-        <div className={s.content}>
+        </span>
+        <span className={s.content}>
           <img className={s.image} src={picture13} alt="img" />
-        </div>
-        <div className={s.content}>
+        </span>
+        <span className={s.content}>
           <img className={s.image} src={picture14} alt="img" />
-        </div>
-        <div className={s.content}>
+        </span>
+        <span className={s.content}>
           <img className={s.image} src={picture15} alt="img" />
-        </div>
-        <div className={s.content}>
+        </span>
+        <span className={s.content}>
           <img className={s.image} src={picture16} alt="img" />
-        </div>
-        <div className={s.content}>
+        </span>
+        <span className={s.content}>
           <img className={s.image} src={picture17} alt="img" />
-        </div>
-        <div className={s.content}>
+        </span>
+        <span className={s.content}>
           <img className={s.image} src={picture18} alt="img" />
-        </div>
+        </span>
       </div>
     </div>
   )

@@ -27,7 +27,7 @@
     margin: 10px 0;
   }
 
-  button {
+  .b_login {
     font-size: 25px;
     font-family: 'Viaoda Libre', cursive;
     letter-spacing: 2px;
@@ -59,12 +59,12 @@
 
   .div_link{
     text-align: center;
-    letter-spacing: 2px;
 
     .link {
       text-decoration: none;
       color: rgb(46, 43, 38);
       outline: none;
+      transition: .5s;
     }
 
     .link_registration {
@@ -73,6 +73,11 @@
 
     .link_auth {
       margin-left: 15px;
+    }
+
+    .link:hover{
+      border-bottom: 1px solid rgba(175, 56, 48, 0.733);
+      color: rgba(175, 56, 48, 0.733);
     }
   }
 }

@@ -1,14 +1,16 @@
 .comments {
     font-size: 18px;
     max-width: 800px;
-    margin-bottom: 10px;
+    margin-bottom: 30px;
     color: rgb(76, 47, 31);
     position: relative;
 }
+
 .comment {
     display: flex;
-    padding: 30px;
+    padding: 30px 30px 10px;
 }
+
 .avatar {
     width: 50px;
     height: 50px;
@@ -16,41 +18,63 @@
     border-radius: 10%;
     margin-right: 25px;
 }
+
 .ava:hover {
     cursor: pointer;
 }
+
 .avaName:hover {
     cursor: pointer;
     color: rgb(175, 56, 48);
     transition: .5s;
 }
-.separation{
+
+.separation {
     display: flex;
     flex-wrap: nowrap;
     flex-direction: row;
     align-items: center;
 }
-.bottomLine{
+
+.bottomLine {
     position: absolute;
     bottom: -30px;
     width: 100%;
 }
-.line{
+
+.line {
     background-color: rgb(222, 167, 128);
     height: 2px;
     border: none;
     width: 100%;
 }
-.img{
+
+.img {
     max-width: 100px;
     width: 100%;
     margin: 0 10px;
 }
-.text{
+
+.text {
     word-break: break-word;
     width: 100%;
 }
-.frame1{
+
+.textContent {
+    max-height: 50px;
+    overflow: hidden;
+}
+
+.textContent.text_active {
+    max-height: none;
+}
+
+.showMore{
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+.frame1 {
     background-repeat: no-repeat;
     width: 100px;
     height: 100px;
@@ -58,7 +82,8 @@
     top: 0;
     left: 0;
 }
-.frame2{
+
+.frame2 {
     background-repeat: no-repeat;
     width: 100px;
     height: 100px;

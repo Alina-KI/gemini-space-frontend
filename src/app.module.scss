@@ -11,10 +11,9 @@ html, body {
 }
 .container {
   display: flex;
-  justify-content: space-between;
-  margin: 0 auto;
+  justify-content: space-evenly;
   padding: 80px 10px 10px 0;
-  max-width: 1070px;
+  max-width: 1200px;
   flex: 1 1 auto;
   z-index: 0;
   @media (max-width: 1030px){
@@ -23,13 +22,12 @@ html, body {
   }
 }
 .navbar{
-  margin: 0 10px;
   @media (max-width: 1030px){
     display: none;
   }
 }
 .routeContainer{
-  max-width: 802px;
+  max-width: 840px;
   @media (max-width: 1030px){
     max-width: 810px;
   }

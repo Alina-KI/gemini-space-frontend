@@ -53,11 +53,11 @@ export const AuthPage = () => {
           <p className={s.error}>* {errors.password.message} </p>}
         </div>
       </div>
-      <button type="submit">Login</button>
+      <button type="submit" className={s.b_login}>Sign In</button>
       <div className={s.div_link}>
-        <NavLink className={`${s.link} ${s.link_registration}`} to="/registration">Registration</NavLink>
+        <NavLink className={`${s.link} ${s.link_registration}`} to="/registration">Create account</NavLink>
         /
-        <NavLink className={`${s.link} ${s.link_auth}`} to="/auth">Login</NavLink>
+        <NavLink className={`${s.link} ${s.link_auth}`} to="/auth">Forgot password</NavLink>
       </div>
     </form>
   )

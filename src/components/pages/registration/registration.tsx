@@ -144,11 +144,11 @@ export const Registration = () => {
           <p className={s.error}>* {errors.password.message} </p>}
         </div>
       </div>
-      <button className={s.b_registration} type="submit">Registration</button>
+      <button className={s.b_registration} type="submit">Create</button>
       <div className={s.div_link}>
-        <NavLink className={`${s.link} ${s.link_registration}`} to="/registration">Registration</NavLink>
+        <NavLink className={`${s.link} ${s.link_registration}`} to="/registration">Create account</NavLink>
         /
-        <NavLink className={`${s.link} ${s.link_auth}`} to="/auth">Login</NavLink>
+        <NavLink className={`${s.link} ${s.link_auth}`} to="/auth">Log in</NavLink>
       </div>
     </form>
   )

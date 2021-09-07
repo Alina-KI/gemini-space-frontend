@@ -9,7 +9,7 @@
 }
 
 .header_container {
-  max-width: 1070px;
+  max-width: 1100px;
   width: 100%;
   margin: 0 auto;
   display: flex;
@@ -103,6 +103,10 @@
   @media (min-width: 1031px) {
     display: none;
   }
+}
+
+.burger_menu:hover{
+  cursor: pointer;
 }
 
 .menu {
