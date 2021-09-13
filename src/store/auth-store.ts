@@ -29,7 +29,7 @@ class AuthStore {
     return api.post('/user/registration', data)
       .then(res => {
         this.user = jwtDecode(res.data.token)
-        console.log(this.user)
+        // console.log(this.user)
         localStorage.setItem('user', JSON.stringify(this.user))
       })
       .catch(error => {

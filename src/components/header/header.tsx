@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react'
 import s from './header.module.scss'
 import logo from '../../images/logo.svg'
 import avatar from '../../images/1.jpg'
+// import sun from '../../images/light-night/sun.svg'
+// import moon from '../../images/light-night/moon.svg'
 import { NavLink } from 'react-router-dom'
 import { Navbar } from '../navbar/navbar'
 import { authStore, UserLoginType } from '../../store/auth-store'
@@ -48,6 +50,10 @@ export const Header = () => {
             <Navbar setIsActive={setIsActive} />
           </div>
         </div>
+        {/*<div className={s.light_night}>*/}
+        {/*  <img className={s.img} src={sun} alt="sun" />*/}
+        {/*  <img className={s.img} src={moon} alt="moon" />*/}
+        {/*</div>*/}
         <div className={s.logo_name}>
           <NavLink to="/user/:pk"><img className={s.logo} src={logo} alt="Logo" /></NavLink>
           <span className={s.header_name_project}><NavLink to="/user/:pk">{nameProject}</NavLink></span>

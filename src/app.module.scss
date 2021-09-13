@@ -13,6 +13,7 @@ html, body {
   display: flex;
   justify-content: space-evenly;
   padding: 80px 10px 10px 0;
+  margin: 0 auto;
   max-width: 1200px;
   flex: 1 1 auto;
   z-index: 0;
@@ -28,7 +29,9 @@ html, body {
 }
 .routeContainer{
   max-width: 840px;
+  margin-left: 60px;
   @media (max-width: 1030px){
     max-width: 810px;
+    margin: 0;
   }
 }

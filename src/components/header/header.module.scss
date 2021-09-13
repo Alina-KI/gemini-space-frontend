@@ -210,3 +210,12 @@
 .search_navbar:hover, .search_navbar:active{
   background-color: rgb(212, 206, 194);
 }
+
+.light_night{
+  display: inline-block;
+
+  .img{
+    width: 40px;
+    height: 40px;
+  }
+}
