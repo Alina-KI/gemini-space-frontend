@@ -13,3 +13,20 @@ body {
 code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
+
+/* полоса прокрутки (скроллбар) */
+::-webkit-scrollbar {
+    width: 1vw;
+    background-color: rgba(126, 98, 74, 0.5);
+}
+
+/* ползунок скроллбара */
+::-webkit-scrollbar-thumb {
+    background-color: rgba(250, 207, 178, 0.5);
+    border-radius: 20px;
+    box-shadow: inset 1px 1px 10px rgb(255, 243, 235);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(255, 183, 128, 0.5);
+}
