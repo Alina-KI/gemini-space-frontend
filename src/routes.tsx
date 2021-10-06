@@ -7,6 +7,7 @@ import { AuthPage } from './components/pages/auth/auth'
 import { Registration } from './components/pages/registration/registration'
 import { Gallery } from './components/pages/gallery/gallery'
 import { News } from './components/pages/news/news'
+import { Setting } from './components/pages/setting/setting'
 
 export const Routes = () => {
   return (
@@ -18,6 +19,7 @@ export const Routes = () => {
       <Route path="/registration" component={Registration} exact />
       <Route path="/gallery" component={Gallery} exact />
       <Route path="/news" component={News} exact />
+      <Route path="/setting" component={Setting} exact />
       {/*<Route path="/" component={() => <Redirect to="/auth"/>} />*/}
       <Route path="/" component={() => <Redirect to="/user" />} />
     </Switch>

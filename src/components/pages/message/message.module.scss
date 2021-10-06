@@ -1,3 +1,25 @@
 .container{
+  width: 850px;
+
+  .messages {
+    display: grid;
+    grid-template-rows: repeat(auto-fill, 1fr);
+    row-gap: 15px;
+
+    .message {
+      display: grid;
+      box-sizing: border-box;
+      padding: 20px;
+      width: 50%;
+      grid-template: "";
+      border: 1px solid;
+      border-radius: 20px;
+    }
+    .message_own {
+      justify-self: end;
+    }
+
+  }
 
 }
+
