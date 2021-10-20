@@ -1,3 +1,43 @@
+.registration {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.loginGoogleGitHub {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.github {
+  border-radius: 2px;
+  border: 1px solid transparent;
+  box-shadow: rgb(0 0 0 / 24%) 0 2px 2px 0, rgb(0 0 0 / 24%) 0 0 1px 0;
+  background-color: white;
+  padding: 0 10px;
+
+  .githubButton {
+    padding: 10px 10px 10px 0;
+    font-weight: 500;
+    color: rgba(0, 0, 0, 0.54);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .githubLogo {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+  }
+}
+
+.github:hover{
+  opacity: .9;
+}
+
 .container {
   display: flex;
   flex-direction: column;
@@ -63,12 +103,12 @@
       text-align: center;
     }
 
-    .date_of_birth{
+    .date_of_birth {
       width: 100%;
     }
   }
 
-  .b_registration{
+  .b_registration {
     @media (max-width: 400px) {
       margin-top: 20px;
     }
@@ -93,7 +133,7 @@
       margin-left: 15px;
     }
 
-    .link:hover{
+    .link:hover {
       border-bottom: 1px solid rgba(175, 56, 48, 0.733);
       color: rgba(175, 56, 48, 0.733);
     }
