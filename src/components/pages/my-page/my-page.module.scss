@@ -1,0 +1,113 @@
+.container {
+  margin-bottom: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+
+.avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 20px;
+  background-size: cover;
+  display: inline-block;
+  transition: 1s;
+}
+
+.avatar:hover {
+  cursor: pointer;
+  -webkit-transform: scale(1.5);
+  -ms-transform: scale(1.5);
+  transform: scale(1.5);
+}
+
+.name_data {
+  display: inline-block;
+  margin-left: 20px;
+}
+
+.NameUser {
+  text-decoration: none;
+  font-size: 24px;
+  color: rgb(76, 47, 31);
+  border-bottom: 1px solid transparent;
+  transition: .6s linear;
+}
+
+.TextDate {
+  font-size: 18px;
+  margin: 10px 0;
+  cursor: default;
+}
+
+.NameUser:hover {
+  border-bottom: 1px solid rgb(181, 65, 24);
+  color: rgb(181, 65, 24);
+}
+
+.settingContainer {
+  flex-grow: 1;
+  text-align: right;
+
+  .setting {
+    text-decoration: none;
+    color: rgb(76, 47, 31);
+    font-size: 22px;
+    margin-left: 5px;
+  }
+
+  .settingLink {
+    text-decoration: none;
+    color: rgb(76, 47, 31);
+    font-size: 22px;
+    margin-left: 5px;
+
+    .settingImage {
+      width: 40px;
+      object-fit: contain;
+    }
+  }
+
+  .setting:hover {
+    color: rgb(181, 65, 24);
+
+  }
+}
+
+@media (max-width: 800px) {
+  .setting {
+    display: none;
+  }
+}
+
+@media (max-width: 430px) {
+  .settingContainer {
+    display: none;
+  }
+}
+
+@media (max-width: 385px) {
+  .avatar {
+    width: 80px;
+    height: 80px;
+  }
+  .TextDate {
+    font-size: 14px;
+    margin: 0;
+  }
+  .NameUser {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 330px) {
+  .avatar {
+    width: 70px;
+    height: 70px;
+  }
+}
+
+.comments {
+  margin: 0;
+  padding: 0;
+}
