@@ -1,6 +1,7 @@
 import React from 'react'
-import s from './my-page.module.css'
+import s from './my-page.module.scss'
 import avatar from '../../../images/1.jpg'
+import setting from '../../../images/setting/setting.png'
 import { NavLink } from 'react-router-dom'
 import { Gallery } from './gallery/gallery'
 import { Comments } from './comments/comments'
@@ -14,10 +15,15 @@ export const MyPage = () => {
         <div className={s.avatar} style={{ backgroundImage: `url("${avatar}")` }} />
         <div className={s.name_data}>
           <NavLink to="/user/:pk" className={s.NameUser}>Alis Red</NavLink>
-          <NavLink to="/setting" className={s.setting}>Setting</NavLink>
           {/*{user.name} {user.surname} {user.lastname}*/}
           <p className={s.TextDate}>Date of Birth: 20.06.2002</p>
           <p className={s.TextDate}>Town: Moscow</p>
+        </div>
+        <div className={s.settingContainer}>
+          <NavLink to="/setting" className={s.settingLink}>
+            <img className={s.settingImage} src={setting} alt="Setting" />
+          </NavLink>
+          <NavLink to="/setting" className={s.setting}>Setting</NavLink>
         </div>
       </div>
       <Gallery />
