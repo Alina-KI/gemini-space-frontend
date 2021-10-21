@@ -27,7 +27,6 @@ export const AuthPage = () => {
   if (authStore.error !== '') return <ErrorDisplay message={authStore.error}/>
 
   const responseGoogle = async (response:any) => {
-    // console.log(response.profileObj)
     const GoogleAuth = {
       login: response.profileObj.googleId,
       password: response.profileObj.googleId,
@@ -36,8 +35,10 @@ export const AuthPage = () => {
       email: response.profileObj.email,
       // imageUrl: "https://lh3.googleusercontent.com/a-/AOh14Gg_u7Z7ST_Nhu05ug1-Q31WmP2IzgoMfAf6iLAn=s96-c"
     }
-    if (!await authStore.IsRegistration(GoogleAuth))
+    if (await authStore.IsRegistration(GoogleAuth)) {
+      console.log(authStore.IsRegistration(GoogleAuth))
       await authStore.registration(GoogleAuth)
+    }
     await authStore.login(GoogleAuth)
     history.push(`/user/${GoogleAuth.login}`)
   }

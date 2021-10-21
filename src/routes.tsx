@@ -12,7 +12,7 @@ import { Setting } from './components/pages/setting/setting'
 export const Routes = () => {
   return (
     <Switch>
-      <Route path="/user" component={MyPage} exact />
+      <Route path="/user/:login" component={MyPage} exact />
       <Route path="/friends" component={Friends} exact />
       <Route path="/message" component={Message} exact />
       <Route path="/auth" component={AuthPage} exact />

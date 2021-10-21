@@ -22,12 +22,10 @@ export const Registration = () => {
   const history = useHistory()
   const { register, handleSubmit, formState: { errors } } = useForm<Registration>()
   const onSubmit: SubmitHandler<Registration> = data => {
-    // console.log(data)
-    authStore.registration(data).then(() => history.push('/user'))
+    authStore.registration(data).then(() => history.push(`/user/${data.login}`))
   }
 
   const responseGoogle = async (response:any) => {
-    // console.log(response.profileObj)
     const GoogleAuth = {
       login: response.profileObj.googleId,
       password: response.profileObj.googleId,
@@ -36,9 +34,10 @@ export const Registration = () => {
       email: response.profileObj.email,
       // imageUrl: "https://lh3.googleusercontent.com/a-/AOh14Gg_u7Z7ST_Nhu05ug1-Q31WmP2IzgoMfAf6iLAn=s96-c"
     }
-    await authStore.registration(GoogleAuth)
+    if (await authStore.IsRegistration(GoogleAuth))
+      await authStore.registration(GoogleAuth)
     await authStore.login(GoogleAuth)
-    history.push('/user')
+    history.push(`/user/${GoogleAuth.login}`)
   }
 
   return (

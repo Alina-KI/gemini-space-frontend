@@ -29,8 +29,7 @@ class AuthStore {
     return api.post('/user/registration', data)
       .then(res => {
         this.user = jwtDecode(res.data.token)
-        // console.log(this.user)
-        localStorage.setItem('user', JSON.stringify(this.user))
+        localStorage.setItem('user', JSON.stringify(res.data.token))
       })
       .catch(error => {
         this.error = error.message
@@ -40,11 +39,12 @@ class AuthStore {
   }
 
   IsRegistration(data: Registration) {
-    return api.post('/user/registration', data)
-      .then(() => false )
+    return api.post('/user/isRegistration', data)
+      .then(res => {
+        return res.data
+      })
       .catch(error => {
-        this.error = error.message
-        return true
+        return error.data
       })
   }
 
@@ -56,8 +56,6 @@ class AuthStore {
         localStorage.setItem('user', JSON.stringify(res.data.token))
       })
       .catch(error => {
-        console.dir(data)
-        console.dir(error.message)
         this.error = error.message
         throw new Error()
       })
