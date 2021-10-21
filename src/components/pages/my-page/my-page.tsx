@@ -29,28 +29,28 @@ export const MyPage = () => {
   return (
     <div className={s.myPage}>
       <div className={s.container}>
-        <div className={s.avatar} style={{ backgroundImage: `url("${avatar}")` }} />
-        <div className={s.name_data}>
-          <NavLink to={`/user/${user?.login}`} className={s.NameUser}>
-            {user?.name} {user?.surname} {user?.lastname}
-          </NavLink>
-          {user?.dateOfBirth === null ?
-            <p className={s.TextDate}>Date of Birth: {user?.dateOfBirth}</p>
-            :
-            <p className={s.TextDate}> </p>
-          }
-          {user?.town === null ?
-            <p className={s.TextDate}>Town: {user?.town}</p>
-            :
-            <p className={s.TextDate}> </p>
-          }
+        <div className={s.dataUser}>
+          <div className={s.avatar} style={{ backgroundImage: `url("${avatar}")` }} />
+          <div className={s.name_data}>
+            <NavLink to={`/user/${user?.login}`} className={s.NameUser}>
+              {user?.name} {user?.surname} {user?.lastname}
+            </NavLink>
+            {user?.dateOfBirth === null ?
+              <p className={s.TextDate}>Date of Birth: {user?.dateOfBirth}</p>
+              :
+              <p className={s.TextDate}> </p>
+            }
+            {user?.town === null ?
+              <p className={s.TextDate}>Town: {user?.town}</p>
+              :
+              <p className={s.TextDate}> </p>
+            }
+          </div>
         </div>
-        <div className={s.settingContainer}>
-          <NavLink to="/setting" className={s.setting}>
-            <div className={s.image}><img className={s.settingImage} src={setting} alt="Setting" /></div>
-            <div className={s.text}><span className={s.settingText}>{settingText}</span></div>
-          </NavLink>
-        </div>
+        <NavLink to="/setting" className={s.setting}>
+          <div className={s.image}><img className={s.settingImage} src={setting} alt="Setting" /></div>
+          <div className={s.text}><span className={s.settingText}>{settingText}</span></div>
+        </NavLink>
       </div>
       <Gallery />
       <div style={{ marginLeft: '10px' }}>
