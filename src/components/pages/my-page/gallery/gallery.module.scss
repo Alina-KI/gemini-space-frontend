@@ -1,18 +1,59 @@
-.gallery_photo{
-    width: 150px;
-    height: 150px;
-    background-size: cover;
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+.container {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.slider__wrapper {
+  overflow: hidden;
+}
+
+.gallery_photo {
+  flex: 0 0 25%;
+  max-width: 25%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 150px;
+  height: 150px;
+  background-size: cover;
+  float: left;
+  margin-right: 15px;
+  margin-top: 15px;
+  transition: all 1s ease;
+}
+
+.gallery_photo:hover {
+  -webkit-transform: scale(1.3);
+  -ms-transform: scale(1.3);
+  transform: scale(1.3);
+  transition: all 1s ease;
+
+  &::after {
+    content: 'Open';
     display: inline-block;
-    float: left;
-    margin-right: 15px;
-    margin-top: 15px;
-    transition: 1s;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 30px;
+  }
+
+  &::before {
+    content: '';
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(black, .5);
+  }
 }
-.gallery_photo:hover{
-    -webkit-transform: scale(1.3);
-    -ms-transform: scale(1.3);
-    transform: scale(1.3);
-}
+
 .gallery {
   margin-left: 110px;
   display: inline-block;
@@ -34,19 +75,21 @@
   }
 }
 
-.whole_gallery{
-    text-decoration: none;
-    font-size: 20pt;
-    color: rgb(76, 47, 31);
-    display: flex;
-    border-bottom: 1px solid transparent;
-    transition: .4s linear;
+.whole_gallery {
+  text-decoration: none;
+  font-size: 20pt;
+  color: rgb(76, 47, 31);
+  display: flex;
+  border-bottom: 1px solid transparent;
+  transition: .4s linear;
 }
-.gallery:hover{
-    border: 1px solid rgb(175, 162, 127);
-    cursor: pointer;
+
+.gallery:hover {
+  border: 1px solid rgb(175, 162, 127);
+  cursor: pointer;
 }
-.whole_gallery:hover{
-    border-bottom: 1px solid rgb(175, 162, 127);
-    color: rgb(175, 56, 48);
+
+.whole_gallery:hover {
+  border-bottom: 1px solid rgb(175, 162, 127);
+  color: rgb(175, 56, 48);
 }

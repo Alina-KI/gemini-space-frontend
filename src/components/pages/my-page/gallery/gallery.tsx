@@ -7,6 +7,7 @@ import photo3 from '../../../../images/4.jpg'
 import photo4 from '../../../../images/17.jpg'
 
 export const Gallery = () => {
+
   return (
     <div className={s.gallery}>
       <NavLink to="/gallery" className={s.whole_gallery}>Gallery</NavLink>
