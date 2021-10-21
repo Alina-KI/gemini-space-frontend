@@ -6,13 +6,13 @@ import avatar from '../../images/1.jpg'
 // import moon from '../../images/light-night/moon.svg'
 import { NavLink } from 'react-router-dom'
 import { Navbar } from '../navbar/navbar'
-import { authStore, UserLoginType } from '../../store/auth-store'
+import { authStore } from '../../store/auth-store'
 
 export const Header = () => {
   const [nameProject, setNameProject] = useState('GS')
   const [width, setWidth] = useState<number | undefined>(undefined)
   const [isActive, setIsActive] = useState(false)
-  const user = authStore.user as UserLoginType
+  const user = authStore.user
 
   useEffect(() => {
     const handleResize = () => {
@@ -55,8 +55,8 @@ export const Header = () => {
         {/*  <img className={s.img} src={moon} alt="moon" />*/}
         {/*</div>*/}
         <div className={s.logo_name}>
-          <NavLink to={`/user/${user.login}`}><img className={s.logo} src={logo} alt="Logo" /></NavLink>
-          <span className={s.header_name_project}><NavLink to={`/user/${user.login}`}>{nameProject}</NavLink></span>
+          <NavLink to={`/user/${user?.login}`}><img className={s.logo} src={logo} alt="Logo" /></NavLink>
+          <span className={s.header_name_project}><NavLink to={`/user/${user?.login}`}>{nameProject}</NavLink></span>
         </div>
         <div className={s.search}>
           <input type="text" placeholder="Search..." className={s.header_search} />
