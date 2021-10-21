@@ -70,29 +70,46 @@
 
   .setting {
     text-decoration: none;
-    transition: 3s;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    transition: all 3s ease;
+    overflow: hidden;
 
-    .settingImage {
-      width: 40px;
-      object-fit: contain;
+    .image {
+      .settingImage {
+        width: 40px;
+        object-fit: contain;
+        transition: all 3s ease;
+      }
     }
-    .settingText{
+
+    .text {
       width: 0;
-      color: rgb(76, 47, 31);
-      font-size: 22px;
-      margin-left: 5px;
-      //opacity: 0;
-      transition: all 1s ease;
+      transition: width 1s;
+      .settingText {
+        color: rgb(76, 47, 31);
+        font-size: 22px;
+        margin-left: 5px;
+        opacity: 0;
+        transition: width 3s;
+      }
     }
   }
 
   .setting:hover {
-    .settingText{
-      width: min-content;
-      //opacity: 1;
+    .text{
+      width: 65px;
+      @media (max-width: 500px) {
+        width: 0;
+      }
+    }
+    .settingText {
+      opacity: 1;
       transition: 1s;
     }
-    .settingText:hover{
+
+    .settingText:hover {
       color: rgb(181, 65, 24);
     }
   }

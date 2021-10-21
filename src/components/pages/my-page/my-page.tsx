@@ -47,8 +47,8 @@ export const MyPage = () => {
         </div>
         <div className={s.settingContainer}>
           <NavLink to="/setting" className={s.setting}>
-            <img className={s.settingImage} src={setting} alt="Setting" />
-            <p className={s.settingText}>{settingText}</p>
+            <div className={s.image}><img className={s.settingImage} src={setting} alt="Setting" /></div>
+            <div className={s.text}><span className={s.settingText}>{settingText}</span></div>
           </NavLink>
         </div>
       </div>
