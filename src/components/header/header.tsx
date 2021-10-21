@@ -55,8 +55,8 @@ export const Header = () => {
         {/*  <img className={s.img} src={moon} alt="moon" />*/}
         {/*</div>*/}
         <div className={s.logo_name}>
-          <NavLink to="/user/:pk"><img className={s.logo} src={logo} alt="Logo" /></NavLink>
-          <span className={s.header_name_project}><NavLink to="/user/:pk">{nameProject}</NavLink></span>
+          <NavLink to={`/user/${user.login}`}><img className={s.logo} src={logo} alt="Logo" /></NavLink>
+          <span className={s.header_name_project}><NavLink to={`/user/${user.login}`}>{nameProject}</NavLink></span>
         </div>
         <div className={s.search}>
           <input type="text" placeholder="Search..." className={s.header_search} />
@@ -64,8 +64,8 @@ export const Header = () => {
         {user === null ?
           <div className={s.login}><NavLink to="/auth">Login</NavLink></div>
           :
-          <div><span className={s.login_name}><NavLink to="/user">{user.name} {user.surname}</NavLink></span>
-            <NavLink to="/user/:pk">
+          <div><span className={s.login_name}><NavLink to={`/user/${user.login}`}>{user.name} {user.surname}</NavLink></span>
+            <NavLink to={`/user/${user.login}`}>
               <div className={s.login_logo} style={{ backgroundImage: `url("${avatar}")` }} />
             </NavLink></div>
         }

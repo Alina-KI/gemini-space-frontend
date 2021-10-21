@@ -31,7 +31,7 @@ export const MyPage = () => {
       <div className={s.container}>
         <div className={s.avatar} style={{ backgroundImage: `url("${avatar}")` }} />
         <div className={s.name_data}>
-          <NavLink to="/user/:pk" className={s.NameUser}>
+          <NavLink to={`/user/${user?.login}`} className={s.NameUser}>
             {user?.name} {user?.surname} {user?.lastname}
           </NavLink>
           {user?.dateOfBirth === null ?
