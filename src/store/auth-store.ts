@@ -7,10 +7,10 @@ import jwtDecode from 'jwt-decode'
 export type UserLoginType = {
   name: string
   surname: string
-  lastname: string
-  dateOfBirth: string
-  phone: number
-  town: string
+  lastname?: string
+  dateOfBirth?: string
+  phone?: number
+  town?: string
   login: string
   email: string
 }
@@ -39,12 +39,21 @@ class AuthStore {
       .finally(() => this.isLoading = false)
   }
 
+  IsRegistration(data: Registration) {
+    return api.post('/user/registration', data)
+      .then(() => false )
+      .catch(error => {
+        this.error = error.message
+        return true
+      })
+  }
+
   login(data: Auth) {
     this.isLoading = true
     return api.post('/user/login', data)
       .then(res => {
         this.user = jwtDecode(res.data.token)
-        localStorage.setItem('user', JSON.stringify(this.user))
+        localStorage.setItem('user', JSON.stringify(res.data.token))
       })
       .catch(error => {
         console.dir(data)
@@ -53,6 +62,10 @@ class AuthStore {
         throw new Error()
       })
       .finally(() => this.isLoading = false)
+  }
+
+  logout() {
+    localStorage.removeItem('user')
   }
 
   github() {

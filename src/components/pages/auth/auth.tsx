@@ -36,13 +36,14 @@ export const AuthPage = () => {
       email: response.profileObj.email,
       // imageUrl: "https://lh3.googleusercontent.com/a-/AOh14Gg_u7Z7ST_Nhu05ug1-Q31WmP2IzgoMfAf6iLAn=s96-c"
     }
-    await authStore.registration(GoogleAuth)
+    if (!await authStore.IsRegistration(GoogleAuth))
+      await authStore.registration(GoogleAuth)
     await authStore.login(GoogleAuth)
-    history.push('/user')
+    history.push(`/user/${GoogleAuth.login}`)
   }
 
   const GithubClick = () => {
-    authStore.github()
+    // authStore.github()
   }
 
   return (
