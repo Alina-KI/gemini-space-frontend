@@ -12,6 +12,16 @@
   background-size: cover;
   display: inline-block;
   transition: 1s;
+
+  @media (max-width: 385px) {
+    width: 80px;
+    height: 80px;
+  }
+
+  @media (max-width: 330px) {
+    width: 70px;
+    height: 70px;
+  }
 }
 
 .avatar:hover {
@@ -32,12 +42,21 @@
   color: rgb(76, 47, 31);
   border-bottom: 1px solid transparent;
   transition: .6s linear;
+
+  @media (max-width: 385px) {
+    font-size: 18px;
+  }
 }
 
 .TextDate {
   font-size: 18px;
   margin: 10px 0;
   cursor: default;
+
+  @media (max-width: 385px) {
+    font-size: 14px;
+    margin: 0;
+  }
 }
 
 .NameUser:hover {
@@ -51,59 +70,35 @@
 
   .setting {
     text-decoration: none;
-    color: rgb(76, 47, 31);
-    font-size: 22px;
-    margin-left: 5px;
-  }
-
-  .settingLink {
-    text-decoration: none;
-    color: rgb(76, 47, 31);
-    font-size: 22px;
-    margin-left: 5px;
+    transition: 3s;
 
     .settingImage {
       width: 40px;
       object-fit: contain;
     }
+    .settingText{
+      width: 0;
+      color: rgb(76, 47, 31);
+      font-size: 22px;
+      margin-left: 5px;
+      //opacity: 0;
+      transition: all 1s ease;
+    }
   }
 
   .setting:hover {
-    color: rgb(181, 65, 24);
-
+    .settingText{
+      width: min-content;
+      //opacity: 1;
+      transition: 1s;
+    }
+    .settingText:hover{
+      color: rgb(181, 65, 24);
+    }
   }
-}
 
-@media (max-width: 800px) {
-  .setting {
+  @media (max-width: 430px) {
     display: none;
-  }
-}
-
-@media (max-width: 430px) {
-  .settingContainer {
-    display: none;
-  }
-}
-
-@media (max-width: 385px) {
-  .avatar {
-    width: 80px;
-    height: 80px;
-  }
-  .TextDate {
-    font-size: 14px;
-    margin: 0;
-  }
-  .NameUser {
-    font-size: 18px;
-  }
-}
-
-@media (max-width: 330px) {
-  .avatar {
-    width: 70px;
-    height: 70px;
   }
 }
 

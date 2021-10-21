@@ -76,7 +76,7 @@
   }
 }
 
-.login{
+.login {
   margin-right: 20px;
 }
 
@@ -87,10 +87,14 @@
   display: inline-block;
   vertical-align: middle;
   margin: 5px 10px;
+
+  @media (max-width: 700px) {
+    border-radius: 50%;
+  }
 }
 
 .login_name {
-  @media (max-width: 500px) {
+  @media (max-width: 700px) {
     display: none;
   }
 }
@@ -105,7 +109,7 @@
   }
 }
 
-.burger_menu:hover{
+.burger_menu:hover {
   cursor: pointer;
 }
 
@@ -207,14 +211,15 @@
     position: static;
   }
 }
-.search_navbar:hover, .search_navbar:active{
+
+.search_navbar:hover, .search_navbar:active {
   background-color: rgb(212, 206, 194);
 }
 
-.light_night{
+.light_night {
   display: inline-block;
 
-  .img{
+  .img {
     width: 40px;
     height: 40px;
   }

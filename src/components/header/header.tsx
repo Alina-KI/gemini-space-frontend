@@ -64,7 +64,7 @@ export const Header = () => {
         {user === null ?
           <div className={s.login}><NavLink to="/auth">Login</NavLink></div>
           :
-          <div><span className={s.login_name}><NavLink to="/user">{user.login}</NavLink></span>
+          <div><span className={s.login_name}><NavLink to="/user">{user.name} {user.surname}</NavLink></span>
             <NavLink to="/user/:pk">
               <div className={s.login_logo} style={{ backgroundImage: `url("${avatar}")` }} />
             </NavLink></div>
