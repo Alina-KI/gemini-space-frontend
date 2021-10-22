@@ -47,10 +47,10 @@ export const MyPage = () => {
             }
           </div>
         </div>
-        <NavLink to="/setting" className={s.setting}>
-          <div className={s.image}><img className={s.settingImage} src={setting} alt="Setting" /></div>
-          <div className={s.text}><span className={s.settingText}>{settingText}</span></div>
-        </NavLink>
+        <div className={s.setting}>
+          <NavLink to="/setting" className={s.image}><img className={s.settingImage} src={setting} alt="Setting" /></NavLink>
+          <NavLink to="/setting" className={s.text}><span className={s.settingText}>{settingText}</span></NavLink>
+        </div>
       </div>
       <Gallery />
       <div style={{ marginLeft: '10px' }}>

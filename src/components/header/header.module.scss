@@ -1,6 +1,7 @@
 .header {
   background-color: rgba(175, 56, 48, 0.733);
   position: fixed;
+  min-height: 60px;
   width: 100%;
   font-size: 26px;
   display: block;
@@ -21,7 +22,7 @@
   }
 }
 
-.logo_name{
+.logo_name {
   flex: 1 1 auto;
 }
 
@@ -55,6 +56,7 @@
 
   .navbar_search__input {
     padding: 12px 24px;
+    width: 100%;
     background-color: transparent;
     font-size: 14px;
     color: #575756;
@@ -73,8 +75,7 @@
       letter-spacing: 1.5px;
     }
 
-    &:hover,
-    &:focus {
+    &:hover, &:focus {
       padding: 12px 0;
       outline: 0;
       border: 1px solid transparent;
@@ -83,6 +84,7 @@
       background-position: 100% center;
     }
   }
+
   @media (max-width: 400px) {
     position: static;
   }
@@ -92,39 +94,52 @@
   flex: 1 1 auto;
   display: flex;
   align-items: stretch;
-  margin: 10px 0;
-}
 
-.searchTerm {
-  border: 1px solid rgb(212, 206, 194);
-  border-right: none;
-  padding: 5px 15px;
-  font-size: 20px;
-  background: rgba(212, 206, 194, .3);
-  border-radius: 5px 0 0 5px;
-  outline: none;
-  color: rgb(96, 18, 13);
-  transition: all 1s ease;
+  .searchTerm {
+    border: 1px solid rgb(212, 206, 194);
+    border-right: none;
+    padding: 5px 15px;
+    font-size: 20px;
+    background: rgba(212, 206, 194, .3);
+    border-radius: 5px 0 0 5px;
+    outline: none;
+    color: rgb(96, 18, 13);
+    transition: all 1s ease;
 
-  &::placeholder {
-    color: rgba(#575756, .8);
+    &::placeholder {
+      color: rgba(#575756, .8);
+    }
+
+    @media (max-width: 700px) {
+      width: 200px;
+
+      &::placeholder {
+        letter-spacing: 1.5px;
+      }
+    }
   }
-}
 
-.searchTerm:focus{
-  color: rgba(175, 56, 48, 0.733);
-  background: rgba(212, 206, 194, .7);
-}
+  .searchTerm:focus {
+    color: rgba(175, 56, 48, 0.733);
+    background: rgba(212, 206, 194, .7);
+  }
 
-.searchButton {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 50px;
-  border: 1px solid rgb(212, 206, 194);
-  background: rgb(212, 206, 194);
-  border-radius: 0 5px 5px 0;
-  cursor: pointer;
+  .searchButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    border: 1px solid rgb(212, 206, 194);
+    background: rgb(212, 206, 194);
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+  }
+
+  @media (max-width: 500px) {
+    .searchButton, .searchTerm {
+      display: none;
+    }
+  }
 }
 
 .login {

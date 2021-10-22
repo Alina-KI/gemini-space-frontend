@@ -19,6 +19,7 @@ export const Navbar = ({ setIsActive }: Props) => {
       <li className={s.component}><NavLink onClick={()=>{ setIsActive(isActive => !isActive) }} className={s.el} to="/community">Community</NavLink></li>
       <li className={s.component}><NavLink onClick={()=>{ setIsActive(isActive => !isActive) }} className={s.el} to="/gallery">Gallery</NavLink></li>
       <li className={s.component}><NavLink onClick={()=>{ setIsActive(isActive => !isActive) }} className={s.el} to="/music">Music for GS</NavLink></li>
+      <li className={s.component}><NavLink onClick={()=>{ setIsActive(isActive => !isActive) }} className={s.el} to="/setting">Setting</NavLink></li>
     </ul>
   )
 }

@@ -6,13 +6,13 @@
   justify-content: space-between;
   align-items: flex-start;
 
-  .dataUser{
+  .dataUser {
     display: flex;
     flex-wrap: wrap;
 
   }
+
   .setting {
-    text-decoration: none;
     display: flex;
     justify-content: flex-end;
     align-items: center;
@@ -20,6 +20,8 @@
     overflow: hidden;
 
     .image {
+      text-decoration: none;
+
       .settingImage {
         width: 40px;
         object-fit: contain;
@@ -28,8 +30,10 @@
     }
 
     .text {
+      text-decoration: none;
       width: 0;
       transition: width 1s;
+
       .settingText {
         color: rgb(76, 47, 31);
         font-size: 22px;
@@ -41,12 +45,13 @@
   }
 
   .setting:hover {
-    .text{
+    .text {
       width: 65px;
       @media (max-width: 500px) {
         width: 0;
       }
     }
+
     .settingText {
       opacity: 1;
       transition: 1s;
@@ -55,10 +60,10 @@
     .settingText:hover {
       color: rgb(181, 65, 24);
     }
-  }
 
-  @media (max-width: 430px) {
-    display: none;
+    @media (max-width: 430px) {
+      display: none;
+    }
   }
 }
 

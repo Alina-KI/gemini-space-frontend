@@ -20,7 +20,7 @@ export const Routes = () => {
       <Route path="/gallery" component={Gallery} exact />
       <Route path="/news" component={News} exact />
       <Route path="/setting" component={Setting} exact />
-      <Route path="/" component={() => <Redirect to="/user" />} />
+      <Route path="/" component={() => <Redirect to="/auth" />} />
     </Switch>
   )
 }
