@@ -1,7 +1,13 @@
 .auth {
+  width: 500px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  border-radius: 20px;
+  padding: 25px;
+  margin-top: 20px;
+  background: rgba(#fff, .5);
+  box-shadow: 10px 10px 21px rgba(255, 255, 255, .3), -10px -10px 21px rgba(0, 0, 0, .1);
 }
 
 .loginGoogleGitHub {
@@ -11,25 +17,27 @@
 }
 
 .github {
-  border-radius: 2px;
-  border: 1px solid transparent;
+  border-radius: 20px;
   box-shadow: rgb(0 0 0 / 24%) 0 2px 2px 0, rgb(0 0 0 / 24%) 0 0 1px 0;
-  background-color: white;
+  background-color: rgba(#fff, .7);
   padding: 0 10px;
+  border: none;
+  outline: none;
+  transition: .7s ease-in;
 
   .githubButton {
     padding: 10px 10px 10px 0;
-    font-weight: 500;
     background: transparent;
     width: 100%;
     border: none;
     color: rgba(0, 0, 0, 0.54);
-    font-size: 14px;
+    font-size: 22px;
+    font-family: 'Viaoda Libre', cursive;
     display: flex;
     align-items: center;
     justify-content: space-between;
   }
-  
+
   .githubLogo {
     width: 50px;
     height: 50px;
@@ -38,16 +46,53 @@
   }
 }
 
-.github:hover{
-  opacity: .9;
+.github:hover, .githubButton:hover, .githubLogo:hover{
   cursor: pointer;
+}
+
+.github:hover{
+  color: #2E2B26;
+  background: rgba(222, 167, 128, 0.833);
+}
+
+.googleButton{
+  max-width: 250px !important;
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  width: 100% !important;
+  border: none !important;
+  color: rgba(0, 0, 0, 0.54) !important;
+  font-size: 22px !important;
+  font-family: 'Viaoda Libre', cursive !important;
+  border-radius: 20px !important;
+  box-shadow: rgb(0 0 0 / 24%) 0 2px 2px 0, rgb(0 0 0 / 24%) 0 0 1px 0 !important;
+  background-color: rgba(#fff, .7) !important;
+  padding: 0 10px !important;
+  outline: none !important;
+  transition: .7s ease-in !important;
+  div{
+    background: center / contain no-repeat url("../../../images/icon/google.png") !important;
+    width: 40px !important;
+    height: 40px !important;
+    margin-right: 10px !important;
+
+    svg{
+      display: none !important;
+    }
+  }
+}
+.googleButton:hover{
+  color: #2E2B26 !important;
+  background: rgba(222, 167, 128, 0.833) !important;
 }
 
 .container {
   display: flex;
   flex-direction: column;
   font-size: 25px;
-  width: 350px;
+  width: 400px;
+  margin-top: 10px;
   @media (max-width: 400px) {
     width: 100%;
   }
@@ -67,9 +112,16 @@
     font-size: 18px;
     border-radius: 9px;
     padding: 10px;
+    width: 280px;
+    background: rgba(#fff, .5);
     border: 1px solid rgba(222, 167, 128, 0.833);
     outline: none;
     margin: 10px 0;
+    transition: .5s ease-in;
+  }
+
+  input:focus {
+    background: #fff;
   }
 
   .b_login {
@@ -82,7 +134,7 @@
     border: 1px solid rgba(222, 167, 128, 0.833);
     outline: none;
     margin: 10px 0;
-    transition: 1s;
+    transition: 1s ease-in;
   }
 
   button:hover {

@@ -51,6 +51,7 @@ export const AuthPage = () => {
     <div className={s.auth}>
       <div className={s.loginGoogleGitHub}>
         <GoogleLogin
+          className={s.googleButton}
           clientId="875195926748-910se1ht939mu3pcvg4ndn4dsef46ume.apps.googleusercontent.com"
           onSuccess={responseGoogle}
           onFailure={responseGoogle}

@@ -39,22 +39,25 @@ export const Registration = () => {
     await authStore.login(GoogleAuth)
     history.push(`/user/${GoogleAuth.login}`)
   }
+  const GithubClick = () => {
+    // authStore.github()
+  }
 
   return (
     <div className={s.registration}>
       <div className={s.loginGoogleGitHub}>
         <GoogleLogin
+          className={s.googleButton}
           clientId="875195926748-910se1ht939mu3pcvg4ndn4dsef46ume.apps.googleusercontent.com"
           onSuccess={responseGoogle}
           onFailure={responseGoogle}
           cookiePolicy={'single_host_origin'}
         />
         <div className={s.github}>
-          <a className={s.githubButton}
-            href="https://github.com/login/oauth/authorize?client_id=fccb4e3b244d078ba4fb&redirect_uri=http://localhost:3000?path=/&scope=user:email'">
+          <button className={s.githubButton} onClick={GithubClick}>
             <img className={s.githubLogo} src={GitHubLogo} alt="GitHub" />
             GitHub
-          </a>
+          </button>
         </div>
       </div>
       <form onSubmit={handleSubmit(onSubmit)} className={s.container}>
