@@ -12,7 +12,7 @@ import chatActive from '../../images/menuIcon/chatActive.svg'
 import settingActive from '../../images/menuIcon/settingActive.svg'
 
 export const Footer = () => {
-  const [activeLink, setActiveLink] = useState('Cell')
+  const [activeLink, setActiveLink] = useState('Home')
   const [pos, setPos] = useState(10)
 
   return (
