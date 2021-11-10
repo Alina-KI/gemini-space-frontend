@@ -39,14 +39,14 @@
         }
 
         .text {
-          text-decoration: none;
-          color: #fff;
-          font-size: 22px;
-          transition-delay: .3s;
-          transition: 1s ease-in;
-          z-index: 9;
           position: absolute;
-          bottom: -50px;
+          text-decoration: none;
+          font-size: 22px;
+          color: #fff;
+          opacity: 0;
+          z-index: 9;
+          transition-delay: .3s;
+          transition: .2s ease-in;
         }
       }
     }
@@ -70,6 +70,7 @@
 
       .text {
         bottom: -40px !important;
+        opacity: 1 !important;
       }
     }
   }
