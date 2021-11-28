@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import s from './auth.module.scss'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { Loader } from '../../shared/loader/loader'
@@ -16,12 +16,28 @@ export type Auth = {
 }
 
 export const AuthPage = () => {
+  const [googleText, setGoogleText] = useState('Sign in with Google')
+  const [width, setWidth] = useState<number | undefined>(undefined)
   const history = useHistory()
   const { register, handleSubmit, formState: { errors } } = useForm<Auth>()
   const onSubmit: SubmitHandler<Auth> = data => {
     // console.log(data)
     authStore.login(data).then(() => history.push('/user'))
   }
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWidth(window.innerWidth)
+    }
+    window.addEventListener('resize', handleResize)
+    handleResize()
+    return () => window.removeEventListener('resize', handleResize)
+  }, [])
+
+  useEffect(() => {
+    if (width && width <= 520) setGoogleText('Google')
+    if (width && width > 520) setGoogleText('Sign in with Google')
+  }, [width])
 
   if (authStore.isLoading) return <Loader />
   if (authStore.error !== '') return <ErrorDisplay message={authStore.error}/>
@@ -52,6 +68,7 @@ export const AuthPage = () => {
       <div className={s.loginGoogleGitHub}>
         <GoogleLogin
           className={s.googleButton}
+          buttonText={googleText}
           clientId="875195926748-910se1ht939mu3pcvg4ndn4dsef46ume.apps.googleusercontent.com"
           onSuccess={responseGoogle}
           onFailure={responseGoogle}

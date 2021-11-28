@@ -22,6 +22,9 @@
 }
 
 .github {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border-radius: 20px;
   box-shadow: rgb(0 0 0 / 24%) 0 2px 2px 0, rgb(0 0 0 / 24%) 0 0 1px 0;
   background-color: rgba(#fff, .7);
@@ -51,21 +54,20 @@
   }
 }
 
-.github:hover, .githubButton:hover, .githubLogo:hover{
+.github:hover, .githubButton:hover, .githubLogo:hover {
   cursor: pointer;
 }
 
-.github:hover{
+.github:hover {
   color: #2E2B26;
   background: rgba(222, 167, 128, 0.833);
 }
 
-.googleButton{
-  max-width: 250px !important;
+.googleButton {
   display: flex !important;
   justify-content: space-between !important;
   align-items: center !important;
-  width: 100% !important;
+  margin-right: 10px;
   border: none !important;
   color: rgba(0, 0, 0, 0.54) !important;
   font-size: 22px !important;
@@ -76,18 +78,20 @@
   padding: 0 10px !important;
   outline: none !important;
   transition: .7s ease-in !important;
-  div{
+
+  div {
     background: center / contain no-repeat url("../../../images/icon/google.png") !important;
     width: 40px !important;
     height: 40px !important;
     margin-right: 10px !important;
 
-    svg{
+    svg {
       display: none !important;
     }
   }
 }
-.googleButton:hover{
+
+.googleButton:hover {
   color: #2E2B26 !important;
   background: rgba(222, 167, 128, 0.833) !important;
 }
@@ -96,11 +100,9 @@
   display: flex;
   flex-direction: column;
   font-size: 25px;
+  max-width: 400px;
   width: 100%;
-  height: 100%;
-  @media (max-width: 500px) {
-    width: 300px;
-  }
+  margin-top: 10px;
   @media (max-width: 400px) {
     width: 100%;
   }
@@ -110,7 +112,7 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    @media (max-width: 470px) {
+    @media (max-width: 400px) {
       flex-direction: column;
       align-items: start;
     }
@@ -158,22 +160,19 @@
   }
 
   .inputError {
-    width: 280px;
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+
     .error {
       color: rgba(175, 56, 48);
       text-align: center;
+      margin-left: 10px;
     }
 
-    .date_of_birth {
-      width: 100%;
-    }
-
-    @media (min-width: 331px) {
-      width: 100%;
-      max-width: 280px;
-    }
-    @media (max-width: 250px) {
-      width: 190px;
+    @media (max-width: 400px) {
+      align-self: stretch;
+      margin: 0;
     }
   }
 

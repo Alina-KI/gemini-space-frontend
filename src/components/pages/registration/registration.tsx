@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import s from './registration.module.scss'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { NavLink, useHistory } from 'react-router-dom'
@@ -19,11 +19,27 @@ export type Registration = {
 }
 
 export const Registration = () => {
+  const [googleText, setGoogleText] = useState('Sign in with Google')
+  const [width, setWidth] = useState<number | undefined>(undefined)
   const history = useHistory()
   const { register, handleSubmit, formState: { errors } } = useForm<Registration>()
   const onSubmit: SubmitHandler<Registration> = data => {
     authStore.registration(data).then(() => history.push(`/user/${data.login}`))
   }
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWidth(window.innerWidth)
+    }
+    window.addEventListener('resize', handleResize)
+    handleResize()
+    return () => window.removeEventListener('resize', handleResize)
+  }, [])
+
+  useEffect(() => {
+    if (width && width <= 400) setGoogleText('Google')
+    if (width && width > 400) setGoogleText('Sign in with Google')
+  }, [width])
 
   const responseGoogle = async (response:any) => {
     const GoogleAuth = {
@@ -48,6 +64,7 @@ export const Registration = () => {
       <div className={s.loginGoogleGitHub}>
         <GoogleLogin
           className={s.googleButton}
+          buttonText={googleText}
           clientId="875195926748-910se1ht939mu3pcvg4ndn4dsef46ume.apps.googleusercontent.com"
           onSuccess={responseGoogle}
           onFailure={responseGoogle}

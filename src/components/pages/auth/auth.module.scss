@@ -1,5 +1,4 @@
 .auth {
-  width: 500px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -8,6 +7,12 @@
   margin-top: 20px;
   background: rgba(#fff, .5);
   box-shadow: 10px 10px 21px rgba(255, 255, 255, .3), -10px -10px 21px rgba(0, 0, 0, .1);
+  @media (max-width: 460px) {
+    border-radius: 0;
+    padding: 0;
+    background: transparent;
+    box-shadow: none;
+  }
 }
 
 .loginGoogleGitHub {
@@ -17,6 +22,9 @@
 }
 
 .github {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border-radius: 20px;
   box-shadow: rgb(0 0 0 / 24%) 0 2px 2px 0, rgb(0 0 0 / 24%) 0 0 1px 0;
   background-color: rgba(#fff, .7);
@@ -46,21 +54,20 @@
   }
 }
 
-.github:hover, .githubButton:hover, .githubLogo:hover{
+.github:hover, .githubButton:hover, .githubLogo:hover {
   cursor: pointer;
 }
 
-.github:hover{
+.github:hover {
   color: #2E2B26;
   background: rgba(222, 167, 128, 0.833);
 }
 
-.googleButton{
-  max-width: 250px !important;
+.googleButton {
   display: flex !important;
   justify-content: space-between !important;
   align-items: center !important;
-  width: 100% !important;
+  margin-right: 10px;
   border: none !important;
   color: rgba(0, 0, 0, 0.54) !important;
   font-size: 22px !important;
@@ -71,18 +78,20 @@
   padding: 0 10px !important;
   outline: none !important;
   transition: .7s ease-in !important;
-  div{
+
+  div {
     background: center / contain no-repeat url("../../../images/icon/google.png") !important;
     width: 40px !important;
     height: 40px !important;
     margin-right: 10px !important;
 
-    svg{
+    svg {
       display: none !important;
     }
   }
 }
-.googleButton:hover{
+
+.googleButton:hover {
   color: #2E2B26 !important;
   background: rgba(222, 167, 128, 0.833) !important;
 }
@@ -91,7 +100,8 @@
   display: flex;
   flex-direction: column;
   font-size: 25px;
-  width: 400px;
+  max-width: 400px;
+  width: 100%;
   margin-top: 10px;
   @media (max-width: 400px) {
     width: 100%;
@@ -118,6 +128,10 @@
     outline: none;
     margin: 10px 0;
     transition: .5s ease-in;
+
+    @media (max-width: 400px) {
+      width: 100%;
+    }
   }
 
   input:focus {
@@ -146,11 +160,17 @@
   .inputError {
     display: flex;
     align-items: center;
+    margin-left: 10px;
 
     .error {
       color: rgba(175, 56, 48);
       text-align: center;
       margin-left: 10px;
+    }
+
+    @media (max-width: 400px) {
+      align-self: stretch;
+      margin: 0;
     }
   }
 
