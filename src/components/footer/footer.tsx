@@ -10,8 +10,10 @@ import personActive from '../../images/menuIcon/personActive.svg'
 import cellActive from '../../images/menuIcon/cellActive.svg'
 import chatActive from '../../images/menuIcon/chatActive.svg'
 import settingActive from '../../images/menuIcon/settingActive.svg'
+import { useIsLoadingPage } from '../../hooks/use-is-loading-page'
 
 export const Footer = () => {
+  const isLoadingPage = useIsLoadingPage()
   const [activeLink, setActiveLink] = useState('Home')
   const [pos, setPos] = useState(10)
 
@@ -20,6 +22,7 @@ export const Footer = () => {
       <div className={s.containerFooter}>
         Footer
       </div>
+      {isLoadingPage &&
       <div className={s.containerMenu}>
         <div className={`${ s.list } ${activeLink === 'Home' ? `${s.active}`: ''}`}>
           <a className={s.link} href="#" onClick={() => {
@@ -68,6 +71,7 @@ export const Footer = () => {
         </div>
         <div className={s.slider} style={{ left: `${pos}%` }}> </div>
       </div>
+      }
     </div>
   )
 }

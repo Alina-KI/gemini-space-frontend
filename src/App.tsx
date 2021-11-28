@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import s from './app.module.scss'
-import { useHistory, useLocation } from 'react-router-dom'
 import { Header } from './components/header/header'
 import { Navbar } from './components/navbar/navbar'
 import { Footer } from './components/footer/footer'
@@ -8,15 +7,10 @@ import { Routes } from './routes'
 import { newsStore } from './store/news-store'
 import { authStore } from './store/auth-store'
 import jwtDecode from 'jwt-decode'
+import { useIsLoadingPage } from './hooks/use-is-loading-page'
 
 export const App = () => {
-  const [isLoadingPage, setIsLoadingPage] = useState(true)
-  const location = useLocation()
-  const pathname = location.pathname
-
-  useEffect(() => {
-    setIsLoadingPage(pathname !== '/auth' && pathname !== '/registration')
-  }, [location])
+  const isLoadingPage = useIsLoadingPage()
 
   useEffect(() => {
     if (localStorage.getItem('user')) {
