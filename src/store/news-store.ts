@@ -14,16 +14,16 @@ export type NewsType = {
 
 class NewsStore {
   constructor() {
-    makeAutoObservable(this)
+    makeAutoObservable(this, {}, { autoBind: true })
   }
 
-  news = null as null | NewsType[]
-  isLoading = false
-  error = ''
+  news = null as null | NewsType[];
+  isLoading = false;
+  error = '';
 
-  fetchNews(){
+  fetchNews() {
     this.isLoading = true
-    axios.get<{articles: NewsType[]}>(`https://newsapi.org/v2/top-headlines?sources=techcrunch&apiKey=${keyAPI}`)
+    axios.get<{ articles: NewsType[] }>(`https://newsapi.org/v2/top-headlines?sources=techcrunch&apiKey=${keyAPI}`)
       .then(res => {
         this.news = res.data.articles
       })
@@ -34,4 +34,5 @@ class NewsStore {
       .finally(() => this.isLoading = false)
   }
 }
+
 export const newsStore = new NewsStore()
