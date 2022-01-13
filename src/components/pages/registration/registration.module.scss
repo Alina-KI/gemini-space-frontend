@@ -8,10 +8,13 @@
   background: rgba(#fff, .5);
   box-shadow: 10px 10px 21px rgba(255, 255, 255, .3), -10px -10px 21px rgba(0, 0, 0, .1);
 
-  @media (max-width: 530px) {
-    width: 100vw;
+  @media (max-width: 500px) {
     border-radius: 0;
     box-shadow: none;
+    padding: 0;
+    background: transparent;
+    height: 100%;
+    align-items: center;
   }
 }
 
