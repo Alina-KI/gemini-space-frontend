@@ -11,10 +11,12 @@ class SocketStore {
     this.socket = io('http://localhost:5000')
     this.socket.on('connect', () => {
       console.log('Connected')
-      this.socket!.emit('events', { test: 'test' })
-      this.socket!.emit('identity', 0, (response: any) =>
-        console.log('Identity:', response)
-      )
+      // this.socket!.emit('events', { test: 'test' })
+      // this.socket!.emit('identity', 0, (response: any) =>
+      //   console.log('Identity:', response)
+      // )
+
+      this.socket!.emit('sendMessage', { test: 'test' })
     })
     this.socket.on('events', function(data) {
       console.log('event', data)

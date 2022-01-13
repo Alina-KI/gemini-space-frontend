@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react'
-import { io } from 'socket.io-client'
 import s from './message.module.scss'
 import { socketStore } from "../../../store/socket-store";
 
