@@ -8,7 +8,15 @@ class SocketStore {
   socket:Socket | null = null
 
   openSocket() {
-    this.socket = io('http://localhost:5000')
+    this.socket = io('http://localhost:5000', {
+      transportOptions: {
+        polling: {
+          extraHeaders: {
+            Authorization: `Bearer ${localStorage.getItem('user')}`,
+          }
+        }
+      }
+    })
     this.socket.on('connect', () => {
       console.log('Connected')
       // this.socket!.emit('events', { test: 'test' })
