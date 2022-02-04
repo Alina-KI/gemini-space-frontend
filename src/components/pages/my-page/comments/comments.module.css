@@ -69,9 +69,13 @@
     max-height: none;
 }
 
-.showMore{
+.showMore {
     text-align: center;
     padding-bottom: 20px;
+}
+
+.showMore:hover {
+    cursor: pointer;
 }
 
 .frame1 {
