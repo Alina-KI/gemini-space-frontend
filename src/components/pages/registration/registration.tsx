@@ -115,8 +115,7 @@ export const Registration = () => {
           <div className={s.inputError}>
             <input className={s.date_of_birth}
               {...register('dateOfBirth')}
-              type="date" value="2018-07-22"
-              min="1990-01-01" max="2021-12-31" />
+              type="date" min="1990-01-01" max="2021-12-31" />
             {errors?.dateOfBirth &&
             <p className={s.error}>* {errors.dateOfBirth.message} </p>}
           </div>
