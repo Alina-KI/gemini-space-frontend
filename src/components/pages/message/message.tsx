@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import s from './message.module.scss'
-import { socketStore } from "../../../store/socket-store";
+import { socketStore } from '../../../store/socket-store'
 
 export const Message = () => {
   useEffect(() => {

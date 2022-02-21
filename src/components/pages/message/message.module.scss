@@ -9,11 +9,12 @@
     .message {
       display: grid;
       box-sizing: border-box;
-      padding: 20px;
+      padding: 10px 20px;
       width: 50%;
       grid-template: "";
-      border: 1px solid;
+      border: thick double rgba(66,76,76,0.5);
       border-radius: 20px;
+      background: rgba(66,76,76,0.2);
     }
     .message_own {
       justify-self: end;
