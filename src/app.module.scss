@@ -12,11 +12,13 @@ html, body {
   display: flex;
   flex-direction: column;
 }
+.container_auth{
+  margin: 0 auto;
+}
 .container {
   display: flex;
   justify-content: space-evenly;
   padding-top: 80px;
-  margin: 0 auto;
   max-width: 1200px;
   flex: 1 1 auto;
   z-index: 0;
@@ -24,6 +26,10 @@ html, body {
     justify-content: center;
     margin: 0 20px;
     padding-top: 80px;
+  }
+  @media (min-width: 1030px){
+    margin: 0 auto;
+    width: 100%;
   }
   @media(max-width: 500px){
     margin: 0;
@@ -36,7 +42,7 @@ html, body {
   }
 }
 .routeContainer{
-  max-width: 840px;
+  flex:  1 1 auto;
   margin-left: 60px;
   @media (max-width: 1030px){
     max-width: 810px;

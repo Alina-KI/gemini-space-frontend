@@ -24,7 +24,7 @@ export const App = () => {
   return (
     <div className={s.app}>
       <Header />
-      <div className={s.container}>
+      <div className={`${ s.container } ${!isLoadingPage ? s.container_auth : ''}`}>
         {isLoadingPage &&
         <div className={s.navbar}>
           {!newsStore.isLoading && <Navbar setIsActive={() => null} />}
