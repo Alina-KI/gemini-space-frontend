@@ -29,7 +29,7 @@ class AuthStore {
     return api.post('/user/registration', data)
       .then(res => {
         this.user = jwtDecode(res.data.token)
-        localStorage.setItem('user', JSON.stringify(res.data.token))
+        localStorage.setItem('user', res.data.token)
       })
       .catch(error => {
         this.error = error.message
@@ -53,7 +53,7 @@ class AuthStore {
     return api.post('/user/login', data)
       .then(res => {
         this.user = jwtDecode(res.data.token)
-        localStorage.setItem('user', JSON.stringify(res.data.token))
+        localStorage.setItem('user', res.data.token)
       })
       .catch(error => {
         this.error = error.message

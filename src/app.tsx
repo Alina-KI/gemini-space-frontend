@@ -14,12 +14,12 @@ export const App = () => {
 
   useEffect(() => {
     if (localStorage.getItem('user')) {
-      const a: string | null = localStorage.getItem('user')
-      if (a !== null) {
-        authStore.user = jwtDecode(a)
+      const token: string | null = localStorage.getItem('user')
+      if (token !== null) {
+        authStore.user = jwtDecode(token)
       }
     }
-  })
+  }, [])
 
   return (
     <div className={s.app}>

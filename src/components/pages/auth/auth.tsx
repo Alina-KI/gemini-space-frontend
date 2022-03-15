@@ -52,7 +52,6 @@ export const AuthPage = () => {
       // imageUrl: "https://lh3.googleusercontent.com/a-/AOh14Gg_u7Z7ST_Nhu05ug1-Q31WmP2IzgoMfAf6iLAn=s96-c"
     }
     if (await authStore.IsRegistration(GoogleAuth)) {
-      console.log(authStore.IsRegistration(GoogleAuth))
       await authStore.registration(GoogleAuth)
     }
     await authStore.login(GoogleAuth)
