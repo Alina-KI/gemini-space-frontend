@@ -19,15 +19,9 @@ class SocketStore {
     })
     this.socket.on('connect', () => {
       console.log('Connected')
-      // this.socket!.emit('events', { test: 'test' })
-      // this.socket!.emit('identity', 0, (response: any) =>
-      //   console.log('Identity:', response)
-      // )
+      this.socket!.emit('connectAllDialogs')
 
-      this.socket!.emit('sendMessage', { test: 'test' })
-    })
-    this.socket.on('events', function(data) {
-      console.log('event', data)
+      this.socket!.emit('sendMessage', {'dsds': 42})
     })
     this.socket.on('exception', function(data) {
       console.log('event', data)

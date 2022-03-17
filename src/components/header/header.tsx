@@ -35,7 +35,6 @@ export const Header = () => {
     else setNameProject('Gemini Space')
     if (width && width <= 700) setSettingText('Search')
     if (width && width > 700) setSettingText('What are you looking for?')
-    console.log(isLoadingPage)
   }, [width])
 
   return (
