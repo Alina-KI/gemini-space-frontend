@@ -1,6 +1,6 @@
 import { makeAutoObservable } from 'mobx'
-import { Auth } from '../components/pages/auth/auth'
-import { Registration } from '../components/pages/registration/registration'
+import { Auth } from '../components/auth/auth'
+import { Registration } from '../components/registration/registration'
 import { api } from '../api'
 import jwtDecode from 'jwt-decode'
 

@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import s from './auth.module.scss'
 import { SubmitHandler, useForm } from 'react-hook-form'
-import { Loader } from '../../shared/loader/loader'
-import { authStore } from '../../../store/auth-store'
+import { Loader } from '../shared/loader/loader'
+import { authStore } from '../../store/auth-store'
 import { NavLink, useHistory } from 'react-router-dom'
-import { ErrorDisplay } from '../../shared/error-display/error-display'
+import { ErrorDisplay } from '../shared/error-display/error-display'
 import { GoogleLogin } from 'react-google-login'
-import GitHubLogo from '../../../images/icon/Octocat.png'
+import GitHubLogo from '../../images/icon/Octocat.png'
 
 export type Auth = {
   login: string

@@ -2,9 +2,9 @@ import React, { useEffect, useState } from 'react'
 import s from './registration.module.scss'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { NavLink, useHistory } from 'react-router-dom'
-import { authStore } from '../../../store/auth-store'
+import { authStore } from '../../store/auth-store'
 import { GoogleLogin } from 'react-google-login'
-import GitHubLogo from '../../../images/icon/Octocat.png'
+import GitHubLogo from '../../images/icon/Octocat.png'
 
 export type Registration = {
   name: string
