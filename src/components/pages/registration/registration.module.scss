@@ -1,19 +1,20 @@
 .registration {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  justify-content: center;
   border-radius: 20px;
   padding: 25px;
-  margin-top: 20px;
+  margin: 0 auto;
+  max-width: 500px;
   background: rgba(#fff, .5);
   box-shadow: 10px 10px 21px rgba(255, 255, 255, .3), -10px -10px 21px rgba(0, 0, 0, .1);
-
   @media (max-width: 500px) {
     border-radius: 0;
-    box-shadow: none;
     padding: 0;
-    margin: 0;
+    margin: 0 20px;
+    justify-content: start;
     background: transparent;
+    box-shadow: none;
     height: 100%;
     align-items: center;
   }
@@ -104,7 +105,6 @@
   display: flex;
   flex-direction: column;
   font-size: 25px;
-  max-width: 400px;
   width: 100%;
   margin-top: 10px;
   @media (max-width: 400px) {
@@ -128,13 +128,14 @@
     border: 1px solid rgba(222, 167, 128, 0.833);
     outline: none;
     font-size: 18px;
-    width: 280px;
     background: rgba(#fff, .5);
     margin: 10px 0;
     transition: .5s ease-in;
+
     @media (min-width: 331px) {
       width: 100%;
     }
+
     @media (max-width: 250px) {
       width: 190px;
     }

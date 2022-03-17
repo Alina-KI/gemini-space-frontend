@@ -1,7 +1,7 @@
 .container{
     max-width: 186px;
     min-width: 177px;
-    border: rgba(62, 73, 67, 0.5) 1px solid;
+    border: rgb(222, 167, 128) 2px solid;
     border-radius: 20px;
     text-align: center;
     padding: 20px 10px;
@@ -31,7 +31,11 @@
     }
 }
 .el:hover{
-    border-radius: 10px;
-    border: rgb(188, 183, 145) 1px solid;
+    border-bottom: rgb(188, 183, 145) 1px solid;
     color: rgb(175, 56, 48);
+}
+.elActive{
+    transition: 1s;
+    background: rgba(175, 56, 48, .1);
+    border-radius: 10px;
 }
