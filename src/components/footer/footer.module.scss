@@ -35,8 +35,8 @@
         transition: .5s ease-in;
 
         .icon {
-          width: 40px;
-          height: 40px;
+          width: 30px;
+          height: 30px;
           transition-delay: .3s;
           z-index: 9;
         }
@@ -55,8 +55,8 @@
     }
 
     .slider {
-      width: 60px;
-      height: 60px;
+      width: 45px;
+      height: 45px;
       position: absolute;
       left: 50%;
       transform: translateX(-50%);
@@ -68,7 +68,7 @@
     }
 
     .active {
-      transform: translateY(-67%);
+      transform: translateY(-80%);
       z-index: 1;
 
       .text {

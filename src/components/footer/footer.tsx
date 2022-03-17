@@ -11,11 +11,14 @@ import cellActive from '../../images/menuIcon/cellActive.svg'
 import chatActive from '../../images/menuIcon/chatActive.svg'
 import settingActive from '../../images/menuIcon/settingActive.svg'
 import { useIsLoadingPage } from '../../hooks/use-is-loading-page'
+import { NavLink } from 'react-router-dom'
+import { authStore } from '../../store/auth-store'
 
 export const Footer = () => {
   const isLoadingPage = useIsLoadingPage()
   const [activeLink, setActiveLink] = useState('Home')
   const [pos, setPos] = useState(10)
+  const user = authStore.user
 
   return (
     <div className={s.footer}>
@@ -25,49 +28,49 @@ export const Footer = () => {
       {isLoadingPage &&
       <div className={s.containerMenu}>
         <div className={`${s.list} ${activeLink === 'Home' ? `${s.active}` : ''}`}>
-          <a className={s.link} href="#" onClick={() => {
+          <NavLink className={s.link} to="/news" onClick={() => {
             setActiveLink('Home')
             setPos(10)
           }}>
             <img className={s.icon} src={activeLink === 'Home' ? homeActive : home} alt="Home" />
             <span className={s.text}>Home</span>
-          </a>
+          </NavLink>
         </div>
         <div className={`${s.list} ${activeLink === 'Profile' ? `${s.active}` : ''}`}>
-          <a className={s.link} href="#" onClick={() => {
+          <NavLink className={s.link} to={`/user/${user?.login}`} onClick={() => {
             setActiveLink('Profile')
             setPos(30)
           }}>
             <img className={s.icon} src={activeLink === 'Profile' ? personActive : person} alt="Profile" />
             <span className={s.text}>Profile</span>
-          </a>
+          </NavLink>
         </div>
         <div className={`${s.list} ${activeLink === 'Cell' ? `${s.active}` : ''}`}>
-          <a className={s.link} href="#" onClick={() => {
+          <NavLink className={s.link} to="/gallery" onClick={() => {
             setActiveLink('Cell')
             setPos(50)
           }}>
             <img className={s.icon} src={activeLink === 'Cell' ? cellActive : cell} alt="Cell" />
             <span className={s.text}>Cell</span>
-          </a>
+          </NavLink>
         </div>
         <div className={`${s.list} ${activeLink === 'Chat' ? `${s.active}` : ''}`}>
-          <a className={s.link} href="#" onClick={() => {
+          <NavLink className={s.link} to={`/message/${user?.login}`} onClick={() => {
             setActiveLink('Chat')
             setPos(70)
           }}>
             <img className={s.icon} src={activeLink === 'Chat' ? chatActive : chat} alt="Chat" />
             <span className={s.text}>Chat</span>
-          </a>
+          </NavLink>
         </div>
         <div className={`${s.list} ${activeLink === 'Setting' ? `${s.active}` : ''}`}>
-          <a className={s.link} href="#" onClick={() => {
+          <NavLink className={s.link} to="/setting" onClick={() => {
             setActiveLink('Setting')
             setPos(90)
           }}>
             <img className={s.icon} src={activeLink === 'Setting' ? settingActive : setting} alt="Setting" />
             <span className={s.text}>Setting</span>
-          </a>
+          </NavLink>
         </div>
         <div className={s.slider} style={{ left: `${pos}%` }}/>
       </div>

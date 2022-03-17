@@ -14,7 +14,7 @@ export const Routes = () => {
     <Switch>
       <Route path="/user/:login" component={MyPage} exact />
       <Route path="/friends" component={Friends} exact />
-      <Route path="/message" component={Message} exact />
+      <Route path="/message/:login" component={Message} exact />
       <Route path="/auth" component={AuthPage} exact />
       <Route path="/registration" component={Registration} exact />
       <Route path="/gallery" component={Gallery} exact />
