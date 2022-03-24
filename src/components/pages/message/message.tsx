@@ -2,11 +2,23 @@ import React, { useEffect } from 'react'
 import s from './message.module.scss'
 import { socketStore } from '../../../store/socket-store'
 import image from '../../../images/2.jpg'
+import { dialogsStore } from '../../../store/dialogs-store'
+import { useParams } from 'react-router-dom'
+import { observer } from 'mobx-react-lite'
 
-export const Message = () => {
+export const Message = observer(() => {
+  const { dialogId } = useParams<{ dialogId: string }>()
+
   useEffect(() => {
     socketStore.openSocket()
-  },[])
+  }, [])
+
+  useEffect(() => {
+    dialogsStore.enterDialog(dialogId).then()
+
+    return () => dialogsStore.exitDialog()
+  }, [dialogId])
+
 
   return (
     <div className={s.container}>
@@ -110,4 +122,4 @@ export const Message = () => {
       </form>
     </div>
   )
-}
+})
