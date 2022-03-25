@@ -21,7 +21,7 @@ export const AuthPage = () => {
   const history = useHistory()
   const { register, handleSubmit, formState: { errors } } = useForm<Auth>()
   const onSubmit: SubmitHandler<Auth> = data => {
-    authStore.login(data).then(() => history.push('/user'))
+    authStore.login(data).then(() => history.push(`/user/${authStore.user?.login}`))
   }
 
   useEffect(() => {

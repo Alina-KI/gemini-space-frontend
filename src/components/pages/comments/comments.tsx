@@ -1,9 +1,9 @@
 import React, { useEffect, useRef, useState } from 'react'
 import s from './comments.module.css'
-import ava from '../../../../images/13.jpg'
-import image from '../../../../images/ornaments-for-comments/tracery.svg'
-import frameTop from '../../../../images/ornaments-for-comments/frame-one.svg'
-import frameBottom from '../../../../images/ornaments-for-comments/frame-two.svg'
+import ava from '../../../images/13.jpg'
+import image from '../../../images/ornaments-for-comments/tracery.svg'
+import frameTop from '../../../images/ornaments-for-comments/frame-one.svg'
+import frameBottom from '../../../images/ornaments-for-comments/frame-two.svg'
 
 
 type Props = {

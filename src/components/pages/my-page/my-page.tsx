@@ -3,8 +3,8 @@ import s from './my-page.module.scss'
 import avatar from '../../../images/1.jpg'
 import setting from '../../../images/setting/setting.png'
 import { NavLink } from 'react-router-dom'
-import { Gallery } from './gallery/gallery'
-import { Comments } from './comments/comments'
+import { MiniGallery } from './mini-gallery/mini-gallery'
+import { Comments } from '../comments/comments'
 import { authStore } from '../../../store/auth-store'
 
 export const MyPage = () => {
@@ -52,7 +52,7 @@ export const MyPage = () => {
           <NavLink to="/setting" className={s.text}><span className={s.settingText}>{settingText}</span></NavLink>
         </div>
       </div>
-      <Gallery />
+      <MiniGallery />
       <div style={{ marginLeft: '10px' }}>
         <Comments text={'Hi'} />
         <Comments text={'Hello'} />
