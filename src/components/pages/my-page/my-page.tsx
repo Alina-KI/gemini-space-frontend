@@ -6,8 +6,9 @@ import { NavLink } from 'react-router-dom'
 import { MiniGallery } from './mini-gallery/mini-gallery'
 import { Comments } from '../comments/comments'
 import { authStore } from '../../../store/auth-store'
+import { observer } from 'mobx-react-lite'
 
-export const MyPage = () => {
+export const MyPage = observer(() => {
   const user = authStore.user
   const [settingText, setSettingText] = useState('Setting')
   const [width, setWidth] = useState<number | undefined>(undefined)
@@ -80,4 +81,4 @@ export const MyPage = () => {
       </div>
     </div>
   )
-}
+})

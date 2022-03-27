@@ -8,8 +8,9 @@ import { NavLink, useLocation } from 'react-router-dom'
 import { Navbar } from '../navbar/navbar'
 import { authStore } from '../../store/auth-store'
 import { useIsLoadingPage } from '../../hooks/use-is-loading-page'
+import { observer } from 'mobx-react-lite'
 
-export const Header = () => {
+export const Header = observer(() => {
   const [nameProject, setNameProject] = useState('GS')
   const [settingText, setSettingText] = useState('What are you looking for?')
   const [width, setWidth] = useState<number | undefined>(undefined)
@@ -87,4 +88,4 @@ export const Header = () => {
       </div>
     </header>
   )
-}
+})

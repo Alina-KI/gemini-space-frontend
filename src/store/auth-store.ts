@@ -113,6 +113,23 @@ class AuthStore {
     //   .finally(() => this.isLoading = false)
   }
 
+  checkAuth(){
+    if (localStorage.getItem('user')) {
+      const token: string | null = localStorage.getItem('user')
+      if (token !== null) {
+        const userLogin = jwtDecode<{login: string}>(token).login
+        api.get(`/user/getOne/${userLogin}`)
+          .then(res => {
+            this.user = res.data
+            console.log(this.user)
+          })
+          .catch(error => {
+            return error.data
+          })
+      }
+    }
+  }
+
 }
 
 export const authStore = new AuthStore()

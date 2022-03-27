@@ -21,7 +21,7 @@ export const AuthPage = () => {
   const history = useHistory()
   const { register, handleSubmit, formState: { errors } } = useForm<Auth>()
   const onSubmit: SubmitHandler<Auth> = data => {
-    authStore.login(data).then(() => history.push(`/user/${authStore.user?.login}`))
+    authStore.login(data).then(() => history.push(`/${authStore.user?.login}`))
   }
 
   useEffect(() => {
@@ -54,7 +54,7 @@ export const AuthPage = () => {
       await authStore.registration(GoogleAuth)
     }
     await authStore.login(GoogleAuth)
-    history.push(`/user/${GoogleAuth.login}`)
+    history.push(`/${GoogleAuth.login}`)
   }
 
   const GithubClick = () => {
