@@ -10,6 +10,10 @@ import personActive from '../../images/menuIcon/personActive.svg'
 import cellActive from '../../images/menuIcon/cellActive.svg'
 import chatActive from '../../images/menuIcon/chatActive.svg'
 import settingActive from '../../images/menuIcon/settingActive.svg'
+import appGallery from '../../images/footer/appGallery.svg'
+import appStore from '../../images/footer/appStore.svg'
+import googlePlay from '../../images/footer/googlePlay.svg'
+import windowsStore from '../../images/footer/windowsStore.svg'
 import { useIsLoadingPage } from '../../hooks/use-is-loading-page'
 import { NavLink } from 'react-router-dom'
 import { authStore } from '../../store/auth-store'
@@ -23,7 +27,30 @@ export const Footer = () => {
   return (
     <div className={s.footer}>
       <div className={s.containerFooter}>
-        <div className={s.text}>Footer</div>
+        <div className={s.footer__subscribe}>
+          <h1 className={s.title}>Subscribe</h1>
+          <p className={s.description}>Subscribe to stay tuned for new web design and latest updates. Let's do it!</p>
+          <form className={s.subscribe__form}>
+            <input className={s.subscribe__form_input} type="text" placeholder="Enter your email Address"/>
+            <button className={s.subscribe__form_button}>Subscribe</button>
+          </form>
+        </div>
+        <div className={s.footer__menu}>
+          <NavLink className={s.footer__menu_link} to="/news">Github</NavLink>
+          <NavLink className={s.footer__menu_link} to="/news">Twitter</NavLink>
+          <NavLink className={s.footer__menu_link} to="/news">Telegram</NavLink>
+          <NavLink className={s.footer__menu_link} to="/news">Vk</NavLink>
+        </div>
+        <div className={s.footer__icon}>
+          <img className={s.footer__icon_image} src={googlePlay} alt="icon" />
+          <img className={s.footer__icon_image} src={appStore} alt="icon" />
+          <img className={s.footer__icon_image} src={appGallery} alt="icon" />
+          <img className={s.footer__icon_image} src={windowsStore} alt="icon" />
+        </div>
+        <div className={s.footer__info}>
+          <p className={s.footer__logo}>Gemini Space</p>
+          <p className={s.footer__text}>© 2022 All Rights Reserved</p>
+        </div>
       </div>
       {isLoadingPage &&
       <div className={s.containerMenu}>

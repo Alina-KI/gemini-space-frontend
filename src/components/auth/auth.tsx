@@ -6,7 +6,7 @@ import { authStore } from '../../store/auth-store'
 import { NavLink, useHistory } from 'react-router-dom'
 import { ErrorDisplay } from '../shared/error-display/error-display'
 import { GoogleLogin } from 'react-google-login'
-import GitHubLogo from '../../images/icon/Octocat.png'
+import GitHubLogo from '../../images/icon-social/Octocat.png'
 
 export type Auth = {
   login: string

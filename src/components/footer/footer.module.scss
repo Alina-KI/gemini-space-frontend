@@ -1,17 +1,127 @@
+@import "src/variables";
 .footer {
   width: 100%;
   margin-top: 30px;
-  background: #424c4c;
-  color: #bad9d9;
+  background: linear-gradient($header-background 1%, $footer-background 99%);
+  //background: linear-gradient(#9198e5 1%, $footer-background 99%);
+  color: $footer-color;
 
   .containerFooter {
-    margin: 0 auto;
-    text-align: center;
+    margin: 20px auto;
     position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    row-gap: 10px;
 
-    .text {
-      font-size: 20px;
+    .footer__subscribe {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px 60px;
+      border-radius: 10px;
+      border: 1px solid $footer-color;
+      display: flex;
+      flex-direction: column;
+      row-gap: 20px;
+      justify-content: center;
+      align-items: center;
+
+      .title {
+        text-decoration: none;
+        font-size: 22px;
+        color: #bad9d9;
+        margin: 0 auto;
+      }
+
+      .subscribe__form {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+
+        .subscribe__form_input {
+          font-family: "Viaoda Libre", cursive;
+          border: none;
+          border-radius: 10px 0 0 10px;
+          font-size: 16px;
+          padding: 5px 10px;
+          max-width: 300px;
+          width: 100%;
+          outline: none;
+          color: #424c4c;
+          background: rgba(#fff, .7);
+          transition: 1s;
+        }
+
+        .subscribe__form_input:hover, .subscribe__form_input:focus {
+          background: white;
+        }
+
+        .subscribe__form_button {
+          font-size: 16px;
+          padding: 5px 10px;
+          font-family: "Viaoda Libre", cursive;
+          border-radius: 0 10px 10px 0;
+          outline: none;
+          border: none;
+          background: $footer-color;
+          color: $footer-background;
+        }
+      }
+
+      @media (max-width: 1000px) {
+        border: none;
+      }
     }
+
+    .footer__menu {
+      margin-top: 10px;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      align-items: center;
+      justify-content: space-evenly;
+      width: 100%;
+
+      .footer__menu_link {
+        text-decoration: none;
+        color: $footer-color;
+        font-size: 18px;
+      }
+    }
+
+    .footer__icon {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-evenly;
+      width: 100%;
+
+      .footer__icon_image {
+        max-height: 50px;
+      }
+    }
+
+    .footer__info {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-evenly;
+      align-items: center;
+      width: 100%;
+
+      .footer__logo {
+        font-size: 22px;
+      }
+
+      .footer__text {
+        font-size: 12px;
+      }
+    }
+
   }
 
   .containerMenu {
@@ -45,7 +155,7 @@
           position: absolute;
           text-decoration: none;
           font-size: 22px;
-          color: #fff;
+          color: white;
           opacity: 0;
           z-index: 9;
           transition-delay: .3s;
@@ -61,7 +171,7 @@
       left: 50%;
       transform: translateX(-50%);
       top: -70%;
-      background: #576464;
+      background: $footer-background;
       box-shadow: 0 0 0 10px rgb(212, 206, 194);
       transition: .5s ease-in;
       border-radius: 50%;

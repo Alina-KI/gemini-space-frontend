@@ -41,8 +41,8 @@ import picture37 from   '../../../images/carts/21.png'
 
 export const Gallery = () => {
   return (
-    <div>
-      <h1>Gallery</h1>
+    <div className={s.gallery}>
+      <h1 className={s.title}>Gallery</h1>
       <div className={s.container}>
         {/*{images.map(value => {*/}
         {/*  console.log(value)*/}

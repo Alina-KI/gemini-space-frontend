@@ -1,8 +1,9 @@
-h1{
+.title {
   margin-bottom: 25px;
   color: #2e2b26;
   border-bottom: 1px solid rgba(175, 56, 48, 0.733);
 }
+
 .container {
   column-count: 4;
   column-gap: 15px;
@@ -29,10 +30,11 @@ h1{
       border-radius: 20px;
     }
   }
-  .content:hover{
+
+  .content:hover {
     cursor: pointer;
 
-    &::after{
+    &::after {
       content: 'Open';
       display: inline-block;
       position: absolute;
@@ -42,7 +44,8 @@ h1{
       color: white;
       font-size: 30px;
     }
-    &::before{
+
+    &::before {
       content: '';
       display: inline-block;
       position: absolute;
