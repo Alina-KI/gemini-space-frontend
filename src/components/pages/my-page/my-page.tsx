@@ -32,7 +32,7 @@ export const MyPage = () => {
         <div className={s.dataUser}>
           <div className={s.avatar} style={{ backgroundImage: `url("${avatar}")` }} />
           <div className={s.name_data}>
-            <NavLink to={`/user/${user?.login}`} className={s.NameUser}>
+            <NavLink to={`/${user?.login}`} className={s.NameUser}>
               {user?.name} {user?.surname} {user?.lastname}
             </NavLink>
             {user?.dateOfBirth === null ?
@@ -48,8 +48,8 @@ export const MyPage = () => {
           </div>
         </div>
         <div className={s.setting}>
-          <NavLink to="/setting" className={s.image}><img className={s.settingImage} src={setting} alt="Setting" /></NavLink>
-          <NavLink to="/setting" className={s.text}><span className={s.settingText}>{settingText}</span></NavLink>
+          <NavLink to={`/${user?.login}/setting`} className={s.image}><img className={s.settingImage} src={setting} alt="Setting" /></NavLink>
+          <NavLink to={`/${user?.login}/setting`} className={s.text}><span className={s.settingText}>{settingText}</span></NavLink>
         </div>
       </div>
       <MiniGallery />

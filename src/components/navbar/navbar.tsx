@@ -12,14 +12,14 @@ export const Navbar = ({ setIsActive }: Props) => {
 
   return (
     <ul className={s.container}>
-      <li className={s.component}><NavLink activeClassName={s.elActive} onClick={()=>{ setIsActive(isActive => !isActive) }} className={s.el} to={`/user/${user?.login}`}>GS Page</NavLink></li>
+      <li className={s.component}><NavLink activeClassName={s.elActive} onClick={()=>{ setIsActive(isActive => !isActive) }} className={s.el} to={`/${user?.login}`}>GS Page</NavLink></li>
       <li className={s.component}><NavLink activeClassName={s.elActive} onClick={()=>{ setIsActive(isActive => !isActive) }} className={s.el} to="/news">News for GS</NavLink></li>
-      <li className={s.component}><NavLink activeClassName={s.elActive} onClick={()=>{ setIsActive(isActive => !isActive) }} className={s.el} to={`/message/${user?.login}`}>Message</NavLink></li>
-      <li className={s.component}><NavLink activeClassName={s.elActive} onClick={()=>{ setIsActive(isActive => !isActive) }} className={s.el} to="/friends">Friends</NavLink></li>
-      <li className={s.component}><NavLink activeClassName={s.elActive} onClick={()=>{ setIsActive(isActive => !isActive) }} className={s.el} to="/community">Community</NavLink></li>
-      <li className={s.component}><NavLink activeClassName={s.elActive} onClick={()=>{ setIsActive(isActive => !isActive) }} className={s.el} to="/gallery">Gallery</NavLink></li>
+      <li className={s.component}><NavLink activeClassName={s.elActive} onClick={()=>{ setIsActive(isActive => !isActive) }} className={s.el} to={`/${user?.login}/message/${user?.login}`}>Message</NavLink></li>
+      <li className={s.component}><NavLink activeClassName={s.elActive} onClick={()=>{ setIsActive(isActive => !isActive) }} className={s.el} to={`/${user?.login}/friends`}>Friends</NavLink></li>
+      <li className={s.component}><NavLink activeClassName={s.elActive} onClick={()=>{ setIsActive(isActive => !isActive) }} className={s.el} to={`/${user?.login}/community`}>Community</NavLink></li>
+      <li className={s.component}><NavLink activeClassName={s.elActive} onClick={()=>{ setIsActive(isActive => !isActive) }} className={s.el} to={`/${user?.login}/gallery`}>Gallery</NavLink></li>
       <li className={s.component}><NavLink activeClassName={s.elActive} onClick={()=>{ setIsActive(isActive => !isActive) }} className={s.el} to="/music">Music for GS</NavLink></li>
-      <li className={s.component}><NavLink activeClassName={s.elActive} onClick={()=>{ setIsActive(isActive => !isActive) }} className={s.el} to="/setting">Setting</NavLink></li>
+      <li className={s.component}><NavLink activeClassName={s.elActive} onClick={()=>{ setIsActive(isActive => !isActive) }} className={s.el} to={`/${user?.login}/setting`}>Setting</NavLink></li>
     </ul>
   )
 }

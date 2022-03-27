@@ -37,7 +37,7 @@ export const Footer = () => {
           </NavLink>
         </div>
         <div className={`${s.list} ${activeLink === 'Profile' ? `${s.active}` : ''}`}>
-          <NavLink className={s.link} to={`/user/${user?.login}`} onClick={() => {
+          <NavLink className={s.link} to={`/${user?.login}`} onClick={() => {
             setActiveLink('Profile')
             setPos(30)
           }}>
@@ -46,7 +46,7 @@ export const Footer = () => {
           </NavLink>
         </div>
         <div className={`${s.list} ${activeLink === 'Cell' ? `${s.active}` : ''}`}>
-          <NavLink className={s.link} to="/gallery" onClick={() => {
+          <NavLink className={s.link} to={`/${user?.login}/gallery`} onClick={() => {
             setActiveLink('Cell')
             setPos(50)
           }}>
@@ -55,7 +55,7 @@ export const Footer = () => {
           </NavLink>
         </div>
         <div className={`${s.list} ${activeLink === 'Chat' ? `${s.active}` : ''}`}>
-          <NavLink className={s.link} to={`/message/${user?.login}`} onClick={() => {
+          <NavLink className={s.link} to={`/${user?.login}/message/${user?.login}`} onClick={() => {
             setActiveLink('Chat')
             setPos(70)
           }}>
@@ -64,7 +64,7 @@ export const Footer = () => {
           </NavLink>
         </div>
         <div className={`${s.list} ${activeLink === 'Setting' ? `${s.active}` : ''}`}>
-          <NavLink className={s.link} to="/setting" onClick={() => {
+          <NavLink className={s.link} to={`/${user?.login}/setting`} onClick={() => {
             setActiveLink('Setting')
             setPos(90)
           }}>

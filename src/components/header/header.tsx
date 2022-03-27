@@ -63,8 +63,8 @@ export const Header = () => {
           </div>
         </div>
         <div className={s.logo_name}>
-          <NavLink to={`/user/${user?.login}`}><img className={s.logo} src={logo} alt="Logo" /></NavLink>
-          <span className={s.header_name_project}><NavLink to={`/user/${user?.login}`}>{nameProject}</NavLink></span>
+          <NavLink to={`/${user?.login}`}><img className={s.logo} src={logo} alt="Logo" /></NavLink>
+          <span className={s.header_name_project}><NavLink to={`/${user?.login}`}>{nameProject}</NavLink></span>
         </div>
         {isLoadingPage &&
         <div className={s.search}>
@@ -78,8 +78,8 @@ export const Header = () => {
         {user === null ?
           <div className={s.login}><NavLink to="/auth">Login</NavLink></div>
           :
-          <div><span className={s.login_name}><NavLink to={`/user/${user.login}`}>{user.name} {user.surname}</NavLink></span>
-            <NavLink to={`/user/${user.login}`}>
+          <div><span className={s.login_name}><NavLink to={`/${user.login}`}>{user.name} {user.surname}</NavLink></span>
+            <NavLink to={`/${user.login}`}>
               <div className={s.login_logo} style={{ backgroundImage: `url("${avatar}")` }} />
             </NavLink>
           </div>
