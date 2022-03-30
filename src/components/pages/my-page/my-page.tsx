@@ -7,6 +7,9 @@ import { MiniGallery } from './mini-gallery/mini-gallery'
 import { Comments } from '../comments/comments'
 import { authStore } from '../../../store/auth-store'
 import { observer } from 'mobx-react-lite'
+import { newsStore } from '../../../store/news-store'
+import { Loader } from '../../shared/loader/loader'
+import { ErrorDisplay } from '../../shared/error-display/error-display'
 
 export const MyPage = observer(() => {
   const user = authStore.user
@@ -26,6 +29,9 @@ export const MyPage = observer(() => {
     if (width && width <= 500) setSettingText('')
     if (width && width > 500) setSettingText('Setting')
   }, [width])
+
+  if (newsStore.isLoading) return <Loader />
+  if (newsStore.error) return <ErrorDisplay message={'Error'}/>
 
   return (
     <div className={s.myPage}>

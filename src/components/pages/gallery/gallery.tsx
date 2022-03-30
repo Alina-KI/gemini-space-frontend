@@ -37,9 +37,16 @@ import picture34 from   '../../../images/carts/18.png'
 import picture35 from   '../../../images/carts/19.png'
 import picture36 from   '../../../images/carts/20.png'
 import picture37 from   '../../../images/carts/21.png'
+import { newsStore } from '../../../store/news-store'
+import { Loader } from '../../shared/loader/loader'
+import { ErrorDisplay } from '../../shared/error-display/error-display'
+import { observer } from 'mobx-react-lite'
 
 
-export const Gallery = () => {
+export const Gallery = observer(() => {
+  if (newsStore.isLoading) return <Loader />
+  if (newsStore.error) return <ErrorDisplay message={'Error'}/>
+
   return (
     <div className={s.gallery}>
       <h1 className={s.title}>Gallery</h1>
@@ -209,5 +216,5 @@ export const Gallery = () => {
       </div>
     </div>
   )
-}
+})
 

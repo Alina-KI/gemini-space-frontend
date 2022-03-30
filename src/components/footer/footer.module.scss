@@ -15,6 +15,10 @@
     justify-content: center;
     row-gap: 10px;
 
+    .footer__show {
+      display: none !important;
+    }
+
     .footer__subscribe {
       max-width: 800px;
       margin: 0 auto;

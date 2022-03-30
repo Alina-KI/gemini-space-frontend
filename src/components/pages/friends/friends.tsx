@@ -8,9 +8,16 @@ import avatar5 from '../../../images/13.jpg'
 import avatar6 from '../../../images/5.jpg'
 import avatar7 from '../../../images/3.jpg'
 import avatar8 from '../../../images/8.jpg'
+import { observer } from 'mobx-react-lite'
+import { newsStore } from '../../../store/news-store'
+import { Loader } from '../../shared/loader/loader'
+import { ErrorDisplay } from '../../shared/error-display/error-display'
 // import { UserList } from './user-list/user-list'
 
-export const Friends = () => {
+export const Friends = observer(() => {
+  if (newsStore.isLoading) return <Loader />
+  if (newsStore.error) return <ErrorDisplay message={'Error'}/>
+
   return (
     <div className={s.container}>
       {/*<UserList />*/}
@@ -98,4 +105,4 @@ export const Friends = () => {
       </div>
     </div>
   )
-}
+})

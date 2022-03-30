@@ -2,8 +2,15 @@ import React from 'react'
 import s from './community.module.scss'
 import photo from '../../../images/11.jpg'
 import { NavLink } from 'react-router-dom'
+import { newsStore } from '../../../store/news-store'
+import { Loader } from '../../shared/loader/loader'
+import { ErrorDisplay } from '../../shared/error-display/error-display'
+import { observer } from 'mobx-react-lite'
 
-export const Community = () => {
+export const Community = observer(() => {
+  if (newsStore.isLoading) return <Loader />
+  if (newsStore.error) return <ErrorDisplay message={'Error'}/>
+
   return (
     <div className={s.container}>
       <div className={s.card}>
@@ -32,4 +39,4 @@ export const Community = () => {
       </div>
     </div>
   )
-}
+})

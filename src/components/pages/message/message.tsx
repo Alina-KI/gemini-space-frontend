@@ -5,6 +5,9 @@ import image from '../../../images/2.jpg'
 import { dialogsStore } from '../../../store/dialogs-store'
 import { useParams } from 'react-router-dom'
 import { observer } from 'mobx-react-lite'
+import { newsStore } from '../../../store/news-store'
+import { Loader } from '../../shared/loader/loader'
+import { ErrorDisplay } from '../../shared/error-display/error-display'
 
 export const Message = observer(() => {
   const { dialogId } = useParams<{ dialogId: string }>()
@@ -19,6 +22,8 @@ export const Message = observer(() => {
     return () => dialogsStore.exitDialog()
   }, [dialogId])
 
+  if (newsStore.isLoading) return <Loader />
+  if (newsStore.error) return <ErrorDisplay message={'Error'}/>
 
   return (
     <div className={s.container}>
