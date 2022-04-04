@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useRef } from 'react'
 import s from './app.module.scss'
 import { Header } from './components/header/header'
 import { Navbar } from './components/navbar/navbar'
@@ -7,27 +7,30 @@ import { Routes } from './routes'
 import { newsStore } from './store/news-store'
 import { authStore } from './store/auth-store'
 import { useIsLoadingPage } from './hooks/use-is-loading-page'
+import { useRefDimensions } from './hooks/use-ref-dimensions'
 
 export const App = () => {
-  const isLoadingPage = useIsLoadingPage()
-
   useEffect(() => {
     authStore.checkAuth()
   }, [])
 
+  const isLoadingPage = useIsLoadingPage()
+  const containerRef = useRef<HTMLDivElement>(null)
+  const { height } = useRefDimensions(containerRef)
+
   return (
     <div className={s.app}>
       <Header />
-      <div className={`${ s.container } ${!isLoadingPage ? s.container_auth : ''}`}>
+      <div className={`${s.container} ${!isLoadingPage ? s.container_auth : ''}`}>
         {isLoadingPage &&
         <div className={s.navbar}>
           {!newsStore.isLoading && <Navbar setIsActive={() => null} />}
         </div>}
-        <div className={s.routeContainer}>
+        <div ref={containerRef} className={s.routeContainer}>
           <Routes />
         </div>
       </div>
-      <Footer />
+      <Footer smallAppHeight={height < 700} />
     </div>
   )
 }

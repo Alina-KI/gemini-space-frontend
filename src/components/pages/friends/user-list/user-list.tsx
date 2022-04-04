@@ -1,12 +1,17 @@
 import React from 'react'
 import s from './user-list.module.scss'
-import { useUsers } from '../../../../hooks/use-users'
 import { Loader } from '../../../shared/loader/loader'
 import avatar from '../../../../images/17.jpg'
 import { ErrorDisplay } from '../../../shared/error-display/error-display'
+import { User } from '../../../../types/user'
 
-export const UserList = () => {
-  const { users, isLoading, error } = useUsers()
+type Props = {
+  users: User[]
+  isLoading: boolean
+  error: string
+}
+
+export const UserList = ({users, isLoading,error}: Props) => {
 
   if (isLoading) return <Loader />
   if (error) return <ErrorDisplay message={'Error'}/>

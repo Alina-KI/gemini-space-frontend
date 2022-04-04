@@ -1,8 +1,31 @@
+@import "src/variables";
+
 .container{
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   align-items: center;
+
+  .linkFriends{
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+
+    .link {
+      text-decoration: none;
+      color: black;
+      padding: 0 15px;
+      border-bottom: 1px solid transparent;
+      transition: 1s ease-in-out;
+    }
+
+    .link:hover{
+      color: $header-background;
+      border-bottom: 1px solid $header-background;
+    }
+  }
 
   .card{
     display: flex;

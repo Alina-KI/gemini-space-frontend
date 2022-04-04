@@ -14,22 +14,26 @@ import appGallery from '../../images/footer/appGallery.svg'
 import appStore from '../../images/footer/appStore.svg'
 import googlePlay from '../../images/footer/googlePlay.svg'
 import windowsStore from '../../images/footer/windowsStore.svg'
-import { useIsLoadingPage } from '../../hooks/use-is-loading-page'
 import { NavLink } from 'react-router-dom'
 import { authStore } from '../../store/auth-store'
 import { observer } from 'mobx-react-lite'
 import { newsStore } from '../../store/news-store'
+import { useIsLoadingPage } from '../../hooks/use-is-loading-page'
 
-export const Footer = observer(() => {
-  const isLoadingPage = useIsLoadingPage()
+type Props = {
+  smallAppHeight: boolean
+}
+
+export const Footer = observer(({ smallAppHeight }: Props) => {
   const [activeLink, setActiveLink] = useState('Home')
+  const isLoadingPage = useIsLoadingPage()
   const [pos, setPos] = useState(10)
   const user = authStore.user
 
   return (
     <div className={s.footer}>
       <div className={s.containerFooter}>
-        <div className={`${!isLoadingPage || newsStore.isLoading ? `${s.footer__show}` : ''} ${s.footer__subscribe}`}>
+        <div className={`${smallAppHeight || newsStore.isLoading ? `${s.footer__show}` : ''} ${s.footer__subscribe}`}>
           <h1 className={s.title}>Subscribe</h1>
           <p className={s.description}>Subscribe to stay tuned for new web design and latest updates. Let's do it!</p>
           <form className={s.subscribe__form}>
@@ -37,13 +41,13 @@ export const Footer = observer(() => {
             <button className={s.subscribe__form_button}>Subscribe</button>
           </form>
         </div>
-        <div className={`${!isLoadingPage || newsStore.isLoading ? `${s.footer__show}` : ''} ${s.footer__menu}`}>
+        <div className={`${smallAppHeight || newsStore.isLoading ? `${s.footer__show}` : ''} ${s.footer__menu}`}>
           <NavLink className={s.footer__menu_link} to="/news">Github</NavLink>
           <NavLink className={s.footer__menu_link} to="/news">Twitter</NavLink>
           <NavLink className={s.footer__menu_link} to="/news">Telegram</NavLink>
           <NavLink className={s.footer__menu_link} to="/news">Vk</NavLink>
         </div>
-        <div className={`${!isLoadingPage || newsStore.isLoading ? `${s.footer__show}` : ''} ${s.footer__icon}`}>
+        <div className={`${smallAppHeight || newsStore.isLoading ? `${s.footer__show}` : ''} ${s.footer__icon}`}>
           <img className={s.footer__icon_image} src={googlePlay} alt="icon" />
           <img className={s.footer__icon_image} src={appStore} alt="icon" />
           <img className={s.footer__icon_image} src={appGallery} alt="icon" />
