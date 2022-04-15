@@ -40,11 +40,16 @@ export const UserList = ({ users, isLoading, error, showAddFriendButton }: Props
               <NavLink to={`/${user.login}`} className={s.nameUser}>{user.surname} {user.name} {user.lastname}</NavLink>
               <span className={s.date}>Date of Birth: 25.12.2000</span>
               <span className={s.town}>Town: Moscow</span>
+              <div className={s.containerButton}>
+                <button onClick={() => writeMessage('2')} className={s.button}>Write message</button>
+                {showAddFriendButton
+                  ?
+                  <button onClick={() => userStore.addToFriends(user)} className={s.button}>Add friends</button>
+                  :
+                  <button onClick={() => userStore.removeFromFriends(user)} className={s.button}>Remove friends</button>
+                }
+              </div>
             </div>
-            {showAddFriendButton &&
-            <button onClick={() => userStore.addToFriends(user)} className={s.button}>Add friends</button>
-            }
-            <button onClick={() => writeMessage('2')} className={s.button}>Write message</button>
           </div>
         )}
     </div>
