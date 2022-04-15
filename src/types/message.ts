@@ -1,4 +1,6 @@
 export type Dialog = {
+  id: string
+  nameTalk: string
 
 }
 

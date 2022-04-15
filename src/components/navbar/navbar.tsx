@@ -14,7 +14,7 @@ export const Navbar = ({ setIsActive }: Props) => {
     <ul className={s.container}>
       <li className={s.component}><NavLink activeClassName={s.elActive} exact={true} onClick={()=>{ setIsActive(isActive => !isActive) }} className={s.el} to={`/${user?.login}`}>GS Page</NavLink></li>
       <li className={s.component}><NavLink activeClassName={s.elActive} onClick={()=>{ setIsActive(isActive => !isActive) }} className={s.el} to="/news">News for GS</NavLink></li>
-      <li className={s.component}><NavLink activeClassName={s.elActive} onClick={()=>{ setIsActive(isActive => !isActive) }} className={s.el} to={`/${user?.login}/message/${user?.login}`}>Message</NavLink></li>
+      <li className={s.component}><NavLink activeClassName={s.elActive} onClick={()=>{ setIsActive(isActive => !isActive) }} className={s.el} to={'/dialogs'}>Message</NavLink></li>
       <li className={s.component}><NavLink activeClassName={s.elActive} onClick={()=>{ setIsActive(isActive => !isActive) }} className={s.el} to={`/${user?.login}/friends`}>Friends</NavLink></li>
       <li className={s.component}><NavLink activeClassName={s.elActive} onClick={()=>{ setIsActive(isActive => !isActive) }} className={s.el} to={`/${user?.login}/community`}>Community</NavLink></li>
       <li className={s.component}><NavLink activeClassName={s.elActive} onClick={()=>{ setIsActive(isActive => !isActive) }} className={s.el} to={`/${user?.login}/gallery`}>Gallery</NavLink></li>

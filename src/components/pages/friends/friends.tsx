@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import s from './friends.module.scss'
 import avatar2 from '../../../images/1.jpg'
 import { observer } from 'mobx-react-lite'
@@ -7,12 +7,16 @@ import { Loader } from '../../shared/loader/loader'
 import { ErrorDisplay } from '../../shared/error-display/error-display'
 import { NavLink } from 'react-router-dom'
 import { authStore } from '../../../store/auth-store'
-// import { UserList } from './user-list/user-list'
+import { UserList } from './user-list/user-list'
+import { userStore } from '../../../store/users-store'
 
 export const Friends = observer(() => {
   const user = authStore.user
-  if (newsStore.isLoading) return <Loader />
-  if (newsStore.error) return <ErrorDisplay message={'Error'}/>
+
+  useEffect(() => {
+    userStore.fetchMyFriends().then()
+  }, [])
+  //TODO: Зайти на страницу друзей и смотреть на query
 
   return (
     <div className={s.container}>
@@ -20,16 +24,16 @@ export const Friends = observer(() => {
         <NavLink className={s.link} to={`/${user?.login}/friends`}>Friends</NavLink>
         <NavLink className={s.link} to="/find-friends">Find friends</NavLink>
       </div>
-      {/*<UserList />*/}
+      <UserList users={userStore.users} isLoading={userStore.isLoading} error={null} />
 
-      <div className={s.card}>
-        <img className={s.img} src={avatar2} alt="avatar" />
-        <div className={s.info}>
-          <span>Req Still</span>
-          <span>Date of Birth: 25.12.2000</span>
-          <span>Town: Moscow</span>
-        </div>
-      </div>
+      {/*<div className={s.card}>*/}
+      {/*  <img className={s.img} src={avatar2} alt="avatar" />*/}
+      {/*  <div className={s.info}>*/}
+      {/*    <span>Req Still</span>*/}
+      {/*    <span>Date of Birth: 25.12.2000</span>*/}
+      {/*    <span>Town: Moscow</span>*/}
+      {/*  </div>*/}
+      {/*</div>*/}
     </div>
   )
 })

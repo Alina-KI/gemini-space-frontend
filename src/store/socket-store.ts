@@ -1,9 +1,8 @@
 import { makeAutoObservable } from 'mobx'
 import { io, Socket } from 'socket.io-client'
-import { receiveMessageOnPort } from 'worker_threads'
 import { dialogsStore } from './dialogs-store'
 import { Dialog, NewMessage } from '../types/message'
-import { log } from 'util'
+import { CreateDialogPayload, CreateGroupDialogPayload } from '../types/dialog'
 
 class SocketStore {
   constructor() {
@@ -43,6 +42,21 @@ class SocketStore {
     return new Promise(resolve => this.socket!.emit(
       'getDialog',
       dialogId,
+      (dialog: Dialog) => resolve(dialog))
+    )
+  }
+
+  createDialog(dialog: CreateDialogPayload): Promise<Dialog> {
+    return new Promise(resolve => this.socket!.emit(
+      'createDialog',
+      dialog,
+      (dialog: Dialog) => resolve(dialog))
+    )
+  }
+  createGroupDialog(dialog: CreateGroupDialogPayload): Promise<Dialog> {
+    return new Promise(resolve => this.socket!.emit(
+      'createGroupDialog',
+      dialog,
       (dialog: Dialog) => resolve(dialog))
     )
   }

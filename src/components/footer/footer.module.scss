@@ -3,6 +3,7 @@
   width: 100%;
   margin-top: 30px;
   background: linear-gradient($header-background 1%, $footer-background 99%);
+  min-height: 60px;
   //background: linear-gradient(#9198e5 1%, $footer-background 99%);
   color: $footer-color;
 
@@ -132,7 +133,10 @@
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    position: relative;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 10px;
 
     .list {
       padding: 10px 0;

@@ -8,13 +8,13 @@ import { User } from '../../../../types/user'
 type Props = {
   users: User[]
   isLoading: boolean
-  error: string
+  error: string | null
 }
 
-export const UserList = ({users, isLoading,error}: Props) => {
+export const UserList = ({ users, isLoading, error }: Props) => {
 
   if (isLoading) return <Loader />
-  if (error) return <ErrorDisplay message={'Error'}/>
+  if (error) return <ErrorDisplay message={'Error'} />
 
   return (
     <div className={s.container}>
@@ -22,7 +22,7 @@ export const UserList = ({users, isLoading,error}: Props) => {
         <div key={user._id} className={s.user}>
           <div className={s.userAvatar}>
             <div>{user.surname} {user.name} {user.lastname}</div>
-            <div className={s.avatar} style={{ backgroundImage: `url("${avatar}")` }}/>
+            <div className={s.avatar} style={{ backgroundImage: `url("${avatar}")` }} />
           </div>
           <div className={s.town}>{user.town}</div>
         </div>

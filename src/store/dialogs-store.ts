@@ -1,37 +1,50 @@
 import { makeAutoObservable } from 'mobx'
 import { Dialog, Message, NewMessage } from '../types/message'
 import { socketStore } from './socket-store'
+import { CreateDialogPayload, CreateGroupDialogPayload } from '../types/dialog'
+import { api } from '../api'
 
 class DialogsStore {
   constructor() {
     makeAutoObservable(this, {}, { autoBind: true })
   }
 
+  dialogs: Dialog[] = []
+
   messages: Message[] = []
-  selectedDialogId: null | string = null
   selectedDialog: null | Dialog = null
 
+  getMyDialogs() {
+    api.get<Dialog[]>('/dialogues')
+      .then(res => this.dialogs = res.data)
+  }
+
+  createDialog(dialog: CreateDialogPayload) {
+    return socketStore.createDialog(dialog)
+  }
+
+  createGroupDialog(dialog: CreateGroupDialogPayload) {
+    return socketStore.createGroupDialog(dialog)
+  }
+
   async enterDialog(dialogId: string) {
-    this.selectedDialogId = dialogId
-    const dialog = await socketStore.getDialog(dialogId)
-    this.selectedDialog = dialog
+    this.selectedDialog = await socketStore.getDialog(dialogId)
   }
 
   exitDialog() {
-    this.selectedDialogId = null
     this.selectedDialog = null
   }
 
   sendMessage(text: string) {
     socketStore.sendMessage({
-      dialogId: this.selectedDialogId!,
+      dialogId: this.selectedDialog!.id,
       date: Date.now(),
       text
     })
   }
 
   handleReceiveMessage(newMessage: NewMessage) {
-    if (newMessage.dialogId === this.selectedDialogId) {
+    if (newMessage.dialogId === this.selectedDialog?.id) {
       this.messages.push(newMessage)
     }
   }

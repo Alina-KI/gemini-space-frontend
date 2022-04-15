@@ -8,10 +8,15 @@ import { newsStore } from './store/news-store'
 import { authStore } from './store/auth-store'
 import { useIsLoadingPage } from './hooks/use-is-loading-page'
 import { useRefDimensions } from './hooks/use-ref-dimensions'
+import { dialogsStore } from './store/dialogs-store'
+import { socketStore } from './store/socket-store'
 
 export const App = () => {
   useEffect(() => {
-    authStore.checkAuth()
+    authStore.checkAuth().then(() => {
+      socketStore.openSocket()
+      dialogsStore.getMyDialogs()
+    })
   }, [])
 
   const isLoadingPage = useIsLoadingPage()

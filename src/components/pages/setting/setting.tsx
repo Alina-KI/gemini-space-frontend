@@ -11,7 +11,8 @@ export const Setting = observer(() => {
 
   return (
     <div className={s.setting}>
-      Setting
+      {/*Setting*/}
+      <ErrorDisplay message="1"/>
     </div>
   )
 })

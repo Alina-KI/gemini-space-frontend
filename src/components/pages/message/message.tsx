@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react'
 import s from './message.module.scss'
-import { socketStore } from '../../../store/socket-store'
 import image from '../../../images/2.jpg'
 import { dialogsStore } from '../../../store/dialogs-store'
 import { useParams } from 'react-router-dom'
@@ -13,10 +12,7 @@ export const Message = observer(() => {
   const { dialogId } = useParams<{ dialogId: string }>()
 
   useEffect(() => {
-    socketStore.openSocket()
-  }, [])
-
-  useEffect(() => {
+    console.log('ЧЕЛ ТЫ', dialogId)
     dialogsStore.enterDialog(dialogId).then()
 
     return () => dialogsStore.exitDialog()

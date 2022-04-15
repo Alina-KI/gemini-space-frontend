@@ -88,7 +88,7 @@ export const Footer = observer(({ smallAppHeight }: Props) => {
           </NavLink>
         </div>
         <div className={`${s.list} ${activeLink === 'Chat' ? `${s.active}` : ''}`}>
-          <NavLink className={s.link} to={`/${user?.login}/message/${user?.login}`} onClick={() => {
+          <NavLink className={s.link} to={'/dialogs'} onClick={() => {
             setActiveLink('Chat')
             setPos(70)
           }}>

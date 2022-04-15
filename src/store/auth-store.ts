@@ -118,7 +118,7 @@ class AuthStore {
       const token: string | null = localStorage.getItem('user')
       if (token !== null) {
         const userLogin = jwtDecode<{login: string}>(token).login
-        api.get(`/user/getOne/${userLogin}`)
+        return api.get(`/user/getOne/${userLogin}`)
           .then(res => {
             this.user = res.data
             console.log(this.user)
@@ -128,6 +128,7 @@ class AuthStore {
           })
       }
     }
+    return Promise.resolve()
   }
 
 }
