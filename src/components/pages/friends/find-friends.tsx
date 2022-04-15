@@ -9,6 +9,7 @@ import { NavLink, useHistory } from 'react-router-dom'
 import avatar1 from '../../../images/11.jpg'
 import { dialogsStore } from '../../../store/dialogs-store'
 import { userStore } from '../../../store/users-store'
+import { UserList } from './user-list/user-list'
 
 export const FindFriends = observer(() => {
 
@@ -18,8 +19,7 @@ export const FindFriends = observer(() => {
     userStore.fetchNotMyFriends().then()
   }, [])
 
-  if (newsStore.isLoading) return <Loader />
-  if (newsStore.error) return <ErrorDisplay message={'Error'} />
+  // if (userStore.isLoading) return <Loader />
 
   const user = authStore.user
 
@@ -34,29 +34,7 @@ export const FindFriends = observer(() => {
         <NavLink className={s.link} to={`/${user?.login}/friends`}>Friends</NavLink>
         <NavLink className={s.link} to="/find-friends">Find friends</NavLink>
       </div>
-
-      {userStore.users.map(user => <div className={s.card}>
-        <img className={s.img} src={avatar1} alt="avatar" />
-        <div className={s.info}>
-          <span>Req Still</span>
-          <span>Date of Birth: 25.12.2000</span>
-          <span>Town: Moscow</span>
-          <button onClick={() => userStore.addToFriends(user)} className={s.addFriend}>Add friends</button>
-          <button onClick={() => writeMessage('2')} className={s.addFriend}>Write message</button>
-        </div>
-      </div>)}
+      <UserList users={userStore.users} isLoading={userStore.isLoading} error={null} showAddFriendButton={true} />
     </div>
   )
 })
-
-
-//<div className={s.card}>
-//         <img className={s.img} src={avatar1} alt="avatar" />
-//         <div className={s.info}>
-//           <span>Req Still</span>
-//           <span>Date of Birth: 25.12.2000</span>
-//           <span>Town: Moscow</span>
-//           <button onClick={() => userStore.addToFriends()} className={s.addFriend}>Add friends</button>
-//           <button onClick={() => writeMessage('2')} className={s.addFriend}>Write message</button>
-//         </div>
-//       </div>

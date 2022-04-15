@@ -1,4 +1,4 @@
-import { makeAutoObservable } from 'mobx'
+import { makeAutoObservable, toJS } from 'mobx'
 import { Auth } from '../components/auth/auth'
 import { Registration } from '../components/registration/registration'
 import { api } from '../api'
@@ -121,7 +121,7 @@ class AuthStore {
         return api.get(`/user/getOne/${userLogin}`)
           .then(res => {
             this.user = res.data
-            console.log(this.user)
+            console.log(toJS(this.user))
           })
           .catch(error => {
             return error.data

@@ -1,32 +1,52 @@
 import React from 'react'
 import s from './user-list.module.scss'
 import { Loader } from '../../../shared/loader/loader'
-import avatar from '../../../../images/17.jpg'
 import { ErrorDisplay } from '../../../shared/error-display/error-display'
 import { User } from '../../../../types/user'
+import { userStore } from '../../../../store/users-store'
+import { dialogsStore } from '../../../../store/dialogs-store'
+import { NavLink, useHistory } from 'react-router-dom'
+import avatar1 from '../../../../images/11.jpg'
 
 type Props = {
   users: User[]
   isLoading: boolean
   error: string | null
+  showAddFriendButton: boolean
 }
 
-export const UserList = ({ users, isLoading, error }: Props) => {
+export const UserList = ({ users, isLoading, error, showAddFriendButton }: Props) => {
+  const history = useHistory()
 
   if (isLoading) return <Loader />
   if (error) return <ErrorDisplay message={'Error'} />
 
+  const writeMessage = (dialogId: string) => {
+    dialogsStore.createDialog({ anotherUserId: dialogId })
+      .then(() => history.push(dialogId))
+  }
+
   return (
     <div className={s.container}>
-      {users.map(user =>
-        <div key={user._id} className={s.user}>
-          <div className={s.userAvatar}>
-            <div>{user.surname} {user.name} {user.lastname}</div>
-            <div className={s.avatar} style={{ backgroundImage: `url("${avatar}")` }} />
-          </div>
-          <div className={s.town}>{user.town}</div>
+      {users.length === 0 
+        ? 
+        <div>
+          0 friends
         </div>
-      )}
+        : users.map(user =>
+          <div key={user._id} className={s.card}>
+            <img className={s.img} src={avatar1} alt="avatar" />
+            <div className={s.info}>
+              <NavLink to={`/${user.login}`} className={s.nameUser}>{user.surname} {user.name} {user.lastname}</NavLink>
+              <span className={s.date}>Date of Birth: 25.12.2000</span>
+              <span className={s.town}>Town: Moscow</span>
+            </div>
+            {showAddFriendButton &&
+            <button onClick={() => userStore.addToFriends(user)} className={s.button}>Add friends</button>
+            }
+            <button onClick={() => writeMessage('2')} className={s.button}>Write message</button>
+          </div>
+        )}
     </div>
   )
 }

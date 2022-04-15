@@ -24,16 +24,7 @@ export const Friends = observer(() => {
         <NavLink className={s.link} to={`/${user?.login}/friends`}>Friends</NavLink>
         <NavLink className={s.link} to="/find-friends">Find friends</NavLink>
       </div>
-      <UserList users={userStore.users} isLoading={userStore.isLoading} error={null} />
-
-      {/*<div className={s.card}>*/}
-      {/*  <img className={s.img} src={avatar2} alt="avatar" />*/}
-      {/*  <div className={s.info}>*/}
-      {/*    <span>Req Still</span>*/}
-      {/*    <span>Date of Birth: 25.12.2000</span>*/}
-      {/*    <span>Town: Moscow</span>*/}
-      {/*  </div>*/}
-      {/*</div>*/}
+      <UserList users={userStore.users} isLoading={userStore.isLoading} error={null} showAddFriendButton={false} />
     </div>
   )
 })
