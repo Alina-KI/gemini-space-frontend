@@ -49,12 +49,13 @@ class AuthStore {
   }
 
   login(data: Auth) {
+    this.logout()
     this.isLoading = true
     return api.post('/user/login', data)
       .then(res => {
         const userLogin = jwtDecode<{login: string}>(res.data.token).login
         localStorage.setItem('user', res.data.token)
-        api.get(`/user/getOne/${userLogin}`)
+        return api.get(`/user/getOne/${userLogin}`)
           .then(res => {
             this.user = res.data
             console.log(this.user)
