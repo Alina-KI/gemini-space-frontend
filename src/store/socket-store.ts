@@ -29,28 +29,22 @@ class SocketStore {
     this.socket.on('exception', function(data) {
       console.log('event', data)
     })
-    this.socket.on('disconnect', function() {
-      console.log('Disconnected')
+    this.socket.on('disconnect', function(data) {
+      console.log('Disconnected', data)
     })
   }
 
   sendMessage(message: NewMessage) {
+    console.log('send')
     this.socket!.emit('sendMessage', message)
-  }
-
-  getDialog(dialogId: string): Promise<Dialog> {
-    return new Promise(resolve => this.socket!.emit(
-      'getDialog',
-      dialogId,
-      (dialog: Dialog) => resolve(dialog))
-    )
   }
 
   createDialog(dialog: CreateDialogPayload): Promise<Dialog> {
     return new Promise(resolve => this.socket!.emit(
       'createDialog',
       dialog,
-      (dialog: Dialog) => resolve(dialog))
+      (dialog: Dialog) => resolve(dialog)
+    )
     )
   }
   createGroupDialog(dialog: CreateGroupDialogPayload): Promise<Dialog> {

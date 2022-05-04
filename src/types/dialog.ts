@@ -1,5 +1,5 @@
 export type CreateDialogPayload = {
-  anotherUserId: string
+  anotherUserLogin: string
 }
 
 export type CreateGroupDialogPayload = {

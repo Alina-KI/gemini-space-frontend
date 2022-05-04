@@ -3,6 +3,8 @@ import { Auth } from '../components/auth/auth'
 import { Registration } from '../components/registration/registration'
 import { api } from '../api'
 import jwtDecode from 'jwt-decode'
+import { Dialog } from '../types/message'
+import { User } from '../types/user'
 
 export type UserLoginType = {
   name: string
@@ -53,12 +55,12 @@ class AuthStore {
     this.isLoading = true
     return api.post('/user/login', data)
       .then(res => {
-        const userLogin = jwtDecode<{login: string}>(res.data.token).login
+        const userLogin = jwtDecode<{ login: string }>(res.data.token).login
         localStorage.setItem('user', res.data.token)
         return api.get(`/user/getOne/${userLogin}`)
           .then(res => {
             this.user = res.data
-            console.log(this.user)
+            // console.log(this.user)
           })
           .catch(error => {
             return error.data
@@ -89,7 +91,7 @@ class AuthStore {
       }
     })
       .then(res => {
-        console.log(res)
+        // console.log(res)
       })
       .catch(error => {
         console.dir(error)
@@ -114,15 +116,15 @@ class AuthStore {
     //   .finally(() => this.isLoading = false)
   }
 
-  checkAuth(){
+  checkAuth() {
     if (localStorage.getItem('user')) {
       const token: string | null = localStorage.getItem('user')
       if (token !== null) {
-        const userLogin = jwtDecode<{login: string}>(token).login
+        const userLogin = jwtDecode<{ login: string }>(token).login
         return api.get(`/user/getOne/${userLogin}`)
           .then(res => {
             this.user = res.data
-            console.log(toJS(this.user))
+            // console.log(toJS(this.user))
           })
           .catch(error => {
             return error.data
@@ -130,6 +132,14 @@ class AuthStore {
       }
     }
     return Promise.resolve()
+  }
+
+  getInterlocutor(dialog: Dialog) {
+    return dialog.users.find(user => user.login !== this.user?.login)!
+  }
+
+  getUserNameSurname(user: User) {
+    return `${user.name} ${user.surname}`
   }
 
 }

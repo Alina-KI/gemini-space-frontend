@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import s from './message.module.scss'
 import image from '../../../images/2.jpg'
 import { dialogsStore } from '../../../store/dialogs-store'
@@ -7,12 +7,13 @@ import { observer } from 'mobx-react-lite'
 import { newsStore } from '../../../store/news-store'
 import { Loader } from '../../shared/loader/loader'
 import { ErrorDisplay } from '../../shared/error-display/error-display'
+import { toJS } from 'mobx'
 
 export const Message = observer(() => {
   const { dialogId } = useParams<{ dialogId: string }>()
+  const [messageText, setMessageText] = useState('')
 
   useEffect(() => {
-    console.log('ЧЕЛ ТЫ', dialogId)
     dialogsStore.enterDialog(dialogId).then()
 
     return () => dialogsStore.exitDialog()
@@ -28,98 +29,27 @@ export const Message = observer(() => {
         Alis Jasm
       </div>
       <div className={s.messages}>
-        <div className={s.message}>
-          <div className={s.name}>
-            dsafads
+        {dialogsStore.selectedDialog?.messages.map(message =>
+          <div className={`${s.message} ${s.message_own}`} key={message.dialogId}>
+            {true && console.log(toJS(message))}
+            <div className={s.name}>
+              {message.sender.name}
+            </div>
+            <div className={s.text}>
+              {message.text}
+            </div>
+            <div className={s.data}>
+              {new Date(+message.date).toLocaleString()}
+            </div>
           </div>
-          <div className={s.text}>
-            gres
-          </div>
-          <div className={s.data}>
-            20.02.2021
-          </div>
-        </div>
-        <div className={`${s.message} ${s.message_own}`}>
-          <div className={s.name}>
-            dsafads
-          </div>
-          <div className={s.text}>
-            gres
-          </div>
-          <div className={s.data}>
-            20.02.2021
-          </div>
-        </div>
-        <div className={s.message}>
-          <div className={s.name}>
-            dsafads
-          </div>
-          <div className={s.text}>
-            gres
-          </div>
-          <div className={s.data}>
-            20.02.2021
-          </div>
-        </div>
-        <div className={`${s.message} ${s.message_own}`}>
-          <div className={s.name}>
-            dsafads
-          </div>
-          <div className={s.text}>
-            gres
-          </div>
-          <div className={s.data}>
-            20.02.2021
-          </div>
-        </div>
-        <div className={s.message}>
-          <div className={s.name}>
-            dsafads
-          </div>
-          <div className={s.text}>
-            gres
-          </div>
-          <div className={s.data}>
-            20.02.2021
-          </div>
-        </div>
-        <div className={`${s.message} ${s.message_own}`}>
-          <div className={s.name}>
-            dsafads
-          </div>
-          <div className={s.text}>
-            gres
-          </div>
-          <div className={s.data}>
-            20.02.2021
-          </div>
-        </div>
-        <div className={s.message}>
-          <div className={s.name}>
-            dsafads
-          </div>
-          <div className={s.text}>
-            gres
-          </div>
-          <div className={s.data}>
-            20.02.2021
-          </div>
-        </div>
-        <div className={`${s.message} ${s.message_own}`}>
-          <div className={s.name}>
-            dsafads
-          </div>
-          <div className={s.text}>
-            gres
-          </div>
-          <div className={s.data}>
-            20.02.2021
-          </div>
-        </div>
+        )}
       </div>
-      <form className={s.form} action="">
-        <input className={s.form_input} type="text" />
-        <button className={s.form_buttonSend}>Send message</button>
+      <form className={s.form}>
+        <input value={messageText} onChange={e => setMessageText(e.target.value)} className={s.form_input} type="text" />
+        <button onClick={e => {
+          e.preventDefault()
+          dialogsStore.sendMessage(messageText)
+        }} className={s.form_buttonSend}>Send message</button>
       </form>
     </div>
   )

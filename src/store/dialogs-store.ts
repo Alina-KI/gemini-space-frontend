@@ -1,8 +1,9 @@
 import { makeAutoObservable } from 'mobx'
-import { Dialog, Message, NewMessage } from '../types/message'
+import { Dialog, DialogWithMessages, Message } from '../types/message'
 import { socketStore } from './socket-store'
 import { CreateDialogPayload, CreateGroupDialogPayload } from '../types/dialog'
 import { api } from '../api'
+import { authStore } from './auth-store'
 
 class DialogsStore {
   constructor() {
@@ -11,12 +12,14 @@ class DialogsStore {
 
   dialogs: Dialog[] = []
 
-  messages: Message[] = []
-  selectedDialog: null | Dialog = null
+  selectedDialog: null | DialogWithMessages = null
 
   getMyDialogs() {
     api.get<Dialog[]>('/dialogues')
-      .then(res => this.dialogs = res.data)
+      .then(res => this.dialogs = res.data.map(d => d.nameTalk ? d : {
+        ...d,
+        nameTalk: authStore.getUserNameSurname(authStore.getInterlocutor(d))
+      }))
   }
 
   createDialog(dialog: CreateDialogPayload) {
@@ -28,7 +31,7 @@ class DialogsStore {
   }
 
   async enterDialog(dialogId: string) {
-    this.selectedDialog = await socketStore.getDialog(dialogId)
+    this.selectedDialog = await api.get(`/dialogues/getDialog/${dialogId}`).then(res => res.data)
   }
 
   exitDialog() {
@@ -37,15 +40,15 @@ class DialogsStore {
 
   sendMessage(text: string) {
     socketStore.sendMessage({
-      dialogId: this.selectedDialog!.id,
+      dialogId: this.selectedDialog!._id,
       date: Date.now(),
       text
     })
   }
 
-  handleReceiveMessage(newMessage: NewMessage) {
-    if (newMessage.dialogId === this.selectedDialog?.id) {
-      this.messages.push(newMessage)
+  handleReceiveMessage(message: Message) {
+    if (message.dialogId === this.selectedDialog?._id) {
+      this.selectedDialog!.messages.push(message)
     }
   }
 }

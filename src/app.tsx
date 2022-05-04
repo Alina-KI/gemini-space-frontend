@@ -14,8 +14,10 @@ import { socketStore } from './store/socket-store'
 export const App = () => {
   useEffect(() => {
     authStore.checkAuth().then(() => {
-      socketStore.openSocket()
-      dialogsStore.getMyDialogs()
+      if (authStore.user){
+        socketStore.openSocket()
+        dialogsStore.getMyDialogs()
+      }
     })
   }, [])
 

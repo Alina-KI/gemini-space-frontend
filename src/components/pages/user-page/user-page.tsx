@@ -6,7 +6,6 @@ import { NavLink, useParams } from 'react-router-dom'
 import { MiniGallery } from './mini-gallery/mini-gallery'
 import { Comments } from '../comments/comments'
 import { observer } from 'mobx-react-lite'
-import { newsStore } from '../../../store/news-store'
 import { Loader } from '../../shared/loader/loader'
 import { ErrorDisplay } from '../../shared/error-display/error-display'
 import { userPageStore } from '../../../store/user-page-store'
@@ -36,8 +35,8 @@ export const UserPage = observer(() => {
   }, [width])
 
 
-  if (newsStore.isLoading) return <Loader />
-  if (newsStore.error) return <ErrorDisplay message={'Error'} />
+  if (userPageStore.isLoading) return <Loader />
+  if (userPageStore.error) return <ErrorDisplay message={'Error'} />
 
   return (
     <div className={s.myPage}>

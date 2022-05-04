@@ -21,15 +21,18 @@ export const UserList = ({ users, isLoading, error, showAddFriendButton }: Props
   if (isLoading) return <Loader />
   if (error) return <ErrorDisplay message={'Error'} />
 
-  const writeMessage = (dialogId: string) => {
-    dialogsStore.createDialog({ anotherUserId: dialogId })
-      .then(() => history.push(dialogId))
+  const writeMessage = (userLogin: string) => {
+    dialogsStore.createDialog({ anotherUserLogin: userLogin })
+      .then(dialog => {
+        console.log(dialog)
+        history.push(`/dialogs/${dialog._id}`)
+      })
   }
 
   return (
     <div className={s.container}>
-      {users.length === 0 
-        ? 
+      {users.length === 0
+        ?
         <div>
           0 friends
         </div>
@@ -41,7 +44,7 @@ export const UserList = ({ users, isLoading, error, showAddFriendButton }: Props
               <span className={s.date}>Date of Birth: 25.12.2000</span>
               <span className={s.town}>Town: Moscow</span>
               <div className={s.containerButton}>
-                <button onClick={() => writeMessage('2')} className={s.button}>Write message</button>
+                <button onClick={() => writeMessage(user.login)} className={s.button}>Write message</button>
                 {showAddFriendButton
                   ?
                   <button onClick={() => userStore.addToFriends(user)} className={s.button}>Add friends</button>
