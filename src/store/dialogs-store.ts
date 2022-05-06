@@ -1,4 +1,4 @@
-import { makeAutoObservable } from 'mobx'
+import { makeAutoObservable, toJS } from 'mobx'
 import { Dialog, DialogWithMessages, Message } from '../types/message'
 import { socketStore } from './socket-store'
 import { CreateDialogPayload, CreateGroupDialogPayload } from '../types/dialog'
@@ -46,9 +46,9 @@ class DialogsStore {
     })
   }
 
-  handleReceiveMessage(message: Message) {
-    if (message.dialogId === this.selectedDialog?._id) {
-      this.selectedDialog!.messages.push(message)
+  handleReceiveMessage({ savedMessage, dialogId }: { savedMessage: Message, dialogId: string }) {
+    if (dialogId === this.selectedDialog?._id) {
+      this.selectedDialog!.messages.push(savedMessage)
     }
   }
 }

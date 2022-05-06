@@ -30,8 +30,7 @@ export const Message = observer(() => {
       </div>
       <div className={s.messages}>
         {dialogsStore.selectedDialog?.messages.map(message =>
-          <div className={`${s.message} ${s.message_own}`} key={message.dialogId}>
-            {true && console.log(toJS(message))}
+          <div className={`${s.message} ${s.message_own}`} key={message.date}>
             <div className={s.name}>
               {message.sender.name}
             </div>
@@ -39,7 +38,7 @@ export const Message = observer(() => {
               {message.text}
             </div>
             <div className={s.data}>
-              {new Date(+message.date).toLocaleString()}
+              {new Date(+message.date).toDateString() + ' ' + new Date(+message.date).toLocaleTimeString()}
             </div>
           </div>
         )}
