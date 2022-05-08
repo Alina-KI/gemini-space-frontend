@@ -22,6 +22,7 @@ html, body {
 .container {
   display: flex;
   justify-content: space-evenly;
+  column-gap: 40px;
   padding-top: 80px;
   max-width: 1200px;
   flex: 1 1 auto;
@@ -41,13 +42,13 @@ html, body {
   }
 }
 .navbar{
+  margin-left: 20px;
   @media (max-width: 1030px){
     display: none;
   }
 }
 .routeContainer{
   flex:  1 1 auto;
-  margin-left: 60px;
   max-width: 960px;
   height: max-content;
   @media (max-width: 1030px){
