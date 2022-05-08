@@ -55,4 +55,7 @@ html, body {
     max-width: 810px;
     margin: 0;
   }
+  @media (max-width: 500px) {
+    margin: 20px;
+  }
 }
