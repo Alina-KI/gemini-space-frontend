@@ -8,6 +8,7 @@ import { newsStore } from '../../../store/news-store'
 import { Loader } from '../../shared/loader/loader'
 import { ErrorDisplay } from '../../shared/error-display/error-display'
 import { useRefDimensions } from '../../../hooks/use-ref-dimensions'
+import { authStore } from '../../../store/auth-store'
 
 export const Message = observer(() => {
   const { dialogId } = useParams<{ dialogId: string }>()
@@ -36,7 +37,7 @@ export const Message = observer(() => {
       </div>
       <div className={s.messages} ref={messagesRef}>
         {dialogsStore.selectedDialog?.messages.map(message =>
-          <div className={`${s.message} ${s.message_own}`} key={message.date}>
+          <div className={`${s.message} ${message.sender.login == authStore.user?.login && s.message_own}`} key={message.date}>
             <div className={s.name}>
               {message.sender.name}
             </div>
