@@ -49,7 +49,15 @@ class DialogsStore {
   handleReceiveMessage({ savedMessage, dialogId }: { savedMessage: Message, dialogId: string }) {
     if (dialogId === this.selectedDialog?._id) {
       this.selectedDialog!.messages.push(savedMessage)
+      setTimeout(this.onNewMessage, 0)
     }
+  }
+
+  onNewMessage = () => {
+  }
+
+  setOnNewMessage(callback: () => void) {
+    this.onNewMessage = callback
   }
 }
 

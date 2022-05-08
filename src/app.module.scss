@@ -43,6 +43,7 @@ html, body {
 }
 .navbar{
   margin-left: 20px;
+  display: none;
   @media (max-width: 1030px){
     display: none;
   }
