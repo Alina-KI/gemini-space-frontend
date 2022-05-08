@@ -24,7 +24,6 @@ export const UserList = ({ users, isLoading, error, showAddFriendButton }: Props
   const writeMessage = (userLogin: string) => {
     dialogsStore.createDialog({ anotherUserLogin: userLogin })
       .then(dialog => {
-        console.log(dialog)
         history.push(`/dialogs/${dialog._id}`)
       })
   }

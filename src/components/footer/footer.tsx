@@ -18,7 +18,7 @@ import { NavLink } from 'react-router-dom'
 import { authStore } from '../../store/auth-store'
 import { observer } from 'mobx-react-lite'
 import { newsStore } from '../../store/news-store'
-import { useIsLoadingPage } from '../../hooks/use-is-loading-page'
+import { useIsLoadingPage, useIsMessagePage } from '../../hooks/use-is-loading-page'
 
 type Props = {
   smallAppHeight: boolean
@@ -27,17 +27,18 @@ type Props = {
 export const Footer = observer(({ smallAppHeight }: Props) => {
   const [activeLink, setActiveLink] = useState('Home')
   const isLoadingPage = useIsLoadingPage()
+  const isMessagePage = useIsMessagePage()
   const [pos, setPos] = useState(10)
   const user = authStore.user
 
   return (
-    <div className={s.footer}>
+    <div className={isMessagePage ? s.footerNone : s.footer}>
       <div className={s.containerFooter}>
         <div className={`${smallAppHeight || newsStore.isLoading ? `${s.footer__show}` : ''} ${s.footer__subscribe}`}>
           <h1 className={s.title}>Subscribe</h1>
           <p className={s.description}>Subscribe to stay tuned for new web design and latest updates. Let's do it!</p>
           <form className={s.subscribe__form}>
-            <input className={s.subscribe__form_input} type="text" placeholder="Enter your email Address"/>
+            <input className={s.subscribe__form_input} type="text" placeholder="Enter your email Address" />
             <button className={s.subscribe__form_button}>Subscribe</button>
           </form>
         </div>
@@ -105,7 +106,7 @@ export const Footer = observer(({ smallAppHeight }: Props) => {
             <span className={s.text}>Setting</span>
           </NavLink>
         </div>
-        <div className={s.slider} style={{ left: `${pos}%` }}/>
+        <div className={s.slider} style={{ left: `${pos}%` }} />
       </div>
       }
     </div>
