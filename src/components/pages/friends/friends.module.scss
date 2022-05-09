@@ -21,7 +21,13 @@
       transition: 1s ease-in-out;
     }
 
+    .activeLink{
+      color: $active-friend;
+      border-bottom: 1px solid $active-friend;
+    }
+
     .link:hover{
+      cursor: pointer;
       color: $header-background;
       border-bottom: 1px solid $header-background;
     }

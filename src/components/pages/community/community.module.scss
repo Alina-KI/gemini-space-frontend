@@ -1,3 +1,4 @@
+@import "src/variables";
 .container{
   display: flex;
   flex-direction: row;
@@ -7,6 +8,49 @@
   max-width: 800px;
   margin: 0 auto;
   row-gap: 10px;
+
+  .linkCommunities{
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+
+    .link {
+      text-decoration: none;
+      color: black;
+      padding: 0 15px;
+      border-bottom: 1px solid transparent;
+      transition: 1s ease-in-out;
+    }
+
+    .createCommunity{
+      font-size: 16px;
+      font-family: "Viaoda Libre", cursive;
+      color: black;
+      padding: 5px 10px;
+      border: 1px solid $header-background;
+      background: white;
+      transition: 1s ease-in-out;
+    }
+
+    .createCommunity:hover{
+      cursor: pointer;
+      background: rgba(222, 167, 128, 0.833);
+      font-weight: 700;
+    }
+
+    .activeLink{
+      color: $active-friend;
+      border-bottom: 1px solid $active-friend;
+    }
+
+    .link:hover{
+      cursor: pointer;
+      color: $header-background;
+      border-bottom: 1px solid $header-background;
+    }
+  }
 
   .card{
     display: flex;
