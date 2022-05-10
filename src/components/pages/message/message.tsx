@@ -33,7 +33,7 @@ export const Message = observer(() => {
     <div className={s.container}>
       <div className={s.container_header}>
         <img className={s.container_header__image} src={image} alt="" />
-        Alis Jasm
+        {dialogsStore.selectedDialog?.nameTalk}
       </div>
       <div className={s.messages} ref={messagesRef}>
         {dialogsStore.selectedDialog?.messages.map(message =>

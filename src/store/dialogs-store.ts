@@ -1,5 +1,5 @@
-import { makeAutoObservable, toJS } from 'mobx'
-import { Dialog, DialogWithMessages, Message } from '../types/message'
+import { makeAutoObservable } from 'mobx'
+import { Dialog, Message } from '../types/message'
 import { socketStore } from './socket-store'
 import { CreateDialogPayload, CreateGroupDialogPayload } from '../types/dialog'
 import { api } from '../api'
@@ -12,7 +12,7 @@ class DialogsStore {
 
   dialogs: Dialog[] = []
 
-  selectedDialog: null | DialogWithMessages = null
+  selectedDialog: null | Dialog = null
 
   getMyDialogs() {
     api.get<Dialog[]>('/dialogues')
