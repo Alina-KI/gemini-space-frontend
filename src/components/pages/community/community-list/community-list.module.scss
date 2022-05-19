@@ -1,0 +1,137 @@
+@import "src/variables";
+.container{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  max-width: 800px;
+  margin: 0 auto;
+  row-gap: 10px;
+
+  .linkCommunities{
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+
+    .link {
+      text-decoration: none;
+      color: black;
+      padding: 0 15px;
+      border-bottom: 1px solid transparent;
+      transition: 1s ease-in-out;
+    }
+
+    .createCommunity{
+      font-size: 16px;
+      font-family: "Viaoda Libre", cursive;
+      color: black;
+      padding: 5px 10px;
+      border: 1px solid $header-background;
+      background: white;
+      transition: 1s ease-in-out;
+    }
+
+    .createCommunity:hover{
+      cursor: pointer;
+      background: rgba(222, 167, 128, 0.833);
+      font-weight: 700;
+    }
+
+    .activeLink{
+      color: $active-friend;
+      border-bottom: 1px solid $active-friend;
+    }
+
+    .link:hover{
+      cursor: pointer;
+      color: $header-background;
+      border-bottom: 1px solid $header-background;
+    }
+  }
+
+  .card{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 10px;
+    border: 1px solid rgba(175, 56, 48, 0.733);
+    padding: 15px;
+    flex: 1 1 auto;
+
+    @media (max-width: 570px) {
+      flex-direction: column;
+      height: 100%;
+      justify-content: center;
+    }
+
+    .img{
+      width: 150px;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 20px;
+      transition: 2s;
+
+      @media (max-width: 300px) {
+        width: 150px;
+        height: 150px;
+      }
+    }
+
+    .img:hover{
+      transform: scale(1.5);
+      object-fit: contain;
+      z-index: 25;
+    }
+
+    .info{
+      display: flex;
+      flex-direction: column;
+      margin-left: 20px;
+
+      .title{
+        font-size: 24px;
+        display: block;
+        padding: 5px 10px;
+        margin-bottom: 10px;
+        text-decoration: none;
+        color: black;
+        border-bottom: 1px solid transparent;
+        transition: .5s;
+      }
+
+      .title:hover{
+        border-bottom: 1px solid rgba(175, 56, 48, 0.733);
+        color: rgba(175, 56, 48, 0.733);
+      }
+
+      @media (max-width: 570px) {
+        margin-left: 0;
+        margin-top: 20px;
+        text-align: center;
+      }
+
+      .joinGroup{
+        font-size: 20px;
+        max-width: 350px;
+        width: 100%;
+        align-self: center;
+        font-family: "Viaoda Libre", cursive;
+        border-radius: 20px;
+        padding: 5px 10px;
+        color: dimgray;
+        border: 1px solid rgba(222, 167, 128, 0.833);
+        outline: none;
+        margin-top: 20px;
+        transition: 1s;
+      }
+      .joinGroup:hover{
+        cursor: pointer;
+        color: #2E2B26;
+        background: rgba(222, 167, 128, 0.833);
+      }
+    }
+  }
+}
