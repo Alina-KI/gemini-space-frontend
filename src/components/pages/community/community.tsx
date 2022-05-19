@@ -6,8 +6,8 @@ import { Loader } from '../../shared/loader/loader'
 import { ErrorDisplay } from '../../shared/error-display/error-display'
 import { observer } from 'mobx-react-lite'
 import { authStore } from '../../../store/auth-store'
-import { userStore } from '../../../store/users-store'
 import { CommunityList } from './community-list/community-list'
+import { groupStore } from '../../../store/group-store'
 
 export const Community = observer(() => {
   if (newsStore.isLoading) return <Loader />
@@ -20,7 +20,7 @@ export const Community = observer(() => {
         <NavLink className={s.link} to="/find-community">Find communities</NavLink>
         <button className={s.createCommunity}>Create community</button>
       </div>
-      <CommunityList user={userStore.users} isLoading={userStore.isLoading} error={null} />
+      <CommunityList groups={groupStore.groups} isLoading={groupStore.isLoading} error={null} />
     </div>
   )
 })

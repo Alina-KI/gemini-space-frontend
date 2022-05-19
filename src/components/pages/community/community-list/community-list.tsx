@@ -1,26 +1,40 @@
 import React from 'react'
 import s from './community-list.module.scss'
-import photo from '../../../images/11.jpg'
+import photo from '../../../../images/10.jpg'
 import { NavLink } from 'react-router-dom'
 import { observer } from 'mobx-react-lite'
-import { User } from '../../../../types/user'
+import { Group } from '../../../../types/group'
+import { Loader } from '../../../shared/loader/loader'
+import { ErrorDisplay } from '../../../shared/error-display/error-display'
 
 type Props = {
-  user: User[]
+  groups: Group[]
   isLoading: boolean
   error: string | null
 }
 
-export const CommunityList = observer(({ user, isLoading, error }: Props) => {
+export const CommunityList = observer(({ groups, isLoading, error }: Props) => {
+
+  if (isLoading) return <Loader />
+  if (error) return <ErrorDisplay message={'Error'} />
 
   return (
-    <div className={s.card}>
-      <img className={s.img} src={photo} alt="photo" />
-      <div className={s.info}>
-        <NavLink to="/" className={s.title}>Req Still</NavLink>
-        <span>Description: Lorem ipsum dolor sit amet, consectetur adipisicing elit.</span>
-        <button className={s.joinGroup}>Join a group</button>
-      </div>
-    </div>
+    <>
+      {groups.length === 0
+        ?
+        <div>
+          0 communities
+        </div>
+        : groups.map(group =>
+          <div className={s.card}>
+            <img className={s.img} src={photo} alt="photo" />
+            <div className={s.info}>
+              <NavLink to="/" className={s.title}>{group.title}</NavLink>
+              <span>Description: {group.description}</span>
+              <button className={s.joinGroup}>Join a group</button>
+            </div>
+          </div>
+        )}
+    </>
   )
 })

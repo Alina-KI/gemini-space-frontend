@@ -14,7 +14,7 @@ class GroupStore {
   async fetchMyGroups() {
     await when(() => !!authStore.user?.login)
     this.isLoading = true
-    api.get<Group[]>(`/user/${authStore.user?.login}/friends`)
+    api.post<Group[]>('/community')
       .then(res => this.groups = res.data)
       .finally(() => this.isLoading = false)
   }
