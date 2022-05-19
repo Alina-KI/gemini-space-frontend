@@ -11,6 +11,7 @@ import { Setting } from './components/pages/setting/setting'
 import { Community } from './components/pages/community/community'
 import { FindFriends } from './components/pages/friends/find-friends'
 import { Dialogs } from './components/pages/dialogs/dialogs'
+import { Music } from './components/pages/music/music'
 
 export const Routes = () => {
   return (
@@ -25,6 +26,7 @@ export const Routes = () => {
       <Route path="/:login/gallery" component={Gallery} exact />
       <Route path="/:login/setting" component={Setting} exact />
       <Route path="/:login/community" component={Community} exact />
+      <Route path="/:music" component={Music} exact />
       <Route path="/:login" component={UserPage} exact />
       <Route path="/" component={() => <Redirect to="/auth" />} />
     </Switch>
