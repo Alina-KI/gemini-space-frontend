@@ -26,7 +26,7 @@ export const Routes = () => {
       <Route path="/:login/gallery" component={Gallery} exact />
       <Route path="/:login/setting" component={Setting} exact />
       <Route path="/:login/community" component={Community} exact />
-      <Route path="/:music" component={Music} exact />
+      <Route path="/music" component={Music} exact />
       <Route path="/:login" component={UserPage} exact />
       <Route path="/" component={() => <Redirect to="/auth" />} />
     </Switch>
