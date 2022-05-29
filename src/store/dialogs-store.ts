@@ -14,6 +14,11 @@ class DialogsStore {
 
   selectedDialog: null | Dialog = null
 
+  get sortedDialogs(): Dialog[] {
+    // @ts-ignore
+    return this.dialogs.slice().sort((d1, d2) => new Date(+d1.messages[d1.messages.length - 1].date) - new Date(+d2.messages[d2.messages.length - 1].date))
+  }
+
   getMyDialogs() {
     api.get<Dialog[]>('/dialogues')
       .then(res => this.dialogs = res.data.map(d => d.nameTalk ? d : {
@@ -41,7 +46,7 @@ class DialogsStore {
   sendMessage(text: string) {
     socketStore.sendMessage({
       dialogId: this.selectedDialog!._id,
-      date: Date.now(),
+      date: Date.now().toString(),
       text
     })
   }
@@ -50,6 +55,12 @@ class DialogsStore {
     if (dialogId === this.selectedDialog?._id) {
       this.selectedDialog!.messages.push(savedMessage)
       setTimeout(this.onNewMessage, 0)
+    }
+    else {
+      const dialog = this.dialogs.find(d => d._id === dialogId)
+      if (dialog)
+        dialog.messages.push(savedMessage)
+
     }
   }
 

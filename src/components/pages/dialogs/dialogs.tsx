@@ -8,7 +8,7 @@ import { NavLink } from 'react-router-dom'
 export const Dialogs = observer(() => {
   return (
     <>
-      {dialogsStore.dialogs.map(dialog => <NavLink className={s.dialog} to={`/dialogs/${dialog._id}`} key={dialog._id}>
+      {dialogsStore.sortedDialogs.map(dialog => <NavLink className={s.dialog} to={`/dialogs/${dialog._id}`} key={dialog._id}>
         <img className={s.photoDialog} src={photo} alt="photoDialog" />
         <div className={s.dataDialog}>
           <h4 className={s.nameTalk}>{dialog.nameTalk}</h4>

@@ -9,13 +9,13 @@ export type Dialog = {
 
 export type Message = {
   text: string
-  date: number
+  date: string
   dialogId: string
   sender: User
 }
 
 export type NewMessage =  {
   text: string
-  date: number
+  date: string
   dialogId: string
 }
