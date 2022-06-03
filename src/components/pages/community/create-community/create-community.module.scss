@@ -1,8 +1,6 @@
 @import "src/variables";
 
 .formCommunity {
-  //display: flex;
-  //flex-direction: column;
   display: grid;
   grid-template:
           "title photo" 30px
@@ -12,6 +10,15 @@
   max-width: 750px;
   width: 100%;
   margin: 0 auto;
+
+  @media (max-width: 630px) {
+    grid-template:
+          "photo" 1fr
+          "title" 30px
+          "."
+          "description" 1fr
+          "button" 50px;
+  }
 
   .downlandPhoto {
     grid-area: photo;
@@ -93,13 +100,17 @@
     flex-direction: row;
     column-gap: 10px;
 
+    @media (max-width: 630px) {
+      flex-direction: column;
+      row-gap: 5px;
+    }
+
     .title {
       display: inline;
       white-space: nowrap;
     }
 
     .text {
-
       box-sizing: border-box;
       width: 100%;
       padding: 10px;
