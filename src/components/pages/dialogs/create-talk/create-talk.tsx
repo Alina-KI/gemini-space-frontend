@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react'
-import s from './create-community.module.scss'
+import s from './create-talk.module.scss'
 import { useRefDimensions } from '../../../../hooks/use-ref-dimensions'
 import { observer } from 'mobx-react-lite'
 
@@ -23,7 +23,7 @@ const readFile = (file: File | undefined | null) => {
 }
 
 
-export const CreateCommunity = observer(() => {
+export const CreateTalk = observer(() => {
   const containerRef = useRef<HTMLImageElement>(null)
   const { height } = useRefDimensions(containerRef)
   const [selectedFile, setSelectedFile] = useState<File | undefined | null>(undefined)
@@ -33,7 +33,7 @@ export const CreateCommunity = observer(() => {
   }, [selectedFile])
 
   return (
-    <form action="" className={s.formCommunity}>
+    <form action="" className={s.formTalk}>
       <div className={s.downlandPhoto}>
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
         <label className={s.containerPhoto} style={preview ? { height: `${height}px` } : {}}>
@@ -43,15 +43,14 @@ export const CreateCommunity = observer(() => {
           <img ref={containerRef} className={s.photo} src={preview} alt="" />
         </label>
       </div>
-      <div className={`${s.container} ${s.titleText}`}>
-        <p className={s.title}>Title group:</p>
+      <div className={s.titleText}>
+        <p className={s.title}>Title talk:</p>
         <input className={s.text} type="text" />
       </div>
-      <div className={`${s.container} ${s.descriptionText}`}>
-        <p className={s.title}>Description:</p>
-        <textarea className={s.text} cols={30} rows={10} accessKey='s'/>
+      <div className={s.friends}>
+       ghj
       </div>
-      <button className={s.btnCommunity}>Create group</button>
+      <button className={s.btnTalk}>Create talk</button>
     </form>
   )
 })

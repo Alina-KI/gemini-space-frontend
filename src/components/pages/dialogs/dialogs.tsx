@@ -3,11 +3,15 @@ import s from './dialogs.module.scss'
 import photo from '../../../images/2.jpg'
 import { observer } from 'mobx-react-lite'
 import { dialogsStore } from '../../../store/dialogs-store'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useHistory } from 'react-router-dom'
+import { authStore } from '../../../store/auth-store'
 
 export const Dialogs = observer(() => {
+  const history = useHistory()
+
   return (
     <>
+      <button onClick={() => history.push(`/${authStore.user?.login}/create-talk`)} className={s.createCommunity}>Create talk</button>
       {dialogsStore.sortedDialogs.map(dialog => <NavLink className={s.dialog} to={`/dialogs/${dialog._id}`} key={dialog._id}>
         <img className={s.photoDialog} src={photo} alt="photoDialog" />
         <div className={s.dataDialog}>
