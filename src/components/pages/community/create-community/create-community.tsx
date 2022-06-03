@@ -1,22 +1,7 @@
-import React, { useEffect, useMemo, useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import s from './create-community.module.scss'
 import { useRefDimensions } from '../../../../hooks/use-ref-dimensions'
 
-// function previewFile() {
-//   const preview = document.querySelector('img')
-//   const file = document.querySelector('input[type=file]').files[0]
-//   const reader = new FileReader()
-//
-//   reader.onloadend = function() {
-//     preview.src = reader.result
-//   }
-//
-//   if (file) {
-//     reader.readAsDataURL(file)
-//   } else {
-//     preview.src = ''
-//   }
-// }
 const readFile = (file: File | undefined | null) => {
   return new Promise<string>((resolve => {
     if (!file) {
@@ -45,7 +30,7 @@ export const CreateCommunity = () => {
   useEffect(() => {
     readFile(selectedFile).then(setPreview)
   }, [selectedFile])
-  console.log(height)
+
   return (
     <form action="" className={s.formCommunity}>
       <div className={s.downlandPhoto}>
