@@ -10,6 +10,19 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
+a {
+    text-decoration: none;
+}
+
+button {
+    outline: none;
+    font-family: "Viaoda Libre", cursive;
+}
+
+input {
+    outline: none;
+}
+
 code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }

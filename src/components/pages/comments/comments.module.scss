@@ -1,3 +1,5 @@
+@import "src/variables.scss";
+
 .comments {
     font-size: 18px;
     max-width: 800px;
@@ -43,16 +45,17 @@
 }
 
 .line {
-    background-color: rgb(222, 167, 128);
+    background-color: $line-comment;
     height: 2px;
     border: none;
     width: 100%;
 }
 
-.img {
+.tracery {
     max-width: 100px;
     width: 100%;
     margin: 0 10px;
+    fill: $line-comment;
 }
 
 .text {

@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import s from './create-talk.module.scss'
 import { useRefDimensions } from '../../../../hooks/use-ref-dimensions'
 import { observer } from 'mobx-react-lite'
+import { Modal } from './modal/modal'
 
 const readFile = (file: File | undefined | null) => {
   return new Promise<string>((resolve => {
@@ -24,6 +25,7 @@ const readFile = (file: File | undefined | null) => {
 
 
 export const CreateTalk = observer(() => {
+  const [isOpenModal, setIsOpenModal] = useState(false)
   const containerRef = useRef<HTMLImageElement>(null)
   const { height } = useRefDimensions(containerRef)
   const [selectedFile, setSelectedFile] = useState<File | undefined | null>(undefined)
@@ -33,7 +35,7 @@ export const CreateTalk = observer(() => {
   }, [selectedFile])
 
   return (
-    <form action="" className={s.formTalk}>
+    <form action="" className={s.formTalk} onSubmit={e => e.preventDefault()}>
       <div className={s.downlandPhoto}>
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
         <label className={s.containerPhoto} style={preview ? { height: `${height}px` } : {}}>
@@ -48,8 +50,9 @@ export const CreateTalk = observer(() => {
         <input className={s.text} type="text" />
       </div>
       <div className={s.friends}>
-       ghj
+        <button onClick={() => setIsOpenModal(true)}  className={s.btnAddedUsers}>Add users</button>
       </div>
+      <Modal isOpen={isOpenModal} setIsOpen={setIsOpenModal}/>
       <button className={s.btnTalk}>Create talk</button>
     </form>
   )

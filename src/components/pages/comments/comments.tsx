@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
-import s from './comments.module.css'
+import s from './comments.module.scss'
 import ava from '../../../images/13.jpg'
-import image from '../../../images/ornaments-for-comments/tracery.svg'
+import { ReactComponent as Tracery } from '../../../images/ornaments-for-comments/tracery.svg'
 import frameTop from '../../../images/ornaments-for-comments/frame-one.svg'
 import frameBottom from '../../../images/ornaments-for-comments/frame-two.svg'
 
@@ -38,7 +38,7 @@ export const Comments = (props: Props) => {
       <div className={s.bottomLine}>
         <div className={s.separation}>
           <hr className={s.line} />
-          <img className={s.img} src={image} alt="img" />
+          <Tracery className={s.tracery}/>
           <hr className={s.line} />
         </div>
       </div>

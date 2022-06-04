@@ -1,6 +1,7 @@
 @import "src/variables";
 
 .formTalk {
+  position: relative;
   display: grid;
   grid-template:
           "title photo" 30px

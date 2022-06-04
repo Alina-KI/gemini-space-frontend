@@ -12,7 +12,6 @@ export const Friends = observer(() => {
   useEffect(() => {
     userStore.fetchMyFriends().then()
   }, [])
-  //TODO: Зайти на страницу друзей и смотреть на query
 
   return (
     <div className={s.container}>
