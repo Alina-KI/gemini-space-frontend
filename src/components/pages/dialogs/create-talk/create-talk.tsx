@@ -39,6 +39,11 @@ export const CreateTalk = observer(() => {
 
   return (
     <form action="" className={s.formTalk} onSubmit={handleSubmit(onSubmit)}>
+      <button type="button" className={s.crossClose} onClick={() => {
+        history.push('/dialogs')
+      }}>
+        <Cross className={s.crossPhotoClose} />
+      </button>
       <div className={s.downlandPhoto}>
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
         <label className={s.containerPhoto} style={preview ? { height: `${height}px` } : {}}>
@@ -65,8 +70,10 @@ export const CreateTalk = observer(() => {
             {/*<img className={s.photoUser} src={user.avatar} alt="" />*/}
             <img className={s.photoUser} src={ava} alt="" />
             <div className={s.nameUser}>{user.surname} {user.name} {user.lastname}</div>
-            <button type="button" className={s.cross} onClick={() => {usersTalkStore.removeUsers(user)}}>
-              <Cross className={s.crossPhoto}/>
+            <button type="button" className={s.cross} onClick={() => {
+              usersTalkStore.removeUsers(user)
+            }}>
+              <Cross className={s.crossPhoto} />
             </button>
           </div>
         )}

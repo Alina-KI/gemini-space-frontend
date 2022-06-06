@@ -1,56 +1,110 @@
-.dialog {
-  text-decoration: none;
-  margin: 0 auto;
-  color: #2e2b26;
+@import "src/variables";
+
+.container {
   display: flex;
-  flex-direction: row;
-  column-gap: 20px;
-  align-items: center;
-  max-width: 500px;
-  width: 100%;
-  max-height: 115px;
-  padding: 20px;
-  border: 1px dashed rgb(175, 56, 48);
-  border-radius: 10px;
+  flex-direction: column;
+  row-gap: 20px;
+  max-width: 750px;
+  margin: 0 auto;
 
-  @media (max-width: 1030px) {
-    max-width: 700px;
-  }
-
-  .photoDialog {
-    max-width: 80px;
-    max-height: 80px;
+  .createCommunity {
+    align-self: end;
+    right: 0;
+    max-width: 150px;
     width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 50%;
-    border: 1px dashed rgb(175, 56, 48);
+    font-size: 16px;
+    padding: 5px 10px;
+    background: $background-button-added-user;
+    border: 1px solid $hover-name-user-talk;
+    transition: 1s ease-in;
+
+    &:hover {
+      cursor: pointer;
+      background: $new-background;
+      border: 1px solid $new-border;
+    }
   }
 
-  .dataDialog {
+  .dialog {
+    position: relative;
+    text-decoration: none;
+    align-self: center;
+    color: #2e2b26;
     display: flex;
-    flex-direction: column;
-    row-gap: 10px;
+    flex-direction: row;
+    column-gap: 20px;
+    align-items: center;
+    max-width: 500px;
+    width: 100%;
+    max-height: 115px;
+    padding: 20px;
+    border: 1px dashed rgb(175, 56, 48);
+    border-radius: 10px;
 
-    .nameTalk {
-      border-bottom: 1px solid transparent;
-      text-align: center;
+    @media (max-width: 1030px) {
+      max-width: 700px;
     }
 
-    .dataMessage {
-      font-size: 14px;
-      text-align: center;
+    .photoDialog {
+      max-width: 80px;
+      max-height: 80px;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 1px dashed rgb(175, 56, 48);
     }
 
-    .lastMessage {
-      font-size: 18px;
-      text-align: start;
-    }
+    .dataDialog {
+      display: flex;
+      flex-direction: column;
+      row-gap: 10px;
 
-    .nameTalk:hover {
-      cursor: pointer;
-      color: rgb(175, 56, 48);
-      border-bottom: 1px solid rgb(175, 56, 48);
+      .nameTalk {
+        border-bottom: 1px solid transparent;
+        text-align: center;
+      }
+
+      .dataMessage {
+        font-size: 14px;
+        text-align: center;
+      }
+
+      .lastMessage {
+        font-size: 18px;
+        text-align: start;
+      }
+
+      .nameTalk:hover {
+        cursor: pointer;
+        color: rgb(175, 56, 48);
+        border-bottom: 1px solid rgb(175, 56, 48);
+      }
+    }
+    .cross {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: transparent;
+      border: none;
+      max-width: 20px;
+      max-height: 20px;
+
+      .crossPhoto {
+        max-width: 20px;
+        max-height: 20px;
+        fill: $header-background;
+        transition: .3s ease-in;
+      }
+
+      &:hover {
+        cursor: pointer;
+
+        .crossPhoto {
+          fill: black;
+        }
+      }
     }
   }
 }
+
