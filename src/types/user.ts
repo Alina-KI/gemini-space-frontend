@@ -9,4 +9,7 @@ export type User = {
   lastname: string
   dateOfBirth: string
   town: string
+  imageFiles: string[]
+  videoFiles: string[]
+  audioFiles: string[]
 }

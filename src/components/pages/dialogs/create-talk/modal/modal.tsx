@@ -7,6 +7,7 @@ import image from '../../../../../images/10.jpg'
 import { ReactComponent as Cross } from '../../../../../images/cross.svg'
 import { ReactComponent as Tracery } from '../../../../../images/ornaments-for-comments/tracery.svg'
 import { NavLink } from 'react-router-dom'
+import { usersTalkStore } from '../../../../../store/users-talk-store'
 
 type Props = {
   isOpen: boolean
@@ -35,6 +36,7 @@ export const Modal = observer(({ isOpen, setIsOpen }: Props) => {
                 </NavLink>
               </div>
               <button className={s.addedUser} onClick={() => {
+                usersTalkStore.addedUsers(user)
                 setIsOpen(false)
               }}>Append</button>
               <div className={s.bottomLine}>
