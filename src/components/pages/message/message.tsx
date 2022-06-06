@@ -44,7 +44,7 @@ export const Message = observer(() => {
             <div className={s.text}>
               {message.text}
             </div>
-            <div className={s.data}>
+            <div className={s.date}>
               {new Date(+message.date).toDateString() + ' ' + new Date(+message.date).toLocaleTimeString()}
             </div>
           </div>
@@ -52,7 +52,7 @@ export const Message = observer(() => {
       </div>
       <form className={s.form} style={{ width: `${width}px`, margin: `${height + 60}px auto` }}>
         <input value={messageText} onChange={e => setMessageText(e.target.value)} className={s.form_input}
-          type="text" />
+          type="text" placeholder="Text message"/>
         <button onClick={e => {
           e.preventDefault()
           dialogsStore.sendMessage(messageText)

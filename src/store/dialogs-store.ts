@@ -16,7 +16,7 @@ class DialogsStore {
 
   get sortedDialogs(): Dialog[] {
     // @ts-ignore
-    return this.dialogs.slice().sort((d1, d2) => new Date(+d1.messages[d1.messages.length - 1].date) - new Date(+d2.messages[d2.messages.length - 1].date))
+    return this.dialogs.slice().sort((d1, d2) => new Date(+d1.messages[d1.messages.length - 1]?.date) - new Date(+d2.messages[d2.messages.length - 1]?.date))
   }
 
   getMyDialogs() {

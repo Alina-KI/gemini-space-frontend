@@ -21,7 +21,7 @@ export const Dialogs = observer(() => {
           <div className={s.dataDialog}>
             <h4 className={s.nameTalk}>{dialog.nameTalk}</h4>
             <p className={s.dataMessage}>
-              {new Date(+dialog.messages[dialog.messages.length - 1]?.date).toLocaleDateString() + ' ' + new Date(+dialog.messages[dialog.messages.length - 1]?.date).toLocaleTimeString()}
+              {!new Date(+dialog.messages[dialog.messages.length - 1]?.date) && new Date(+dialog.messages[dialog.messages.length - 1]?.date).toLocaleDateString() + ' ' + new Date(+dialog.messages[dialog.messages.length - 1]?.date).toLocaleTimeString()}
             </p>
             <p className={s.lastMessage}>{dialog.messages[dialog.messages.length - 1]?.text}</p>
           </div>
