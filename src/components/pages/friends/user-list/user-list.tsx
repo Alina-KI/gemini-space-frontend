@@ -46,9 +46,9 @@ export const UserList = ({ users, isLoading, error, showAddFriendButton }: Props
                 <button onClick={() => writeMessage(user.login)} className={s.button}>Write message</button>
                 {showAddFriendButton
                   ?
-                  <button onClick={() => userStore.addToFriends(user)} className={s.button}>Add friends</button>
+                  <button onClick={() => userStore.addToFriends(user)} className={s.button}>Add friend</button>
                   :
-                  <button onClick={() => userStore.removeFromFriends(user)} className={s.button}>Remove friends</button>
+                  <button onClick={() => userStore.removeFromFriends(user)} className={s.button}>Remove friend</button>
                 }
               </div>
             </div>
