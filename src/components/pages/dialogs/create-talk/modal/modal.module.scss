@@ -67,8 +67,8 @@
       }
 
       .nameUser:hover {
-        color: $prob;
-        border-bottom: 1px solid $prob;
+        color: $hover-name-user-talk;
+        border-bottom: 1px solid $hover-name-user-talk;
       }
     }
 
@@ -81,12 +81,18 @@
       color: $text-talk;
       border-radius: 5px;
       transition: 1s ease-in;
-    }
 
-    .addedUser:hover {
-      cursor: pointer;
-      color: white;
-      background: $text-talk;
+      &:hover {
+        cursor: pointer;
+        color: white;
+        background: $text-talk;
+      }
+
+      &:disabled{
+        cursor: auto;
+        color: white;
+        background: $line-talk;
+      }
     }
 
     .bottomLine {

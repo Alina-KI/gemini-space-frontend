@@ -25,7 +25,7 @@ export const Modal = observer(({ isOpen, setIsOpen }: Props) => {
         isOpen &&
         <div className={s.modalAdded}>
           <button className={s.cross} onClick={() => setIsOpen(false)}>
-            <Cross className={s.crossPhoto}/>
+            <Cross className={s.crossPhoto} />
           </button>
           {userStore.users.map(user =>
             <div className={s.cartUser} key={user._id}>
@@ -35,14 +35,16 @@ export const Modal = observer(({ isOpen, setIsOpen }: Props) => {
                   {user.surname} {user.name} {user.lastname}
                 </NavLink>
               </div>
-              <button className={s.addedUser} onClick={() => {
-                usersTalkStore.addedUsers(user)
-                setIsOpen(false)
-              }}>Append</button>
+              <button className={s.addedUser} disabled={!!usersTalkStore.users.find(u => u._id === user._id)}
+                onClick={() => {
+                  usersTalkStore.addedUsers(user)
+                  setIsOpen(false)
+                }}>Append
+              </button>
               <div className={s.bottomLine}>
                 <div className={s.separation}>
                   <hr className={s.line} />
-                  <Tracery className={s.tracery}/>
+                  <Tracery className={s.tracery} />
                   <hr className={s.line} />
                 </div>
               </div>

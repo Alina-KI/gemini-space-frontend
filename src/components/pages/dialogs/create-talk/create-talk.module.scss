@@ -145,4 +145,81 @@
     border: 1px solid $header-background;
   }
 
+  .btnAddedUsers{
+    max-width: 200px;
+    width: 100%;
+    font-size: 16px;
+    padding: 5px 10px;
+    background: $background-button-added-user;
+    border: 1px solid $hover-name-user-talk;
+    border-radius: 30% 0 30% 0;
+    animation: btnAddedUsers 10s ease-in-out infinite;
+    transition: 1s ease-in;
+  }
+
+  .btnAddedUsers:hover{
+    cursor: pointer;
+    background: $new-background;
+    border: 1px solid $new-border;
+  }
+
+  @keyframes btnAddedUsers {
+    0% { border-radius: 30% 0 30% 0; }
+    50% { border-radius: 0 30% 0 30%; }
+    100% { border-radius: 30% 0 30% 0; }
+  }
+
+  .friends{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    row-gap: 10px;
+
+    .listUsers{
+      display: grid;
+      grid-template: "photo name cross" /50px 1fr 30px;
+      align-items: center;
+      column-gap: 10px;
+      padding: 10px;
+      width: 100%;
+      border: 1px solid $header-background;
+
+      .photoUser{
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        object-fit: cover;
+      }
+      .nameUser{
+        display: flex;
+        flex-direction: row;
+        column-gap: 5px;
+        font-size: 18px;
+
+      }
+
+      .cross {
+        background: transparent;
+        border: none;
+        max-width: 20px;
+        max-height: 20px;
+
+        .crossPhoto {
+          max-width: 20px;
+          max-height: 20px;
+          fill: $header-background;
+          transition: .3s ease-in;
+        }
+      }
+
+      .cross:hover {
+        cursor: pointer;
+
+        .crossPhoto{
+          fill: black;
+        }
+      }
+    }
+  }
 }

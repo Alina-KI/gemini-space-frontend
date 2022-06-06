@@ -9,9 +9,15 @@ class UsersTalkStore {
   users: User[] = []
   
   addedUsers(user: User) {
-    this.users.push(user)
+    const isAddedUser = this.users.find(u => u._id == user._id)
+    if (!isAddedUser) {
+      this.users.push(user)
+    }
   }
-  
+
+  removeUsers(user: User) {
+    this.users = this.users.filter(u => u._id !== user._id)
+  }
 }
 
 export const usersTalkStore = new UsersTalkStore()

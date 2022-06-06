@@ -5,10 +5,11 @@ import { observer } from 'mobx-react-lite'
 import { Modal } from './modal/modal'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { useHistory } from 'react-router-dom'
-import { socketStore } from '../../../../store/socket-store'
 import { usersTalkStore } from '../../../../store/users-talk-store'
 import { readFile } from '../../../../functions/read-file'
 import { dialogsStore } from '../../../../store/dialogs-store'
+import ava from '../../../../images/2.jpg'
+import { ReactComponent as Cross } from '../../../../images/cross.svg'
 
 type TalkForm = {
   image: string
@@ -55,12 +56,20 @@ export const CreateTalk = observer(() => {
             required: { value: true, message: 'This field is required' },
             maxLength: { value: 100, message: 'Title talk cannot exceed 100 characters' }
           })}
-          className={s.text} type="text" />
-        {errors?.nameTalk &&
-        <p className={s.error}>* {errors.nameTalk.message} </p>}
+          className={s.text} type="text" placeholder={errors?.nameTalk?.message || ''} />
       </div>
       <div className={s.friends}>
         <button type="button" onClick={() => setIsOpenModal(true)} className={s.btnAddedUsers}>Add users</button>
+        {usersTalkStore.users.map(user =>
+          <div key={user._id} className={s.listUsers}>
+            {/*<img className={s.photoUser} src={user.avatar} alt="" />*/}
+            <img className={s.photoUser} src={ava} alt="" />
+            <div className={s.nameUser}>{user.surname} {user.name} {user.lastname}</div>
+            <button type="button" className={s.cross} onClick={() => {usersTalkStore.removeUsers(user)}}>
+              <Cross className={s.crossPhoto}/>
+            </button>
+          </div>
+        )}
       </div>
       <Modal isOpen={isOpenModal} setIsOpen={setIsOpenModal} />
       <button className={s.btnTalk}>Create talk</button>
