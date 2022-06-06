@@ -1,10 +1,11 @@
-import { makeAutoObservable, toJS } from 'mobx'
+import { makeAutoObservable } from 'mobx'
 import { Auth } from '../components/auth/auth'
 import { Registration } from '../components/registration/registration'
 import { api } from '../api'
 import jwtDecode from 'jwt-decode'
 import { Dialog } from '../types/message'
 import { User } from '../types/user'
+import { fileType } from '../types/file-type'
 
 export type UserLoginType = {
   name: string
@@ -15,6 +16,9 @@ export type UserLoginType = {
   town?: string
   login: string
   email: string
+  imageFiles?: fileType[]
+  audioFiles?: fileType[]
+  videoFiles?: fileType[]
 }
 
 class AuthStore {
@@ -90,9 +94,7 @@ class AuthStore {
         'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE,PATCH,OPTIONS'
       }
     })
-      .then(res => {
-        // console.log(res)
-      })
+      .then(() => { })
       .catch(error => {
         console.dir(error)
         this.error = error.message
