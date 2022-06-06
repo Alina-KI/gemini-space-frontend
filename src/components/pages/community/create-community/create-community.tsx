@@ -2,26 +2,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import s from './create-community.module.scss'
 import { useRefDimensions } from '../../../../hooks/use-ref-dimensions'
 import { observer } from 'mobx-react-lite'
-
-const readFile = (file: File | undefined | null) => {
-  return new Promise<string>((resolve => {
-    if (!file) {
-      resolve('')
-    }
-    const reader = new FileReader()
-
-    reader.onloadend = function() {
-      resolve(reader.result as string)
-    }
-
-    if (file) {
-      reader.readAsDataURL(file)
-    } else {
-      resolve('')
-    }
-  }))
-}
-
+import { readFile } from '../../../../functions/read-file'
 
 export const CreateCommunity = observer(() => {
   const containerRef = useRef<HTMLImageElement>(null)

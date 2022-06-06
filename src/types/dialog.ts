@@ -7,4 +7,5 @@ export type CreateDialogPayload = {
 export type CreateGroupDialogPayload = {
   nameTalk: string
   users: User[]
+  image: string
 }

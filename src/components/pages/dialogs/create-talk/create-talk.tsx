@@ -7,25 +7,8 @@ import { SubmitHandler, useForm } from 'react-hook-form'
 import { useHistory } from 'react-router-dom'
 import { socketStore } from '../../../../store/socket-store'
 import { usersTalkStore } from '../../../../store/users-talk-store'
-
-const readFile = (file: File | undefined | null) => {
-  return new Promise<string>((resolve => {
-    if (!file) {
-      resolve('')
-    }
-    const reader = new FileReader()
-
-    reader.onloadend = function() {
-      resolve(reader.result as string)
-    }
-
-    if (file) {
-      reader.readAsDataURL(file)
-    } else {
-      resolve('')
-    }
-  }))
-}
+import { readFile } from '../../../../functions/read-file'
+import { dialogsStore } from '../../../../store/dialogs-store'
 
 type TalkForm = {
   image: string
@@ -42,7 +25,11 @@ export const CreateTalk = observer(() => {
   const history = useHistory()
   const { register, handleSubmit, formState: { errors } } = useForm<TalkForm>()
   const onSubmit: SubmitHandler<TalkForm> = async data => {
-    const dialog = await socketStore.createGroupDialog({ nameTalk: data.nameTalk, users: usersTalkStore.users })
+    const dialog = await dialogsStore.createGroupDialog({
+      nameTalk: data.nameTalk,
+      users: usersTalkStore.users,
+      image: data.image
+    })
     history.push(`/dialogs/${dialog._id}`)
   }
   useEffect(() => {
@@ -73,7 +60,7 @@ export const CreateTalk = observer(() => {
         <p className={s.error}>* {errors.nameTalk.message} </p>}
       </div>
       <div className={s.friends}>
-        <button type='button' onClick={() => setIsOpenModal(true)} className={s.btnAddedUsers}>Add users</button>
+        <button type="button" onClick={() => setIsOpenModal(true)} className={s.btnAddedUsers}>Add users</button>
       </div>
       <Modal isOpen={isOpenModal} setIsOpen={setIsOpenModal} />
       <button className={s.btnTalk}>Create talk</button>
