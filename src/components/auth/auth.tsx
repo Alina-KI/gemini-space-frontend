@@ -88,9 +88,7 @@ export const AuthPage = () => {
                 required: { value: true, message: 'This field is required' },
                 maxLength: { value: 100, message: 'Login cannot exceed 100 characters' }
               })}
-              type="text" placeholder="Login" />
-            {errors?.login &&
-            <p className={s.error}>* {errors.login.message} </p>}
+              type="text" placeholder={errors?.login?.message || 'Login'} />
           </div>
         </div>
         <div className={s.textInput}>
@@ -101,9 +99,7 @@ export const AuthPage = () => {
                 required: { value: true, message: 'This field is required' },
                 maxLength: { value: 100, message: 'Password cannot exceed 100 characters' }
               })}
-              type="text" placeholder="Password" />
-            {errors?.password &&
-            <p className={s.error}>* {errors.password.message} </p>}
+              type="text" placeholder={errors?.password?.message || 'Password'} />
           </div>
         </div>
         <button type="submit" className={s.b_login}>Sign In</button>

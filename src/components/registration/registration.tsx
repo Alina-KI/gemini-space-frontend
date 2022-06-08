@@ -86,9 +86,7 @@ export const Registration = () => {
                 required: { value: true, message: 'This field is required' },
                 maxLength: { value: 100, message: 'Login cannot exceed 100 characters' }
               })}
-              type="text" placeholder="Name" />
-            {errors?.name &&
-            <p className={s.error}>* {errors.name.message} </p>}
+              type="text" placeholder={errors?.name?.message || 'Name'} />
           </div>
         </div>
         <div className={s.textInput}>
@@ -99,9 +97,7 @@ export const Registration = () => {
                 required: { value: true, message: 'This field is required' },
                 maxLength: { value: 100, message: 'Login cannot exceed 100 characters' }
               })}
-              type="text" placeholder="Login" />
-            {errors?.surname &&
-            <p className={s.error}>* {errors.surname.message} </p>}
+              type="text" placeholder={errors?.surname?.message || 'Surname'} />
           </div>
         </div>
         <div className={s.textInput}>
@@ -115,9 +111,7 @@ export const Registration = () => {
           <div className={s.inputError}>
             <input className={s.date_of_birth}
               {...register('dateOfBirth')}
-              type="date" min="1990-01-01" max="2021-12-31" />
-            {errors?.dateOfBirth &&
-            <p className={s.error}>* {errors.dateOfBirth.message} </p>}
+              type="date" min="1990-01-01" max="2015-12-31" />
           </div>
         </div>
         <div className={s.textInput}>
@@ -128,15 +122,13 @@ export const Registration = () => {
                 required: { value: true, message: 'This field is required' },
                 pattern: { value: /^\S+@\S+$/i, message: 'The email is not in the correct format' }
               })}
-              type="text" placeholder="john@gmail.com" />
-            {errors?.email &&
-            <p className={s.error}>* {errors.email.message} </p>}
+              type="text" placeholder={errors?.email?.message || 'john@gmail.com'} />
           </div>
         </div>
         <div className={s.textInput}>
           <p>Town:</p>
           <div className={s.inputError}>
-            <input {...register('town')} type="text" placeholder="town" />
+            <input {...register('town')} type="text" placeholder="Town" />
           </div>
         </div>
         <div className={s.textInput}>
@@ -152,9 +144,7 @@ export const Registration = () => {
                   message: 'The number phone is not in the correct format. Try to start the phone number with 8.'
                 }
               })}
-              type="text" placeholder="1302461037" />
-            {errors?.phone &&
-            <p className={s.error}>* {errors.phone.message} </p>}
+              type="text" placeholder={errors?.phone?.message || '1302461037'} />
           </div>
         </div>
         <div className={s.textInput}>
@@ -165,9 +155,7 @@ export const Registration = () => {
                 required: { value: true, message: 'This field is required' },
                 maxLength: { value: 100, message: 'Login cannot exceed 100 characters' }
               })}
-              type="text" placeholder="Login" />
-            {errors?.login &&
-            <p className={s.error}>* {errors.login.message} </p>}
+              type="text" placeholder={errors?.login?.message || 'Login'} />
           </div>
         </div>
         <div className={s.textInput}>
@@ -178,9 +166,7 @@ export const Registration = () => {
                 required: { value: true, message: 'This field is required' },
                 maxLength: { value: 100, message: 'Password cannot exceed 100 characters' }
               })}
-              type="password" placeholder="Password" />
-            {errors?.password &&
-            <p className={s.error}>* {errors.password.message} </p>}
+              type="password" placeholder={errors?.password?.message || 'Password'} />
           </div>
         </div>
         <div className={s.textInput}>
@@ -191,9 +177,7 @@ export const Registration = () => {
                 required: { value: true, message: 'This field is required' },
                 maxLength: { value: 100, message: 'Password cannot exceed 100 characters' }
               })}
-              type="text" placeholder="Password" />
-            {errors?.password &&
-            <p className={s.error}>* {errors.password.message} </p>}
+              type="password" placeholder={errors?.password?.message || 'Password'} />
           </div>
         </div>
         <button className={s.b_registration} type="submit">Create</button>
