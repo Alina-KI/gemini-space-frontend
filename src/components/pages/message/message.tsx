@@ -21,14 +21,13 @@ export const Message = observer(() => {
 
   useEffect(() => {
     dialogsStore.enterDialog(dialogId).then()
-
-    return () => dialogsStore.exitDialog()
+    console.log('dialog', dialogsStore.selectedDialog)
+    // return () => dialogsStore.exitDialog()
   }, [dialogId])
 
   if (newsStore.isLoading) return <Loader />
   if (newsStore.error) return <ErrorDisplay message={'Error'} />
 
-  console.log(dialogsStore.selectedDialog?.image)
   return (
     <div className={s.container}>
       <div className={s.container_header}>

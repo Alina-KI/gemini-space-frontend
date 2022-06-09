@@ -13,7 +13,7 @@ class DialogsStore {
 
   dialogs: Dialog[] = []
 
-  selectedDialog: null | Dialog = null
+  selectedDialog: null | Dialog | undefined = null
 
   get sortedDialogs(): Dialog[] {
     // @ts-ignore
@@ -21,26 +21,31 @@ class DialogsStore {
   }
 
   getMyDialogs() {
-    api.get<Dialog[]>('/dialogues')
+    return api.get<Dialog[]>('/dialogues')
       .then(res => this.dialogs = res.data.map(d => d.nameTalk ? d : {
         ...d,
         nameTalk: authStore.getUserNameSurname(authStore.getInterlocutor(d))
       }))
   }
 
-  createDialog(dialog: CreateDialogPayload) {
-    return socketStore.createDialog(dialog)
+  async createDialog(dialog: CreateDialogPayload) {
+    const newDialog = await socketStore.createDialog(dialog)
+    await this.getMyDialogs()
+    return newDialog
   }
 
   async createGroupDialog(dialog: CreateGroupDialogPayload) {
     const formData = new FormData()
     formData.append('image', dialog.image)
     const imagePath = await api.post('files/upload/images', formData).then(res => res.data)
-    return socketStore.createGroupDialog({ ...dialog, image: imagePath })
+    const newDialog = await socketStore.createGroupDialog({ ...dialog, image: imagePath })
+    await this.getMyDialogs()
+    return newDialog
   }
 
   async enterDialog(dialogId: string) {
-    this.selectedDialog = await api.get(`/dialogues/getDialog/${dialogId}`).then(res => res.data)
+    // this.selectedDialog = await api.get(`/dialogues/getDialog/${dialogId}`).then(res => res.data)
+    this.selectedDialog = this.dialogs.find(d => d._id === dialogId)
     if (this.selectedDialog?.image)
       this.selectedDialog.image = getFileUrl(this.selectedDialog.image)
   }
