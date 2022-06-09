@@ -5,6 +5,7 @@ export type Dialog = {
   nameTalk: string
   users: User[]
   messages: Message[]
+  image?: string
 }
 
 export type Message = {

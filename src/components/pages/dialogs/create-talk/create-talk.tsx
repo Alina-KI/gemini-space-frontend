@@ -12,7 +12,7 @@ import ava from '../../../../images/2.jpg'
 import { ReactComponent as Cross } from '../../../../images/cross.svg'
 
 type TalkForm = {
-  image: string
+  image: FileList
   nameTalk: string
 }
 
@@ -26,10 +26,11 @@ export const CreateTalk = observer(() => {
   const history = useHistory()
   const { register, handleSubmit, formState: { errors } } = useForm<TalkForm>()
   const onSubmit: SubmitHandler<TalkForm> = async data => {
+    console.log(data)
     const dialog = await dialogsStore.createGroupDialog({
       nameTalk: data.nameTalk,
       users: usersTalkStore.users,
-      image: data.image
+      image: data.image[0]
     })
     history.push(`/dialogs/${dialog._id}`)
   }

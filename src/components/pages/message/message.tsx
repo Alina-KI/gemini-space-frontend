@@ -1,6 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react'
 import s from './message.module.scss'
-import image from '../../../images/2.jpg'
 import { dialogsStore } from '../../../store/dialogs-store'
 import { useParams } from 'react-router-dom'
 import { observer } from 'mobx-react-lite'
@@ -29,10 +28,11 @@ export const Message = observer(() => {
   if (newsStore.isLoading) return <Loader />
   if (newsStore.error) return <ErrorDisplay message={'Error'} />
 
+  console.log(dialogsStore.selectedDialog?.image)
   return (
     <div className={s.container}>
       <div className={s.container_header}>
-        <img className={s.container_header__image} src={image} alt="" />
+        <img className={s.container_header__image} src={dialogsStore.selectedDialog?.image} alt="" />
         {dialogsStore.selectedDialog?.nameTalk}
       </div>
       <div className={s.messages} ref={messagesRef}>

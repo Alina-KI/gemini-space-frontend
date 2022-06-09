@@ -4,6 +4,7 @@ import { socketStore } from './socket-store'
 import { CreateDialogPayload, CreateGroupDialogPayload } from '../types/dialog'
 import { api } from '../api'
 import { authStore } from './auth-store'
+import { getFileUrl } from '../functions/get-file-url'
 
 class DialogsStore {
   constructor() {
@@ -31,12 +32,17 @@ class DialogsStore {
     return socketStore.createDialog(dialog)
   }
 
-  createGroupDialog(dialog: CreateGroupDialogPayload) {
-    return socketStore.createGroupDialog(dialog)
+  async createGroupDialog(dialog: CreateGroupDialogPayload) {
+    const formData = new FormData()
+    formData.append('image', dialog.image)
+    const imagePath = await api.post('files/upload/images', formData).then(res => res.data)
+    return socketStore.createGroupDialog({ ...dialog, image: imagePath })
   }
 
   async enterDialog(dialogId: string) {
     this.selectedDialog = await api.get(`/dialogues/getDialog/${dialogId}`).then(res => res.data)
+    if (this.selectedDialog?.image)
+      this.selectedDialog.image = getFileUrl(this.selectedDialog.image)
   }
 
   exitDialog() {

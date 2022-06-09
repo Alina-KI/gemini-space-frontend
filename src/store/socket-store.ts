@@ -2,7 +2,7 @@ import { makeAutoObservable } from 'mobx'
 import { io, Socket } from 'socket.io-client'
 import { dialogsStore } from './dialogs-store'
 import { Dialog, NewMessage } from '../types/message'
-import { CreateDialogPayload, CreateGroupDialogPayload } from '../types/dialog'
+import { CreateDialogPayload, CreateGroupDialogPayloadWithImage } from '../types/dialog'
 
 class SocketStore {
   constructor() {
@@ -47,7 +47,7 @@ class SocketStore {
     )
     )
   }
-  createGroupDialog(dialog: CreateGroupDialogPayload): Promise<Dialog> {
+  createGroupDialog(dialog: CreateGroupDialogPayloadWithImage): Promise<Dialog> {
     return new Promise(resolve => this.socket!.emit(
       'createGroupDialog',
       dialog,
