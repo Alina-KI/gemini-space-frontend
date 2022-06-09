@@ -23,7 +23,7 @@ class UserPageStore {
     const formData = new FormData()
     formData.append('avatar', image)
     const avatarPath = await api.post('files/upload/avatar', formData).then(res => res.data)
-    this.user!.avatar = getFileUrl(avatarPath)
+    this.user!.avatar = avatarPath
   }
 }
 
