@@ -7,7 +7,6 @@
   margin-top: 30px;
   background: linear-gradient($header-background 1%, $footer-background 99%);
   min-height: 60px;
-  //background: linear-gradient(#9198e5 1%, $footer-background 99%);
   color: $footer-color;
 
   .containerFooter {
@@ -204,6 +203,8 @@
     .containerFooter {
       display: none;
     }
+    position: fixed;
+    bottom: 0;
   }
   @media (min-width: 500px) {
     .containerMenu {

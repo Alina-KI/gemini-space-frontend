@@ -12,7 +12,7 @@ export const Setting = observer(() => {
   return (
     <div className={s.setting}>
       {/*Setting*/}
-      <ErrorDisplay message="1"/>
+      <ErrorDisplay message="Internal Server Error" code={500}/>
     </div>
   )
 })

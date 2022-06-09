@@ -23,6 +23,15 @@ input {
     outline: none;
 }
 
+@media (max-width: 500px) {
+    h1 {
+
+    }
+    h3 {
+
+    }
+}
+
 code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
