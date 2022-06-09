@@ -1,3 +1,6 @@
+.myPage{
+  position: relative;
+}
 .container {
   margin-bottom: 10px;
   display: flex;
@@ -71,7 +74,7 @@
   width: 120px;
   height: 120px;
   border-radius: 20px;
-  background-size: cover;
+  object-fit: cover;
   display: inline-block;
   transition: 1s;
 

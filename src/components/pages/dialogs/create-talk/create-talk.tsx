@@ -26,7 +26,6 @@ export const CreateTalk = observer(() => {
   const history = useHistory()
   const { register, handleSubmit, formState: { errors } } = useForm<TalkForm>()
   const onSubmit: SubmitHandler<TalkForm> = async data => {
-    console.log(data)
     const dialog = await dialogsStore.createGroupDialog({
       nameTalk: data.nameTalk,
       users: usersTalkStore.users,
@@ -49,7 +48,7 @@ export const CreateTalk = observer(() => {
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
         <label className={s.containerPhoto} style={preview ? { height: `${height}px` } : {}}>
           <i className="material-icons">attach_file</i>
-          <span className={s.textPhoto}>Загрузить файл</span>
+          <span className={s.textPhoto}>Upload file</span>
           <input {...register('image')}
             onChange={e => setSelectedFile(e.target?.files?.[0])} className={s.file} type="file" />
           <img ref={containerRef} className={s.photo} src={preview} alt="" />
@@ -68,7 +67,6 @@ export const CreateTalk = observer(() => {
         <button type="button" onClick={() => setIsOpenModal(true)} className={s.btnAddedUsers}>Add users</button>
         {usersTalkStore.users.map(user =>
           <div key={user._id} className={s.listUsers}>
-            {/*<img className={s.photoUser} src={user.avatar} alt="" />*/}
             <img className={s.photoUser} src={ava} alt="" />
             <div className={s.nameUser}>{user.surname} {user.name} {user.lastname}</div>
             <button type="button" className={s.cross} onClick={() => {

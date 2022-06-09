@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import s from './user-page.module.scss'
-import avatar from '../../../images/1.jpg'
 import setting from '../../../images/setting/setting.png'
 import { NavLink, useParams } from 'react-router-dom'
 import { MiniGallery } from './mini-gallery/mini-gallery'
@@ -9,8 +8,10 @@ import { observer } from 'mobx-react-lite'
 import { Loader } from '../../shared/loader/loader'
 import { ErrorDisplay } from '../../shared/error-display/error-display'
 import { userPageStore } from '../../../store/user-page-store'
+import { ModalUploadImage } from './modal-upload-image/modal-upload-image'
 
 export const UserPage = observer(() => {
+  const [isOpenModal, setIsOpenModal] = useState(false)
   const { login } = useParams<{ login: string }>()
   useEffect(() => {
     userPageStore.fetchUser(login)
@@ -34,7 +35,6 @@ export const UserPage = observer(() => {
     if (width && width > 500) setSettingText('Setting')
   }, [width])
 
-
   if (userPageStore.isLoading) return <Loader />
   if (userPageStore.error) return <ErrorDisplay message={'Error'} />
 
@@ -42,7 +42,7 @@ export const UserPage = observer(() => {
     <div className={s.myPage}>
       <div className={s.container}>
         <div className={s.dataUser}>
-          <div className={s.avatar} style={{ backgroundImage: `url("${avatar}")` }} />
+          <img className={s.avatar} src={user?.avatar} onClick={() => setIsOpenModal(true)} alt='Avatar'/>
           <div className={s.name_data}>
             <NavLink to={`/${user?.login}`} className={s.NameUser}>
               {user?.name} {user?.surname} {user?.lastname}
@@ -55,6 +55,7 @@ export const UserPage = observer(() => {
             }
           </div>
         </div>
+        <ModalUploadImage isOpen={isOpenModal} setIsOpen={setIsOpenModal} />
         <div className={s.setting}>
           <NavLink to={`/${user?.login}/setting`} className={s.image}>
             <img className={s.settingImage} src={setting} alt="Setting" />

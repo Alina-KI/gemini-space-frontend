@@ -21,7 +21,6 @@ export const Message = observer(() => {
 
   useEffect(() => {
     dialogsStore.enterDialog(dialogId).then()
-    console.log('dialog', dialogsStore.selectedDialog)
     // return () => dialogsStore.exitDialog()
   }, [dialogId])
 
