@@ -22,14 +22,18 @@ type Props = {
 export const ModalUploadImage = observer(({ isOpen, setIsOpen }: Props) => {
   const containerRef = useRef<HTMLImageElement>(null)
   const { height } = useRefDimensions(containerRef)
-  const [selectedFile, setSelectedFile] = useState<File | undefined | null>(undefined)
+  const { register, watch, handleSubmit } = useForm<imageForm>()
+  const selectedFile = watch('image')?.[0]
   const [preview, setPreview] = useState('')
-  const { handleSubmit } = useForm<imageForm>()
+
   const onSubmit: SubmitHandler<imageForm> = async data => {
     await userPageStore.uploadNewAvatar(data.image[0])
+    setIsOpen(false)
   }
   useEffect(() => {
-    readFile(selectedFile).then(setPreview)
+    if (selectedFile) {
+      readFile(selectedFile).then(setPreview)
+    }
   }, [selectedFile])
 
   return (
@@ -44,14 +48,10 @@ export const ModalUploadImage = observer(({ isOpen, setIsOpen }: Props) => {
           </button>
           <label className={s.containerPhoto} style={preview ? { height: `${height}px` } : {}}>
             <span className={s.textPhoto}>Upload file</span>
-            <input
-              onChange={e => setSelectedFile(e.target?.files?.[0])} className={s.file} type="file" />
+            <input {...register('image')} className={s.file} type="file" />
             <img ref={containerRef} className={s.photo} src={preview} alt="" />
           </label>
-          <button className={s.btnChange} onClick={() => {
-            setIsOpen(false)
-          }}>Change avatar
-          </button>
+          <button className={s.btnChange}>Change avatar</button>
         </form>
       }
     </>

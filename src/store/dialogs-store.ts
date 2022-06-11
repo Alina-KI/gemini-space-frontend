@@ -43,6 +43,10 @@ class DialogsStore {
     return newDialog
   }
 
+  async deleteDialog(dialog: Dialog) {
+    // this.dialogs = this.dialogs.filter(d => d._id !== dialog)
+  }
+
   async enterDialog(dialogId: string) {
     // this.selectedDialog = await api.get(`/dialogues/getDialog/${dialogId}`).then(res => res.data)
     this.selectedDialog = this.dialogs.find(d => d._id === dialogId)

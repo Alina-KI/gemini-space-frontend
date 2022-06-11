@@ -17,7 +17,11 @@ export const Dialogs = observer(() => {
       </button>
       {dialogsStore.sortedDialogs.map(dialog =>
         <NavLink className={s.dialog} to={`/dialogs/${dialog._id}`} key={dialog._id}>
-          <img className={s.photoDialog} src={dialog.image ? dialog.image : dialog.users.find(u => u.login !== authStore.user?.login)?.avatar} alt="photoDialog" />
+          <img
+            className={s.photoDialog}
+            src={dialog.image ? dialog.image : dialog.users.find(u => u.login !== authStore.user?.login)?.avatar}
+            alt="photoDialog"
+          />
           <div className={s.dataDialog}>
             <h4 className={s.nameTalk}>{dialog.nameTalk}</h4>
             <p className={s.dataMessage}>
@@ -25,9 +29,7 @@ export const Dialogs = observer(() => {
             </p>
             <p className={s.lastMessage}>{dialog.messages[dialog.messages.length - 1]?.text}</p>
           </div>
-          <button type="button" className={s.cross} onClick={() => {
-            // usersTalkStore.removeUsers(user)
-          }}>
+          <button type="button" className={s.cross} onClick={() => dialogsStore.deleteDialog(dialog)}>
             <Cross className={s.crossPhoto} />
           </button>
         </NavLink>)}
