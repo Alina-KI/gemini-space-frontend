@@ -3,18 +3,28 @@ import s from './create-community.module.scss'
 import { useRefDimensions } from '../../../../hooks/use-ref-dimensions'
 import { observer } from 'mobx-react-lite'
 import { readFile } from '../../../../functions/read-file'
+import { SubmitHandler, useForm } from 'react-hook-form'
+
+type createCommunityForm = {
+  music: FileList
+  title: string
+}
 
 export const CreateCommunity = observer(() => {
   const containerRef = useRef<HTMLImageElement>(null)
   const { height } = useRefDimensions(containerRef)
   const [selectedFile, setSelectedFile] = useState<File | undefined | null>(undefined)
   const [preview, setPreview] = useState('')
+  const { register, watch, handleSubmit } = useForm<createCommunityForm>()
+  const onSubmit: SubmitHandler<createCommunityForm> = async data => {
+
+  }
   useEffect(() => {
     readFile(selectedFile).then(setPreview)
   }, [selectedFile])
 
   return (
-    <form action="" className={s.formCommunity}>
+    <form action="" className={s.formCommunity} onSubmit={handleSubmit(onSubmit)}>
       <div className={s.downlandPhoto}>
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
         <label className={s.containerPhoto} style={preview ? { height: `${height}px` } : {}}>

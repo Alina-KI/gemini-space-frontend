@@ -1,18 +1,80 @@
 @import "src/variables";
 
-.container{
-  max-width: 960px;
+.container {
+  max-width: 860px;
   width: 100%;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+  row-gap: 15px;
 
-  .audio{
-    max-width: 600px;
+  .file {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    align-self: flex-start;
+    column-gap: 10px;
+    max-width: 650px;
     width: 100%;
+    background: rgba($line-talk, .5);
+    padding: 20px;
+    border-radius: 10px;
+
+    .fileTitle {
+
+    }
+
+    .fileOn {
+      padding: 5px 10px;
+      max-width: 100px;
+      width: 100%;
+      font-size: 16px;
+      background: $background-button-added-user;
+      border: 1px solid $hover-name-user-talk;
+      transition: .5s ease-in;
+
+      &:hover {
+        cursor: pointer;
+        background: $new-background;
+        border: 1px solid $new-border;
+      }
+    }
+
+
   }
-  .audio::-webkit-media-controls-panel{
-    background: linear-gradient(to right, $app-background 0%, $header-background 50%, $footer-background 100%);
+  .modalAndAudio {
+    display: flex;
+    flex-direction: row;
+    column-gap: 10px;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+
+    .modalShow {
+      max-width: 150px;
+      width: 100%;
+      font-size: 16px;
+      padding: 5px 10px;
+      background: $background-button-added-user;
+      border: 1px solid $hover-name-user-talk;
+      transition: .5s ease-in;
+
+      &:hover {
+        cursor: pointer;
+        background: $new-background;
+        border: 1px solid $new-border;
+      }
+    }
+
+    .audio {
+      max-width: 600px;
+      width: 100%;
+    }
+
+    .audio::-webkit-media-controls-panel {
+      background: linear-gradient(to right, $app-background 0%, $header-background 50%, $footer-background 100%);
+    }
   }
 }

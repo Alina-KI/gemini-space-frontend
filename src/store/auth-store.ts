@@ -5,7 +5,7 @@ import { api } from '../api'
 import jwtDecode from 'jwt-decode'
 import { Dialog } from '../types/message'
 import { User } from '../types/user'
-import { fileType } from '../types/file-type'
+import { FileType } from '../types/file-type'
 
 export type UserLoginType = {
   name: string
@@ -14,11 +14,12 @@ export type UserLoginType = {
   dateOfBirth?: string
   phone?: number
   town?: string
+  avatar?: string
   login: string
   email: string
-  imageFiles?: fileType[]
-  audioFiles?: fileType[]
-  videoFiles?: fileType[]
+  imageFiles?: FileType[]
+  audioFiles?: FileType[]
+  videoFiles?: FileType[]
 }
 
 class AuthStore {
@@ -64,7 +65,6 @@ class AuthStore {
         return api.get(`/user/getOne/${userLogin}`)
           .then(res => {
             this.user = res.data
-            // console.log(this.user)
           })
           .catch(error => {
             return error.data
@@ -126,7 +126,6 @@ class AuthStore {
         return api.get(`/user/getOne/${userLogin}`)
           .then(res => {
             this.user = res.data
-            // console.log(toJS(this.user))
           })
           .catch(error => {
             return error.data

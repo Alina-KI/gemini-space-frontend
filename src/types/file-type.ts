@@ -1,4 +1,4 @@
-export type fileType = {
+export type FileType = {
   title: string
   path: string
 }

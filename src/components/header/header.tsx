@@ -1,14 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import s from './header.module.scss'
 import logo from '../../images/logo.svg'
-import avatar from '../../images/1.jpg'
-// import sun from '../../images/light-night/sun.svg'
-// import moon from '../../images/light-night/moon.svg'
-import { NavLink, useLocation } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import { Navbar } from '../navbar/navbar'
 import { authStore } from '../../store/auth-store'
 import { useIsLoadingPage } from '../../hooks/use-is-loading-page'
 import { observer } from 'mobx-react-lite'
+// import sun from '../../images/light-night/sun.svg'
+// import moon from '../../images/light-night/moon.svg'
 
 export const Header = observer(() => {
   const [nameProject, setNameProject] = useState('GS')
@@ -16,7 +15,6 @@ export const Header = observer(() => {
   const [width, setWidth] = useState<number | undefined>(undefined)
   const [isActive, setIsActive] = useState(false)
   const isLoadingPage = useIsLoadingPage()
-  const user = authStore.user
 
   useEffect(() => {
     const handleResize = () => {
@@ -64,8 +62,8 @@ export const Header = observer(() => {
           </div>
         </div>
         <div className={s.logo_name}>
-          <NavLink to={`/${user?.login}`}><img className={s.logo} src={logo} alt="Logo" /></NavLink>
-          <span className={s.header_name_project}><NavLink to={`/${user?.login}`}>{nameProject}</NavLink></span>
+          <NavLink to={`/${authStore.user?.login}`}><img className={s.logo} src={logo} alt="Logo" /></NavLink>
+          <span className={s.header_name_project}><NavLink to={`/${authStore.user?.login}`}>{nameProject}</NavLink></span>
         </div>
         {isLoadingPage &&
         <div className={s.search}>
@@ -76,12 +74,12 @@ export const Header = observer(() => {
               alt="" />
           </button>
         </div>}
-        {user === null ?
+        {authStore.user === null ?
           <div className={s.login}><NavLink to="/auth">Login</NavLink></div>
           :
-          <div><span className={s.login_name}><NavLink to={`/${user.login}`}>{user.name} {user.surname}</NavLink></span>
-            <NavLink to={`/${user.login}`}>
-              <div className={s.login_logo} style={{ backgroundImage: `url("${avatar}")` }} />
+          <div><span className={s.login_name}><NavLink to={`/${authStore.user.login}`}>{authStore.user.name} {authStore.user.surname}</NavLink></span>
+            <NavLink to={`/${authStore.user.login}`}>
+              <img className={s.login_logo} src={authStore.user?.avatar} alt="Avatar" />
             </NavLink>
           </div>
         }

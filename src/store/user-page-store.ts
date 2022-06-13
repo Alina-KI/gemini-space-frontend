@@ -1,7 +1,7 @@
 import { makeAutoObservable } from 'mobx'
 import { User } from '../types/user'
 import { api } from '../api'
-import { getFileUrl } from '../functions/get-file-url'
+import { authStore } from './auth-store'
 
 class UserPageStore {
   constructor() {
@@ -24,6 +24,7 @@ class UserPageStore {
     formData.append('avatar', image)
     const avatarPath = await api.post('files/upload/avatar', formData).then(res => res.data)
     this.user!.avatar = avatarPath
+    authStore.user!.avatar = avatarPath
   }
 }
 

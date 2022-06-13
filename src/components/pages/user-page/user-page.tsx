@@ -9,7 +9,6 @@ import { Loader } from '../../shared/loader/loader'
 import { ErrorDisplay } from '../../shared/error-display/error-display'
 import { userPageStore } from '../../../store/user-page-store'
 import { ModalUploadImage } from './modal-upload-image/modal-upload-image'
-import { getFileUrl } from '../../../functions/get-file-url'
 
 export const UserPage = observer(() => {
   const [isOpenModal, setIsOpenModal] = useState(false)
