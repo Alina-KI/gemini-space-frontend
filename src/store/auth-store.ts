@@ -19,7 +19,7 @@ export type UserLoginType = {
   email: string
   imageFiles?: FileType[]
   audioFiles?: FileType[]
-  videoFiles?: FileType[]
+  videoFiles?: string[]
 }
 
 class AuthStore {

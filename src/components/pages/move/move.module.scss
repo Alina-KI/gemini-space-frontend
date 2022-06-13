@@ -1,0 +1,42 @@
+@import "src/variables";
+
+.container {
+  max-width: 860px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  row-gap: 15px;
+  position: relative;
+
+  .modalShow {
+    max-width: 150px;
+    width: 100%;
+    align-self: flex-end;
+    font-size: 16px;
+    padding: 5px 10px;
+    background: $background-button-added-user;
+    border: 1px solid $hover-name-user-talk;
+    transition: .5s ease-in;
+
+    &:hover {
+      cursor: pointer;
+      background: $new-background;
+      border: 1px solid $new-border;
+    }
+  }
+
+  .containerMove{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    column-gap: 10px;
+    row-gap: 10px;
+    justify-content: space-evenly;
+
+    .move {
+      max-width: 350px;
+      width: 100%;
+    }
+  }
+}

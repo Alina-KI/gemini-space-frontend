@@ -14,6 +14,13 @@ class UserFilesStore {
     // @ts-ignore
     await api.post('files/upload/audio', formData).then(res => authStore.user.audioFiles.push(res.data))
   }
+
+  async uploadNewVideo(video: File) {
+    const formData = new FormData()
+    formData.append('video', video)
+    // @ts-ignore
+    await api.post('files/upload/video', formData).then(res => authStore.user.videoFiles.push(res.data))
+  }
 }
 
 export const userFilesStore = new UserFilesStore()

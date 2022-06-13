@@ -14,6 +14,7 @@ import { Dialogs } from './components/pages/dialogs/dialogs'
 import { Music } from './components/pages/music/music'
 import { CreateCommunity } from './components/pages/community/create-community/create-community'
 import { CreateTalk } from './components/pages/dialogs/create-talk/create-talk'
+import { Move } from './components/pages/move/move'
 
 export const Routes = () => {
   return (
@@ -31,6 +32,7 @@ export const Routes = () => {
       <Route path="/:login/create-talk" component={CreateTalk} exact />
       <Route path="/:login/community" component={Community} exact />
       <Route path="/music" component={Music} exact />
+      <Route path="/move" component={Move} exact />
       <Route path="/:login" component={UserPage} exact />
       <Route path="/" component={() => <Redirect to="/auth" />} />
     </Switch>
