@@ -21,6 +21,13 @@ class UserFilesStore {
     // @ts-ignore
     await api.post('files/upload/video', formData).then(res => authStore.user.videoFiles.push(res.data))
   }
+
+  async uploadNewPhoto(image: File) {
+    const formData = new FormData()
+    formData.append('image', image)
+    // @ts-ignore
+    await api.post('files/upload/image', formData).then(res => authStore.user.imageFiles.push(res.data))
+  }
 }
 
 export const userFilesStore = new UserFilesStore()

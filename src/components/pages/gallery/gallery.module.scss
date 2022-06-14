@@ -1,60 +1,90 @@
-.title {
-  margin-bottom: 25px;
-  color: #2e2b26;
-  border-bottom: 1px solid rgba(175, 56, 48, 0.733);
-}
+@import "src/variables";
 
-.container {
-  column-count: 4;
-  column-gap: 15px;
-  @media (max-width: 660px) {
-    column-count: 3;
-  }
-  @media (max-width: 500px) {
-    column-count: 2;
-  }
-  @media (max-width: 360px) {
-    column-count: 1;
-  }
+.gallery {
 
-
-  .content {
-    display: inline-block;
+  .hed {
     position: relative;
-    margin-bottom: 5px;
-    transition: 1s;
+    transition: all 3s ease;
+    overflow: hidden;
 
-    .image {
-      width: 100%;
-      object-fit: contain;
-      border-radius: 20px;
+    .title {
+      margin-bottom: 25px;
+      color: #2e2b26;
+      border-bottom: 1px solid rgba(175, 56, 48, 0.733);
     }
-  }
 
-  .content:hover {
-    cursor: pointer;
-
-    &::after {
-      content: 'Open';
-      display: inline-block;
+    .addedPhoto {
+      background: transparent;
+      border: none;
+      font-size: 50px;
       position: absolute;
       top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      color: white;
-      font-size: 30px;
+      right: 0;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      transform: translateY(-50%);
+      transition: 1s ease-in-out;
+
+      &:hover {
+        cursor: pointer;
+        color: $header-background;
+      }
+    }
+  }
+
+  .container {
+    column-count: 4;
+    column-gap: 15px;
+    @media (max-width: 660px) {
+      column-count: 3;
+    }
+    @media (max-width: 500px) {
+      column-count: 2;
+    }
+    @media (max-width: 360px) {
+      column-count: 1;
     }
 
-    &::before {
-      content: '';
+
+    .content {
       display: inline-block;
-      position: absolute;
-      top: 0;
-      left: 0;
-      bottom: 0;
-      right: 0;
-      background-color: rgba(black, .7);
-      border-radius: 20px;
+      position: relative;
+      margin-bottom: 5px;
+      transition: 1s;
+
+      .image {
+        width: 100%;
+        object-fit: contain;
+        border-radius: 20px;
+      }
+
+      &:hover {
+        cursor: pointer;
+
+        &::after {
+          content: 'Open';
+          display: inline-block;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          color: white;
+          font-size: 30px;
+        }
+
+        &::before {
+          content: '';
+          display: inline-block;
+          position: absolute;
+          top: 0;
+          left: 0;
+          bottom: 0;
+          right: 0;
+          background-color: rgba(black, .7);
+          border-radius: 20px;
+        }
+      }
     }
   }
 }
