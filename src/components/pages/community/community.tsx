@@ -20,7 +20,7 @@ export const Community = observer(() => {
         <NavLink className={s.link} to='/find-community'>Find communities</NavLink>
         <button onClick={() => history.push(`/${authStore.user?.login}/create-community`)} className={s.createCommunity}>Create community</button>
       </div>
-      <CommunityList groups={groupStore.groups} isLoading={groupStore.isLoading} error={null} />
+      <CommunityList groups={groupStore.groups} isLoading={groupStore.isLoading} error={null} showAddButton={false}/>
     </div>
   )
 })

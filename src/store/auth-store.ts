@@ -20,6 +20,7 @@ export type UserLoginType = {
   imageFiles?: string[]
   audioFiles?: FileType[]
   videoFiles?: string[]
+  friends?: User[]
 }
 
 class AuthStore {
@@ -94,7 +95,7 @@ class AuthStore {
         'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE,PATCH,OPTIONS'
       }
     })
-      .then(() => { })
+      .then()
       .catch(error => {
         console.dir(error)
         this.error = error.message

@@ -4,6 +4,9 @@ import { useRefDimensions } from '../../../../hooks/use-ref-dimensions'
 import { observer } from 'mobx-react-lite'
 import { readFile } from '../../../../functions/read-file'
 import { SubmitHandler, useForm } from 'react-hook-form'
+import { groupStore } from '../../../../store/group-store'
+import { useHistory } from 'react-router-dom'
+import { authStore } from '../../../../store/auth-store'
 
 type createCommunityForm = {
   image: FileList
@@ -17,8 +20,10 @@ export const CreateCommunity = observer(() => {
   const [preview, setPreview] = useState('')
   const { register, watch, handleSubmit } = useForm<createCommunityForm>()
   const selectedFile = watch('image')?.[0]
+  const history = useHistory()
   const onSubmit: SubmitHandler<createCommunityForm> = async data => {
-
+    await groupStore.createCommunity(data.title, data.description, data.image[0])
+    history.push(`/${authStore.user?.login}/community`)
   }
   useEffect(() => {
     readFile(selectedFile).then(setPreview)

@@ -1,58 +1,17 @@
 @import "src/variables";
-.container{
+
+.container {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
   max-width: 800px;
+  width: 100%;
   margin: 0 auto;
   row-gap: 10px;
 
-  .linkCommunities{
-    display: flex;
-    width: 100%;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-evenly;
-
-    .link {
-      text-decoration: none;
-      color: black;
-      padding: 0 15px;
-      border-bottom: 1px solid transparent;
-      transition: 1s ease-in-out;
-    }
-
-    .createCommunity{
-      font-size: 16px;
-      font-family: "Viaoda Libre", cursive;
-      color: black;
-      padding: 5px 10px;
-      border: 1px solid $header-background;
-      background: white;
-      transition: 1s ease-in-out;
-    }
-
-    .createCommunity:hover{
-      cursor: pointer;
-      background: rgba(222, 167, 128, 0.833);
-      font-weight: 700;
-    }
-
-    .activeLink{
-      color: $active-friend;
-      border-bottom: 1px solid $active-friend;
-    }
-
-    .link:hover{
-      cursor: pointer;
-      color: $header-background;
-      border-bottom: 1px solid $header-background;
-    }
-  }
-
-  .card{
+  .card {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -67,12 +26,10 @@
       justify-content: center;
     }
 
-    .img{
+    .img {
       width: 150px;
       height: 150px;
-      object-fit: cover;
-      border-radius: 20px;
-      transition: 2s;
+      object-fit: contain;
 
       @media (max-width: 300px) {
         width: 150px;
@@ -80,31 +37,26 @@
       }
     }
 
-    .img:hover{
-      transform: scale(1.5);
-      object-fit: contain;
-      z-index: 25;
-    }
-
-    .info{
+    .info {
       display: flex;
       flex-direction: column;
       margin-left: 20px;
 
-      .title{
+      .title {
         font-size: 24px;
         display: block;
         padding: 5px 10px;
         margin-bottom: 10px;
         text-decoration: none;
+        text-align: center;
         color: black;
         border-bottom: 1px solid transparent;
         transition: .5s;
-      }
 
-      .title:hover{
-        border-bottom: 1px solid rgba(175, 56, 48, 0.733);
-        color: rgba(175, 56, 48, 0.733);
+        &:hover {
+          border-bottom: 1px solid rgba(175, 56, 48, 0.733);
+          color: rgba(175, 56, 48, 0.733);
+        }
       }
 
       @media (max-width: 570px) {
@@ -113,7 +65,7 @@
         text-align: center;
       }
 
-      .joinGroup{
+      .joinGroup {
         font-size: 20px;
         max-width: 350px;
         width: 100%;
@@ -126,11 +78,12 @@
         outline: none;
         margin-top: 20px;
         transition: 1s;
-      }
-      .joinGroup:hover{
-        cursor: pointer;
-        color: #2E2B26;
-        background: rgba(222, 167, 128, 0.833);
+
+        &:hover {
+          cursor: pointer;
+          color: #2E2B26;
+          background: rgba(222, 167, 128, 0.833);
+        }
       }
     }
   }

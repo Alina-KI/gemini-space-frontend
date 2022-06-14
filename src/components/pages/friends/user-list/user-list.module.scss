@@ -65,11 +65,18 @@
           border: 1px solid rgba(222, 167, 128, 0.833);
           outline: none;
           transition: 1s;
-        }
-        .button:hover{
-          cursor: pointer;
-          color: #2E2B26;
-          background: rgba(222, 167, 128, 0.833);
+
+          &:disabled{
+            cursor: auto;
+            color: dimgray;
+            border: 1px solid rgba(222, 167, 128, 0.833);
+          }
+
+          &:hover{
+            cursor: pointer;
+            color: #2E2B26;
+            background: rgba(222, 167, 128, 0.833);
+          }
         }
       }
     }

@@ -6,7 +6,7 @@ import { User } from '../../../../types/user'
 import { userStore } from '../../../../store/users-store'
 import { dialogsStore } from '../../../../store/dialogs-store'
 import { NavLink, useHistory } from 'react-router-dom'
-import avatar1 from '../../../../images/11.jpg'
+import { authStore } from '../../../../store/auth-store'
 
 type Props = {
   users: User[]
@@ -37,7 +37,7 @@ export const UserList = ({ users, isLoading, error, showAddFriendButton }: Props
         </div>
         : users.map(user =>
           <div key={user._id} className={s.card}>
-            <img className={s.img} src={avatar1} alt="avatar" />
+            <img className={s.avatar} src={user.avatar} alt="avatar" />
             <div className={s.info}>
               <NavLink to={`/${user.login}`} className={s.nameUser}>{user.surname} {user.name} {user.lastname}</NavLink>
               <span className={s.date}>Date of Birth: 25.12.2000</span>
@@ -46,7 +46,7 @@ export const UserList = ({ users, isLoading, error, showAddFriendButton }: Props
                 <button onClick={() => writeMessage(user.login)} className={s.button}>Write message</button>
                 {showAddFriendButton
                   ?
-                  <button onClick={() => userStore.addToFriends(user)} className={s.button}>Add friend</button>
+                  <button onClick={() => userStore.addToFriends(user)} disabled={!!authStore.user?.friends?.find(u => u._id === user._id)} className={s.button}>Add friend</button>
                   :
                   <button onClick={() => userStore.removeFromFriends(user)} className={s.button}>Remove friend</button>
                 }
