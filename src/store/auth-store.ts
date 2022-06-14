@@ -17,7 +17,7 @@ export type UserLoginType = {
   avatar?: string
   login: string
   email: string
-  imageFiles?: FileType[]
+  imageFiles?: string[]
   audioFiles?: FileType[]
   videoFiles?: string[]
 }

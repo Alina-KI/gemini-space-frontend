@@ -22,11 +22,18 @@ class GroupStore {
   async fetchNotMyGroups() {
     await when(() => !!authStore.user?.login)
     this.isLoading = true
-    return api.get<Group[]>(`/user/${authStore.user?.login}/not-friends`)
+    return api.get<Group[]>(`/user/${authStore.user?.login}/not-communities`)
       .then(res => this.groups = res.data)
       .finally(() => this.isLoading = false)
   }
 
+  async createCommunity() {
+    await when(() => !!authStore.user?.login)
+    this.isLoading = true
+    return api.post(`/user/${authStore.user?.login}/not-communities`)
+      .then(res => this.groups = res.data)
+      .finally(() => this.isLoading = false)
+  }
 }
 
 export const groupStore = new GroupStore()
