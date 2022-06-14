@@ -99,7 +99,7 @@ export const AuthPage = () => {
                 required: { value: true, message: 'This field is required' },
                 maxLength: { value: 100, message: 'Password cannot exceed 100 characters' }
               })}
-              type="text" placeholder={errors?.password?.message || 'Password'} />
+              type="password" placeholder={errors?.password?.message || 'Password'} />
           </div>
         </div>
         <button type="submit" className={s.b_login}>Sign In</button>
