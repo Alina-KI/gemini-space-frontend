@@ -1,16 +1,21 @@
 import React, { useEffect } from 'react'
 import s from './community.module.scss'
 import { NavLink, useHistory } from 'react-router-dom'
+import { newsStore } from '../../../store/news-store'
+import { Loader } from '../../shared/loader/loader'
+import { ErrorDisplay } from '../../shared/error-display/error-display'
 import { observer } from 'mobx-react-lite'
 import { authStore } from '../../../store/auth-store'
 import { CommunityList } from './community-list/community-list'
 import { groupStore } from '../../../store/group-store'
 
-export const Community = observer(() => {
+export const FindCommunity = observer(() => {
   const history = useHistory()
+  if (newsStore.isLoading) return <Loader />
+  if (newsStore.error) return <ErrorDisplay message={'Error'}/>
 
   useEffect(() => {
-    groupStore.fetchMyGroups().then()
+    groupStore.fetchNotMyGroups().then()
   }, [])
 
   return (

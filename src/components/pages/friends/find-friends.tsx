@@ -12,14 +12,10 @@ export const FindFriends = observer(() => {
     userStore.fetchNotMyFriends().then()
   }, [])
 
-  // if (userStore.isLoading) return <Loader />
-
-  const user = authStore.user
-
   return (
     <div className={s.container}>
       <div className={s.linkFriends}>
-        <NavLink className={s.link} to={`/${user?.login}/friends`}>Friends</NavLink>
+        <NavLink className={s.link} to={`/${authStore.user?.login}/friends`}>Friends</NavLink>
         <NavLink activeClassName={s.activeLink} className={s.link} to="/find-friends">Find friends</NavLink>
       </div>
       <UserList users={userStore.users} isLoading={userStore.isLoading} error={null} showAddFriendButton={true} />

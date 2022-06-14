@@ -14,7 +14,7 @@ class GroupStore {
   async fetchMyGroups() {
     await when(() => !!authStore.user?.login)
     this.isLoading = true
-    api.post<Group[]>('/community')
+    api.get<Group[]>('/community/getCommunities')
       .then(res => this.groups = res.data)
       .finally(() => this.isLoading = false)
   }
@@ -22,7 +22,7 @@ class GroupStore {
   async fetchNotMyGroups() {
     await when(() => !!authStore.user?.login)
     this.isLoading = true
-    return api.get<Group[]>(`/user/${authStore.user?.login}/not-communities`)
+    return api.get<Group[]>('/community/getNotCommunities')
       .then(res => this.groups = res.data)
       .finally(() => this.isLoading = false)
   }
@@ -30,7 +30,7 @@ class GroupStore {
   async createCommunity() {
     await when(() => !!authStore.user?.login)
     this.isLoading = true
-    return api.post(`/user/${authStore.user?.login}/not-communities`)
+    return api.post('/community/create')
       .then(res => this.groups = res.data)
       .finally(() => this.isLoading = false)
   }

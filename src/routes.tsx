@@ -15,6 +15,7 @@ import { Music } from './components/pages/music/music'
 import { CreateCommunity } from './components/pages/community/create-community/create-community'
 import { CreateTalk } from './components/pages/dialogs/create-talk/create-talk'
 import { Move } from './components/pages/move/move'
+import { FindCommunity } from './components/pages/community/find-community'
 
 export const Routes = () => {
   return (
@@ -23,6 +24,7 @@ export const Routes = () => {
       <Route path="/auth" component={AuthPage} exact />
       <Route path="/registration" component={Registration} exact />
       <Route path="/find-friends" component={FindFriends} exact />
+      <Route path="/find-community" component={FindCommunity} exact />
       <Route path="/:login/friends" component={Friends} exact />
       <Route path="/dialogs" component={Dialogs} exact />
       <Route path="/dialogs/:dialogId" component={Message} exact />
