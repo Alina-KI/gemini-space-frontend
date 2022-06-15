@@ -7,6 +7,7 @@ import { Loader } from '../../../shared/loader/loader'
 import { ErrorDisplay } from '../../../shared/error-display/error-display'
 import { groupStore } from '../../../../store/group-store'
 import { authStore } from '../../../../store/auth-store'
+import { groupPageStore } from '../../../../store/group-page-store'
 
 type Props = {
   groups: Group[]
@@ -31,10 +32,15 @@ export const CommunityList = observer(({ groups, isLoading, error, showAddButton
           <div className={s.card}>
             <img className={s.img} src={group.photo} alt="photo" />
             <div className={s.info}>
-              <NavLink to={`/${authStore.user?.login}/community/${group._id}`} className={s.title}>{group.title}</NavLink>
+              <NavLink
+                to={`/${authStore.user?.login}/community/${group._id}`}
+                onClick={() => groupPageStore.selectedGroupId = group._id}
+                className={s.title}>{group.title}</NavLink>
               <span>Description: {group.description}</span>
               {showAddButton &&
-                <button className={s.joinGroup} onClick={() => {groupStore.addedMember(group._id).then()}}>Join a group</button>
+              <button className={s.joinGroup} onClick={() => {
+                groupStore.addedMember(group._id).then()
+              }}>Join a group</button>
               }
             </div>
           </div>

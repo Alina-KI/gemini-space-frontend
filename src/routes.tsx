@@ -16,6 +16,7 @@ import { CreateCommunity } from './components/pages/community/create-community/c
 import { CreateTalk } from './components/pages/dialogs/create-talk/create-talk'
 import { Move } from './components/pages/move/move'
 import { FindCommunity } from './components/pages/community/find-community'
+import { CommunityPage } from './components/pages/community-page/community-page'
 
 export const Routes = () => {
   return (
@@ -24,15 +25,16 @@ export const Routes = () => {
       <Route path="/auth" component={AuthPage} exact />
       <Route path="/registration" component={Registration} exact />
       <Route path="/find-friends" component={FindFriends} exact />
-      <Route path="/find-community" component={FindCommunity} exact />
       <Route path="/:login/friends" component={Friends} exact />
       <Route path="/dialogs" component={Dialogs} exact />
       <Route path="/dialogs/:dialogId" component={Message} exact />
-      <Route path="/:login/gallery" component={Gallery} exact />
-      <Route path="/:login/setting" component={Setting} exact />
-      <Route path="/:login/create-community" component={CreateCommunity} exact />
       <Route path="/:login/create-talk" component={CreateTalk} exact />
       <Route path="/:login/community" component={Community} exact />
+      <Route path="/find-community" component={FindCommunity} exact />
+      <Route path="/:login/create-community" component={CreateCommunity} exact />
+      <Route path="/:login/community/:communityId" component={CommunityPage} exact />
+      <Route path="/:login/gallery" component={Gallery} exact />
+      <Route path="/:login/setting" component={Setting} exact />
       <Route path="/music" component={Music} exact />
       <Route path="/move" component={Move} exact />
       <Route path="/:login" component={UserPage} exact />

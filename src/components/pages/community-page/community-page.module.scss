@@ -1,0 +1,131 @@
+@import "src/variables";
+
+.container {
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+  max-width: 800px;
+
+  .containerGroup {
+    display: flex;
+    flex-direction: row;
+    column-gap: 10px;
+    justify-content: space-between;
+
+    .containerData {
+      width: 100%;
+      padding: 10px 20px;
+
+      .title {
+
+      }
+
+      .description {
+
+      }
+
+      .creator {
+        color: black;
+      }
+    }
+
+    .photoGroup {
+
+      max-width: 100px;
+    }
+  }
+
+  .containerForPublish {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+    align-items: center;
+
+    .containerTitle {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      column-gap: 10px;
+
+      .spanPublish {
+
+      }
+
+      .titlePublish {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 10px;
+        background: rgba(white, .5);
+        border-radius: 5px;
+        border: 1px solid rgba($hover-name-user-talk, .3);
+        color: $color-button-message;
+        transition: color, background 1s ease-in;
+
+        &:focus {
+          background: rgba($hover-name-user-talk, .3);
+          color: white;
+        }
+      }
+    }
+
+    .textPublish {
+      width: 100%;
+      outline: none;
+      resize: vertical;
+      min-height: 50px;
+      box-sizing: border-box;
+      padding: 10px;
+      background: rgba(white, .5);
+      border-radius: 5px;
+      border: 1px solid rgba($hover-name-user-talk, .3);
+      color: $color-button-message;
+      transition: 1s ease-in;
+
+      &:focus {
+        background: rgba($hover-name-user-talk, .3);
+        color: white;
+      }
+    }
+
+    .buttonPublish {
+      max-width: 350px;
+      width: 100%;
+      background: rgba(white, .7);
+      border: 1px solid;
+      border-radius: 5px;
+      outline: none;
+      padding: 5px 10px;
+      font-size: 20px;
+      transition: .5s ease-in;
+
+      &:hover {
+        cursor: pointer;
+        background-color: rgba($hover-name-user-talk, .2);
+        border: 1px solid $color-button-message;
+        color: $color-button-message;
+      }
+    }
+  }
+
+  .containerPost {
+    .titlePost {
+
+    }
+
+    .textPost {
+
+    }
+
+    .datePost {
+
+    }
+
+    .userPost {
+
+    }
+
+    .likesPost {
+
+    }
+  }
+}

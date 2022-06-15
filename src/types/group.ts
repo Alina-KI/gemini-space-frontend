@@ -5,7 +5,7 @@ export type Group = {
   title: string
   description: string
   members: User[]
-  creator: User
+  creator: string
   posts: string[]
   photo: string
 }

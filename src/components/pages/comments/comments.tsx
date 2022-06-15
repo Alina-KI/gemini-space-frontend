@@ -1,13 +1,19 @@
 import React, { useEffect, useRef, useState } from 'react'
 import s from './comments.module.scss'
-import ava from '../../../images/13.jpg'
 import { ReactComponent as Tracery } from '../../../images/ornaments-for-comments/tracery.svg'
 import frameTop from '../../../images/ornaments-for-comments/frame-one.svg'
 import frameBottom from '../../../images/ornaments-for-comments/frame-two.svg'
+import { User } from '../../../types/user'
 
 
 type Props = {
+  _id: string
+  title: string
   text: string
+  files: string[]
+  datePublished: string
+  user: User
+  likes: User[]
 }
 
 export const Comments = (props: Props) => {
@@ -27,12 +33,15 @@ export const Comments = (props: Props) => {
       <img className={s.frame1} src={frameTop} alt="frame" />
       <img className={s.frame2} src={frameBottom} alt="frame" />
       <div className={s.comment}>
-        <div className={s.avatar} style={{ backgroundImage: `url("${ava}")` }} />
+        <img className={s.avatar} src={props.user.avatar} alt="Avatar" />
         <div className={`${s.text}`}>
+          <h3>{props.title}</h3>
           <p ref={textRef} className={`${s.textContent} ${isActive && s.text_active}`}>
             {props.text}
           </p>
+          <span>{props.datePublished}</span>
         </div>
+        <button>{props.likes.length}</button>
       </div>
       {isOverflowText && <div onClick={toggleIsActive} className={s.showMore}>{isActive ? 'Hide' : 'Show more'}</div>}
       <div className={s.bottomLine}>

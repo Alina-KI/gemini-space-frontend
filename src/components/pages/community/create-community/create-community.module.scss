@@ -122,11 +122,11 @@
       transition: color, background 1s ease-in;
       resize: vertical;
       min-height: 30px;
-    }
 
-    .text:focus {
-      background: rgba($header-background, .3);
-      color: white;
+      &:focus {
+        background: rgba($header-background, .3);
+        color: white;
+      }
     }
   }
 
@@ -143,12 +143,12 @@
     font-family: "Viaoda Libre", cursive;
     font-size: 20px;
     transition: .5s ease-in;
-  }
 
-  .btnCommunity:hover {
-    cursor: pointer;
-    background-color: rgba($header-background, .2);
-    border: 1px solid $header-background;
+    &:hover {
+      cursor: pointer;
+      background-color: rgba($header-background, .2);
+      border: 1px solid $header-background;
+    }
   }
 
 }
