@@ -15,7 +15,7 @@
 
     .containerData {
       width: 100%;
-      padding: 10px 20px;
+      padding: 10px 20px 10px 0;
       display: flex;
       flex-direction: column;
       row-gap: 10px;
@@ -68,7 +68,7 @@
         border-radius: 5px;
         border: 1px solid rgba($hover-name-user-talk, .3);
         color: $color-button-message;
-        transition: color, background 1s ease-in;
+        transition: color, background .5s ease-in;
 
         &:focus {
           background: rgba($hover-name-user-talk, .3);
@@ -88,7 +88,7 @@
       border-radius: 5px;
       border: 1px solid rgba($hover-name-user-talk, .3);
       color: $color-button-message;
-      transition: 1s ease-in;
+      transition: color, background .5s ease-in;
 
       &:focus {
         background: rgba($hover-name-user-talk, .3);
