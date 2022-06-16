@@ -3,6 +3,7 @@
 .container {
   display: flex;
   flex-direction: column;
+  align-items: center;
   row-gap: 20px;
   max-width: 800px;
 
@@ -15,23 +16,30 @@
     .containerData {
       width: 100%;
       padding: 10px 20px;
+      display: flex;
+      flex-direction: column;
+      row-gap: 10px;
 
       .title {
-
+        color: $color-input-message;
       }
 
       .description {
-
+        text-align: justify;
       }
 
       .creator {
         color: black;
+
+        &:hover{
+          color: $color-input-message;
+        }
       }
     }
 
     .photoGroup {
-
       max-width: 100px;
+      object-fit: contain;
     }
   }
 
@@ -40,6 +48,7 @@
     flex-direction: column;
     row-gap: 10px;
     align-items: center;
+    width: 100%;
 
     .containerTitle {
       width: 100%;
@@ -48,7 +57,7 @@
       column-gap: 10px;
 
       .spanPublish {
-
+        font-size: 22px;
       }
 
       .titlePublish {
@@ -108,24 +117,71 @@
   }
 
   .containerPost {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 10px;
+    width: 100%;
+    padding: 15px 25px;
+    border: 2px dashed $border-btn-talk;
+    border-radius: 40px;
+
     .titlePost {
 
     }
 
     .textPost {
-
+      text-align: justify;
+      word-break: break-word;
     }
 
     .datePost {
-
+      font-size: 16px;
+      width: 100%;
     }
 
-    .userPost {
+    .containerCreatorButton{
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      column-gap: 10px;
+      justify-content: space-between;
 
+      .userPost {
+        color: $color-input-message;
+        font-size: 22px;
+      }
+
+      .likesPost {
+        font-size: 20px;
+        background: transparent;
+        border: none;
+        align-self: flex-start;
+
+        span{
+          font-size: 30px;
+        }
+
+        &:hover{
+          cursor: pointer;
+        }
+      }
     }
+    .show{
+      max-width: 250px;
+      width: 100%;
+      background: rgba(white, .7);
+      border: 1px solid;
+      border-radius: 5px;
+      outline: none;
+      padding: 5px;
+      font-size: 18px;
 
-    .likesPost {
-
+      &:hover {
+        cursor: pointer;
+        border: 1px solid $color-button-message;
+        color: $color-button-message;
+      }
     }
   }
 }

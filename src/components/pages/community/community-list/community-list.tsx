@@ -29,7 +29,7 @@ export const CommunityList = observer(({ groups, isLoading, error, showAddButton
           0 communities
         </div>
         : groups.map(group =>
-          <div className={s.card}>
+          <div className={s.card} key={group._id}>
             <img className={s.img} src={group.photo} alt="photo" />
             <div className={s.info}>
               <NavLink

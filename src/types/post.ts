@@ -11,3 +11,9 @@ export type Post = {
   user: User
   likes: User[]
 }
+
+export type CreatePost = {
+  title: string
+  text: string
+  datePublished: string
+}
