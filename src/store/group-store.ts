@@ -3,6 +3,7 @@ import { api } from '../api'
 import { authStore } from './auth-store'
 import { Group } from '../types/group'
 import { userFilesStore } from './user-files-store'
+import { groupPageStore } from './group-page-store'
 
 class GroupStore {
   constructor() {
@@ -12,11 +13,15 @@ class GroupStore {
   groups: Group[] = []
   isLoading = false
 
+
   async fetchMyGroups() {
     await when(() => !!authStore.user?.login)
     this.isLoading = true
     api.get<Group[]>('/community/getCommunities')
-      .then(res => this.groups = res.data)
+      .then(async res => {
+        this.groups = res.data
+        groupPageStore.postsGroups = (await Promise.all(this.groups.map(group => groupPageStore.fetchPostsGroups(group._id)))).flat()
+      })
       .finally(() => this.isLoading = false)
   }
 

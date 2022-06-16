@@ -1,6 +1,37 @@
+@import "src/variables";
 .container{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
   max-width: 750px;
   margin: 0 auto;
+
+  .choose{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    column-gap: 10px;
+    width: 100%;
+    padding-bottom: 15px;
+
+    .button{
+      font-size: 18px;
+      padding: 0 10px;
+      background: transparent;
+      border: 1px solid transparent;
+
+      &:hover{
+        cursor: pointer;
+        color: $color-input-message;
+        border-bottom: 1px solid $color-input-message;
+      }
+    }
+    .active{
+      color: $color-input-message;
+      border-bottom: 1px solid $color-input-message
+    }
+  }
 
   .news {
     display: flex;

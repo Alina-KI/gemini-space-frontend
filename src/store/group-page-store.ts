@@ -10,6 +10,7 @@ class GroupPageStore {
   }
 
   posts: Post[] = []
+  postsGroups: Post[] = []
   selectedGroupId: string | null = null
   isLoading = false
   isCreator = false
@@ -27,6 +28,14 @@ class GroupPageStore {
     this.isLoading = true
     return api.get<Post[]>(`/post/getPosts/${this.selectedGroupId}`)
       .then(res => this.posts = res.data)
+      .catch()
+      .finally(() => this.isLoading = false)
+  }
+
+  async fetchPostsGroups(id: string) {
+    this.isLoading = true
+    return api.get<Post[]>(`/post/getPosts/${id}`)
+      .then(res => res.data)
       .catch()
       .finally(() => this.isLoading = false)
   }
