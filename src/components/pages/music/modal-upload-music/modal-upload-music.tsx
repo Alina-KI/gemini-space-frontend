@@ -18,11 +18,14 @@ type Props = {
 }
 
 export const ModalUploadMusic = observer(({ isOpen, setIsOpen }: Props) => {
-  const { register, watch, handleSubmit } = useForm<audioForm>()
+  const { register, watch, handleSubmit, setValue } = useForm<audioForm>()
   const selectedFile = watch('music')?.[0]
   const [preview, setPreview] = useState('')
   const onSubmit: SubmitHandler<audioForm> = async data => {
     userFilesStore.uploadNewAudio(data.music[0], data.title)
+    // @ts-ignore
+    setValue('music', '')
+    setValue('title', '')
     setIsOpen(false)
   }
   useEffect(() => {

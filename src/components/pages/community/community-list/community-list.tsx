@@ -36,7 +36,7 @@ export const CommunityList = observer(({ groups, isLoading, error, showAddButton
                 to={`/${authStore.user?.login}/community/${group._id}`}
                 onClick={() => groupPageStore.selectedGroupId = group._id}
                 className={s.title}>{group.title}</NavLink>
-              <span>Description: {group.description}</span>
+              <span className={s.description}>Description: {group.description}</span>
               {showAddButton &&
               <button className={s.joinGroup} onClick={() => {
                 groupStore.addedMember(group._id).then()
