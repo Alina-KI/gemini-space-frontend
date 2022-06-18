@@ -27,14 +27,17 @@ class GroupPageStore {
   async fetchPosts() {
     this.isLoading = true
     return api.get<Post[]>(`/post/getPosts/${this.selectedGroupId}`)
-      .then(res => this.posts = res.data)
+      .then(res => {
+        this.posts = res.data
+        console.log(res.data)
+      })
       .catch()
       .finally(() => this.isLoading = false)
   }
 
   async fetchPostsGroups(id: string) {
     this.isLoading = true
-    return api.get<Post[]>(`/post/community/getPosts/${id}`)
+    return api.get<Post[]>(`/post/getPosts/${id}`)
       .then(res => res.data)
       .catch()
       .finally(() => this.isLoading = false)
@@ -46,11 +49,13 @@ class GroupPageStore {
   }
 
   async changeLikes(id: string) {
+    console.log(id)
     return api.post('/post/changeLikes', { _id: id })
       .then(res => {
         return this.posts.map(post => {
           if (post._id === id) {
             post.likes = res.data
+            console.log(post)
           }
         })
       })
