@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import s from './community-page.module.scss'
+import s from './community-post.module.scss'
 import { groupPageStore } from '../../../store/group-page-store'
 import { Comments } from '../comments/comments'
 import { Post } from '../../../types/post'

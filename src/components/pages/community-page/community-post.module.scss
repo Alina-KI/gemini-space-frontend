@@ -1,0 +1,71 @@
+@import "src/variables";
+
+.containerPost {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 10px;
+  width: 100%;
+  padding: 15px 25px;
+  border: 2px dashed $border-btn-talk;
+  border-radius: 40px;
+
+  .titlePost {
+    width: 100%;
+  }
+
+  .textPost {
+    text-align: justify;
+    word-break: break-word;
+    width: 100%;
+  }
+
+  .datePost {
+    font-size: 16px;
+    width: 100%;
+  }
+
+  .containerCreatorButton{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    column-gap: 10px;
+    justify-content: space-between;
+
+    .userPost {
+      color: $color-input-message;
+      font-size: 22px;
+    }
+
+    .likesPost {
+      font-size: 20px;
+      background: transparent;
+      border: none;
+      align-self: flex-start;
+
+      span{
+        font-size: 30px;
+      }
+
+      &:hover{
+        cursor: pointer;
+      }
+    }
+  }
+  .show{
+    max-width: 250px;
+    width: 100%;
+    background: rgba(white, .7);
+    border: 1px solid;
+    border-radius: 5px;
+    outline: none;
+    padding: 5px;
+    font-size: 18px;
+
+    &:hover {
+      cursor: pointer;
+      border: 1px solid $color-button-message;
+      color: $color-button-message;
+    }
+  }
+}

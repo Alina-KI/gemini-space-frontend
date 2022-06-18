@@ -37,20 +37,21 @@ export const News = observer(() => {
           World News
         </button>
       </div>
-      {console.log(groupPageStore.postsGroups)}
-      {isNewsGroup ?
-        groupPageStore.postsGroups.map(post => <CommunityPost {...post} key={post._id} />)
-        :
-        newsStore.news?.map(newsItem =>
-          <div className={s.news} key={newsItem.url}>
-            <h3 className={s.author}>Author: {newsItem.author}</h3>
-            <h1 className={s.title}>{newsItem.title}</h1>
-            <div className={s.description}>{newsItem.description}</div>
-            <a href={newsItem.url} className={s.link}>More details</a>
-            <img className={s.img} src={newsItem.urlToImage} alt="img" />
-            <div className={s.content}>{newsItem.content}</div>
-          </div>
-        )}
+      <div className={s.containerNews}>
+        {isNewsGroup ?
+          groupPageStore.postsGroups.map(post => <CommunityPost {...post} key={post._id} />)
+          :
+          newsStore.news?.map(newsItem =>
+            <div className={s.news} key={newsItem.url}>
+              <h3 className={s.author}>Author: {newsItem.author}</h3>
+              <h1 className={s.title}>{newsItem.title}</h1>
+              <div className={s.description}>{newsItem.description}</div>
+              <a href={newsItem.url} className={s.link}>More details</a>
+              <img className={s.img} src={newsItem.urlToImage} alt="img" />
+              <div className={s.content}>{newsItem.content}</div>
+            </div>
+          )}
+      </div>
     </div>
   )
 })
