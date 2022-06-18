@@ -80,6 +80,7 @@ class AuthStore {
 
   logout() {
     localStorage.removeItem('user')
+    this.user = null
   }
 
   github() {
@@ -103,7 +104,7 @@ class AuthStore {
       })
       .finally(() => this.isLoading = false)
 
-    // return api.post('https://github.com/login/oauth/access_token?' +
+    // return api.post-page('https://github.com/login/oauth/access_token?' +
     //   'client_id=fccb4e3b244d078ba4fb' +
     //   '&client_secret=2ade5a20e5af4447f573a9eaf9cd707332ec4a7d' +
     //   '&redirect_uri=http://localhost:3000' +

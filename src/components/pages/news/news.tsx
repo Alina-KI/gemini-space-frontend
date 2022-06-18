@@ -4,9 +4,8 @@ import { newsStore } from '../../../store/news-store'
 import { Loader } from '../../shared/loader/loader'
 import { ErrorDisplay } from '../../shared/error-display/error-display'
 import { observer } from 'mobx-react-lite'
-import { authStore } from '../../../store/auth-store'
 import { groupStore } from '../../../store/group-store'
-import { CommunityPost } from '../community-page/community-post'
+import { PostPage } from '../post-page/post-page'
 import { groupPageStore } from '../../../store/group-page-store'
 
 export const News = observer(() => {
@@ -39,7 +38,7 @@ export const News = observer(() => {
       </div>
       <div className={s.containerNews}>
         {isNewsGroup ?
-          groupPageStore.postsGroups.map(post => <CommunityPost {...post} key={post._id} />)
+          groupPageStore.postsGroups.map(post => <PostPage {...post} key={post._id} />)
           :
           newsStore.news?.map(newsItem =>
             <div className={s.news} key={newsItem.url}>

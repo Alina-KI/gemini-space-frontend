@@ -1,14 +1,15 @@
 import React, { useState } from 'react'
-import s from './community-post.module.scss'
+import s from './post-page.module.scss'
 import { groupPageStore } from '../../../store/group-page-store'
 import { Comments } from '../comments/comments'
 import { Post } from '../../../types/post'
 import { authStore } from '../../../store/auth-store'
 import { NavLink } from 'react-router-dom'
+import { observer } from 'mobx-react-lite'
 
 type Props = Post
 
-export const CommunityPost = (post: Props) => {
+export const PostPage = observer((post: Props) => {
   const isWhite = !post.likes.find(user => user.login === authStore.user?.login)
   const [isShow, setIsShow] = useState(false)
 
@@ -36,4 +37,4 @@ export const CommunityPost = (post: Props) => {
       )}
     </div>
   )
-}
+})

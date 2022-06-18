@@ -1,3 +1,5 @@
+import { Post } from './post'
+
 export type User = {
   _id: string
   login: string
@@ -10,6 +12,7 @@ export type User = {
   dateOfBirth: string
   town: string
   avatar: string
+  posts: Post[]
   imageFiles: string[]
   videoFiles: string[]
   audioFiles: string[]

@@ -9,6 +9,8 @@ import { Loader } from '../../shared/loader/loader'
 import { ErrorDisplay } from '../../shared/error-display/error-display'
 import { userPageStore } from '../../../store/user-page-store'
 import { ModalUploadImage } from './modal-upload-image/modal-upload-image'
+import { FormPosts } from '../form-posts/form-posts'
+import { PostPage } from '../post-page/post-page'
 
 export const UserPage = observer(() => {
   const [isOpenModal, setIsOpenModal] = useState(false)
@@ -65,31 +67,8 @@ export const UserPage = observer(() => {
         </div>
       </div>
       <MiniGallery />
-      <div style={{ marginLeft: '10px' }}>
-        {/*<Comments text={'Hi'} />*/}
-        {/*<Comments text={'Hello'} />*/}
-        {/*<Comments text={'Red'} />*/}
-        {/*<Comments text={'Hi'} />*/}
-        {/*<Comments text={'Be honorable.Never yearn the lover, for you cannot feel it.'} />*/}
-        {/*<Comments*/}
-        {/*  text={'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut beatae esse exercitationem, ipsum iusto neque perferendis provident sed vel voluptatum. At deleniti mollitia perspiciatis reprehenderit sit voluptates? Corporis, labore, quaerat?' +*/}
-        {/*  'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut beatae esse exercitationem, ipsum iusto neque perferendis provident sed vel voluptatum. At deleniti mollitia perspiciatis reprehenderit sit voluptates? Corporis, labore, quaerat?' +*/}
-        {/*  'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut beatae esse exercitationem, ipsum iusto neque perferendis provident sed vel voluptatum. At deleniti mollitia perspiciatis reprehenderit sit voluptates? Corporis, labore, quaerat?' +*/}
-        {/*  'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut beatae esse exercitationem, ipsum iusto neque perferendis provident sed vel voluptatum. At deleniti mollitia perspiciatis reprehenderit sit voluptates? Corporis, labore, quaerat?'} />*/}
-        {/*<Comments text={'Be honorable.Never yearn the lover, for you cannot feel it.'} />*/}
-        {/*<Comments*/}
-        {/*  text={'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut beatae esse exercitationem, ipsum iusto neque perferendis provident sed vel voluptatum. At deleniti mollitia perspiciatis reprehenderit sit voluptates? Corporis, labore, quaerat?' +*/}
-        {/*  'Lorem ipsum sed vel voluptatum. At deleniti mollitia perspiciatis reprehenderit sit voluptates? Corporis, labore, quaerat?'} />*/}
-        {/*<Comments text={'Be honorable.Never yearn the lover, for you cannot feel it.'} />*/}
-        {/*<Comments*/}
-        {/*  text={'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut beatae esse exercitationem, ipsum iusto neque perferendis provident sed vel voluptatum. At deleniti mollitia perspiciatis reprehenderit sit voluptates? Corporis, labore, quaerat?' +*/}
-        {/*  'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut beatae esse exercitationem, ipsum iusto neque perferendis provident sed vel voluptatum. At deleniti mollitia perspiciatis reprehenderit sit voluptates? Corporis, labore, quaerat?'} />*/}
-        {/*<Comments text={'Be honorable.Never yearn the lover, for you cannot feel it.'} />*/}
-        {/*<Comments*/}
-        {/*  text={'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut beatae esse exercitationem, ipsum iusto neque perferendis provident sed vel voluptatum. At deleniti mollitia perspiciatis reprehenderit sit voluptates? Corporis, labore, quaerat?' +*/}
-        {/*  'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut beatae esse exercitationem, ipsum iusto neque perferendis provident sed vel voluptatum. At deleniti mollitia perspiciatis reprehenderit sit voluptates? Corporis, labore, quaerat?' +*/}
-        {/*  'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut beatae esse exercitationem, ipsum iusto neque perferendis provident sed vel voluptatum. At deleniti mollitia perspiciatis reprehenderit sit voluptates? Corporis, labore, quaerat?'} />*/}
-      </div>
+      <FormPosts isPostGroups={false}/>
+      {user?.posts.map(post => <PostPage {...post} key={post._id}/>)}
     </div>
   )
 })

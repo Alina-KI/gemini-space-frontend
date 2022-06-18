@@ -26,7 +26,7 @@ class GroupPageStore {
 
   async fetchPosts() {
     this.isLoading = true
-    return api.get<Post[]>(`/post/getPosts/${this.selectedGroupId}`)
+    return api.get<Post[]>(`/post/community/getPosts/${this.selectedGroupId}`)
       .then(res => this.posts = res.data)
       .catch()
       .finally(() => this.isLoading = false)
@@ -34,14 +34,14 @@ class GroupPageStore {
 
   async fetchPostsGroups(id: string) {
     this.isLoading = true
-    return api.get<Post[]>(`/post/getPosts/${id}`)
+    return api.get<Post[]>(`/post/community/getPosts/${id}`)
       .then(res => res.data)
       .catch()
       .finally(() => this.isLoading = false)
   }
 
   async createPost(data: CreatePost){
-    return api.post(`/post/create/${this.selectedGroupId}`, data )
+    return api.post(`/post/community/create/${this.selectedGroupId}`, data )
       .then(res => this.posts.push(res.data))
   }
 
