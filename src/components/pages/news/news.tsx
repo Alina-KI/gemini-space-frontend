@@ -38,7 +38,7 @@ export const News = observer(() => {
       </div>
       <div className={s.containerNews}>
         {isNewsGroup ?
-          groupPageStore.postsGroups.map(post => <PostPage {...post} key={post._id} />)
+          groupPageStore.postsGroups.map(post => <PostPage isPostGroups={true} {...post} key={post._id} />)
           :
           newsStore.news?.map(newsItem =>
             <div className={s.news} key={newsItem.url}>

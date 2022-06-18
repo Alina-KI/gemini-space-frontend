@@ -68,7 +68,7 @@ export const UserPage = observer(() => {
       </div>
       <MiniGallery />
       <FormPosts isPostGroups={false}/>
-      {user?.posts.map(post => <PostPage {...post} key={post._id}/>)}
+      {user?.posts.map(post => <PostPage isPostGroups={false} {...post} key={post._id}/>)}
     </div>
   )
 })

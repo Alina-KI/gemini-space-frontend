@@ -33,11 +33,11 @@ class UserPageStore {
       .then(res => this.user!.posts.push(res.data))
   }
 
-  async changeLikes(id: string){
+  async changeLikes(id: string) {
     return api.post('/post/changeLikes', { _id: id })
-      .then( res => {
+      .then(res => {
         return this.user!.posts.map(post => {
-          if (post._id === id){
+          if (post._id === id) {
             post.likes = res.data
           }
         })

@@ -6,8 +6,11 @@ import { Post } from '../../../types/post'
 import { authStore } from '../../../store/auth-store'
 import { NavLink } from 'react-router-dom'
 import { observer } from 'mobx-react-lite'
+import { userPageStore } from '../../../store/user-page-store'
 
-type Props = Post
+type Props = Post & {
+  isPostGroups: boolean
+}
 
 export const PostPage = observer((post: Props) => {
   const isWhite = !post.likes.find(user => user.login === authStore.user?.login)
@@ -23,7 +26,12 @@ export const PostPage = observer((post: Props) => {
       <div className={s.containerCreatorButton}>
         <NavLink to={`/${post.user.login}`} className={s.userPost}>{post.user.surname} {post.user.name}</NavLink>
         <button onClick={() => {
-          groupPageStore.changeLikes(post._id).then()
+          if (post.isPostGroups){
+            groupPageStore.changeLikes(post._id).then()
+          }
+          else{
+            userPageStore.changeLikes(post._id).then()
+          }
         }} className={s.likesPost}>
           <span style={{ color: `${isWhite ? 'white' : 'green'}` }}>&#10003;</span>
           {post.likes.length}

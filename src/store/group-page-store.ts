@@ -15,9 +15,9 @@ class GroupPageStore {
   isLoading = false
   isCreator = false
 
-  get group () {
+  get group() {
     const foundedGroup = groupStore.groups.find(group => group._id === this.selectedGroupId)
-    if (foundedGroup?.creator === authStore?.user?.login){
+    if (foundedGroup?.creator === authStore?.user?.login) {
       groupPageStore.isCreator = true
     }
     groupPageStore.fetchPosts().then()
@@ -26,7 +26,7 @@ class GroupPageStore {
 
   async fetchPosts() {
     this.isLoading = true
-    return api.get<Post[]>(`/post/community/getPosts/${this.selectedGroupId}`)
+    return api.get<Post[]>(`/post/getPosts/${this.selectedGroupId}`)
       .then(res => this.posts = res.data)
       .catch()
       .finally(() => this.isLoading = false)
@@ -40,21 +40,20 @@ class GroupPageStore {
       .finally(() => this.isLoading = false)
   }
 
-  async createPost(data: CreatePost){
-    return api.post(`/post/community/create/${this.selectedGroupId}`, data )
+  async createPost(data: CreatePost) {
+    return api.post(`/post/community/create/${this.selectedGroupId}`, data)
       .then(res => this.posts.push(res.data))
   }
 
-  async changeLikes(id: string){
+  async changeLikes(id: string) {
     return api.post('/post/changeLikes', { _id: id })
-      .then( res => {
+      .then(res => {
         return this.posts.map(post => {
-          if (post._id === id){
+          if (post._id === id) {
             post.likes = res.data
           }
         })
       })
   }
-
 }
 export const groupPageStore = new GroupPageStore()

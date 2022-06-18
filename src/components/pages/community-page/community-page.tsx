@@ -30,7 +30,7 @@ export const CommunityPage = observer(() => {
         <img className={s.photoGroup} src={groupPageStore.group?.photo} alt="Photo" />
       </div>
       {groupPageStore.isCreator && <FormPosts isPostGroups={true}/>}
-      {groupPageStore.posts.map(post => <PostPage {...post} key={post._id} />)}
+      {groupPageStore.posts.map(post => <PostPage {...post} isPostGroups={true} key={post._id} />)}
     </div>
   )
 })
