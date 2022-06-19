@@ -35,7 +35,7 @@ export const CreateCommunity = observer(() => {
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
         <label className={s.containerPhoto} style={preview ? { height: `${height}px` } : {}}>
           <i className="material-icons">attach_file</i>
-          <span className={s.textPhoto}>Загрузить файл</span>
+          <span className={s.textPhoto}>Upload file</span>
           <input {...register('image')} className={s.file} type="file" />
           <img ref={containerRef} className={s.photo} src={preview} alt="" />
         </label>

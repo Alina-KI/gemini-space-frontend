@@ -7,13 +7,8 @@ export type Post = {
   text: string
   files: string[]
   datePublished: string
+  photo: string
   comments: Comment[]
   user: User
   likes: User[]
-}
-
-export type CreatePost = {
-  title: string
-  text: string
-  datePublished: string
 }

@@ -29,7 +29,7 @@ class UserFilesStore {
     await api.post('files/upload/image', formData).then(res => authStore.user.imageFiles.push(res.data))
   }
 
-  async uploadPhotoCommunity(file: File) {
+  async uploadPhotoFiles(file: File) {
     const formData = new FormData()
     formData.append('file', file)
     // @ts-ignore

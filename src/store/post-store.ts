@@ -1,8 +1,9 @@
 import { makeAutoObservable } from 'mobx'
-import { CreatePost, Post } from '../types/post'
+import { Post } from '../types/post'
 import { api } from '../api'
 import { groupStore } from './group-store'
 import { authStore } from './auth-store'
+import { userFilesStore } from './user-files-store'
 
 class PostStore {
   constructor() {
@@ -51,13 +52,15 @@ class PostStore {
       .finally(() => this.isLoading = false)
   }
 
-  async createPostCommunity(data: CreatePost) {
-    return api.post(`/post/community/create/${this.selectedGroupId}`, data)
+  async createPostCommunity(text: string, title: string, datePublished: string, image: File) {
+    const photo = await userFilesStore.uploadPhotoFiles(image)
+    return api.post(`/post/community/create/${this.selectedGroupId}`, { title, text, datePublished, photo })
       .then(res => this.posts.push(res.data))
   }
 
-  async createPostUser(data: CreatePost){
-    return api.post('/post/user/create', { ...data, login: authStore.user!.login } )
+  async createPostUser(text: string, title: string, datePublished: string, image: File){
+    const photo = await userFilesStore.uploadPhotoFiles(image)
+    return api.post('/post/user/create', { title, text, datePublished, photo, login: authStore.user!.login } )
       .then(res => this.posts.push(res.data))
   }
 

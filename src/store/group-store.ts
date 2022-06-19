@@ -36,7 +36,7 @@ class GroupStore {
   async createCommunity(title: string, description: string, image: File) {
     await when(() => !!authStore.user?.login)
     this.isLoading = true
-    const photo = await userFilesStore.uploadPhotoCommunity(image)
+    const photo = await userFilesStore.uploadPhotoFiles(image)
     return api.post('/community/create', { title, description, photo })
       .then(res => this.groups.push(res.data))
       .finally(() => this.isLoading = false)

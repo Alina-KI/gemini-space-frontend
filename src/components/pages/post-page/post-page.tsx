@@ -23,6 +23,9 @@ export const PostPage = observer((post: Props) => {
       </div>
       <h3 className={s.titlePost}>{post.title}</h3>
       <div className={s.textPost}>{post.text}</div>
+      {!!post.photo &&
+        <img className={s.img} src={post.photo} alt="photo" />
+      }
       <div className={s.containerCreatorButton}>
         <NavLink to={`/${post.user.login}`} className={s.userPost}>Author: {post.user.surname} {post.user.name}</NavLink>
         <button onClick={() => {postStore.changeLikesPost(post._id).then()}} className={s.likesPost}>
