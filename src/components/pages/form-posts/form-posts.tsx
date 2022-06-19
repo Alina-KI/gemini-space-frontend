@@ -1,9 +1,8 @@
 import React from 'react'
 import s from './posr-posts.module.scss'
 import { SubmitHandler, useForm } from 'react-hook-form'
-import { groupPageStore } from '../../../store/group-page-store'
+import { postStore } from '../../../store/post-store'
 import { observer } from 'mobx-react-lite'
-import { userPageStore } from '../../../store/user-page-store'
 
 type createPost = {
   title: string
@@ -20,10 +19,10 @@ export const FormPosts = observer((props: Props) => {
   const onSubmit: SubmitHandler<createPost> = data => {
     data.datePublished = Date.now().toString()
     if (props.isPostGroups) {
-      groupPageStore.createPost(data).then()
+      postStore.createPostCommunity(data).then()
     }
     else{
-      userPageStore.createPost(data).then()
+      postStore.createPostUser(data).then()
     }
     setValue('title', '')
     setValue('text', '')

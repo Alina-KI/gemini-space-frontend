@@ -7,7 +7,7 @@ import { Loader } from '../../../shared/loader/loader'
 import { ErrorDisplay } from '../../../shared/error-display/error-display'
 import { groupStore } from '../../../../store/group-store'
 import { authStore } from '../../../../store/auth-store'
-import { groupPageStore } from '../../../../store/group-page-store'
+import { postStore } from '../../../../store/post-store'
 
 type Props = {
   groups: Group[]
@@ -34,7 +34,7 @@ export const CommunityList = observer(({ groups, isLoading, error, showAddButton
             <div className={s.info}>
               <NavLink
                 to={`/${authStore.user?.login}/community/${group._id}`}
-                onClick={() => groupPageStore.selectedGroupId = group._id}
+                onClick={() => postStore.selectedGroupId = group._id}
                 className={s.title}>{group.title}</NavLink>
               <span className={s.description}>Description: {group.description}</span>
               {showAddButton &&

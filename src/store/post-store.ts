@@ -4,13 +4,12 @@ import { api } from '../api'
 import { groupStore } from './group-store'
 import { authStore } from './auth-store'
 
-class GroupPageStore {
+class PostStore {
   constructor() {
     makeAutoObservable(this, {}, { autoBind: true })
   }
 
   posts: Post[] = []
-  postsGroups: Post[] = []
   selectedGroupId: string | null = null
   isLoading = false
   isCreator = false
@@ -18,47 +17,59 @@ class GroupPageStore {
   get group() {
     const foundedGroup = groupStore.groups.find(group => group._id === this.selectedGroupId)
     if (foundedGroup?.creator === authStore?.user?.login) {
-      groupPageStore.isCreator = true
+      postStore.isCreator = true
     }
-    groupPageStore.fetchPosts().then()
+    postStore.fetchPostsCommunity().then()
     return foundedGroup
   }
 
-  async fetchPosts() {
+  async fetchPostsCommunity() {
     this.isLoading = true
-    return api.get<Post[]>(`/post/getPosts/${this.selectedGroupId}`)
+    this.posts = []
+    return api.get<Post[]>(`/post/community/getPosts/${this.selectedGroupId}`)
       .then(res => {
         this.posts = res.data
-        console.log(res.data)
       })
+      .catch()
+      .finally(() => this.isLoading = false)
+  }
+
+  async fetchPostsUser() {
+    this.isLoading = true
+    this.posts = []
+    return api.get<Post[]>(`/post/user/getPosts/${authStore.user!.login}`)
+      .then(res => this.posts = res.data)
       .catch()
       .finally(() => this.isLoading = false)
   }
 
   async fetchPostsGroups(id: string) {
     this.isLoading = true
-    return api.get<Post[]>(`/post/getPosts/${id}`)
+    return api.get<Post[]>(`/post/community/getPosts/${id}`)
       .then(res => res.data)
       .catch()
       .finally(() => this.isLoading = false)
   }
 
-  async createPost(data: CreatePost) {
+  async createPostCommunity(data: CreatePost) {
     return api.post(`/post/community/create/${this.selectedGroupId}`, data)
       .then(res => this.posts.push(res.data))
   }
 
-  async changeLikes(id: string) {
-    console.log(id)
+  async createPostUser(data: CreatePost){
+    return api.post('/post/user/create', { ...data, login: authStore.user!.login } )
+      .then(res => this.posts.push(res.data))
+  }
+
+  async changeLikesPost(id: string) {
     return api.post('/post/changeLikes', { _id: id })
       .then(res => {
         return this.posts.map(post => {
           if (post._id === id) {
             post.likes = res.data
-            console.log(post)
           }
         })
       })
   }
 }
-export const groupPageStore = new GroupPageStore()
+export const postStore = new PostStore()

@@ -1,9 +1,9 @@
-import { makeAutoObservable, when } from 'mobx'
+import { makeAutoObservable, toJS, when } from 'mobx'
 import { api } from '../api'
 import { authStore } from './auth-store'
 import { Group } from '../types/group'
 import { userFilesStore } from './user-files-store'
-import { groupPageStore } from './group-page-store'
+import { postStore } from './post-store'
 
 class GroupStore {
   constructor() {
@@ -20,7 +20,7 @@ class GroupStore {
     api.get<Group[]>('/community/getCommunities')
       .then(async res => {
         this.groups = res.data
-        groupPageStore.postsGroups = (await Promise.all(this.groups.map(group => groupPageStore.fetchPostsGroups(group._id)))).flat()
+        postStore.posts = (await Promise.all(this.groups.map(group => postStore.fetchPostsGroups(group._id)))).flat()
       })
       .finally(() => this.isLoading = false)
   }

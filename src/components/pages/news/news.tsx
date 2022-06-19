@@ -6,7 +6,8 @@ import { ErrorDisplay } from '../../shared/error-display/error-display'
 import { observer } from 'mobx-react-lite'
 import { groupStore } from '../../../store/group-store'
 import { PostPage } from '../post-page/post-page'
-import { groupPageStore } from '../../../store/group-page-store'
+import { postStore } from '../../../store/post-store'
+import { toJS } from 'mobx'
 
 export const News = observer(() => {
   const [isNewsGroup, setIsNewsGroup] = useState(true)
@@ -22,6 +23,7 @@ export const News = observer(() => {
   if (newsStore.error) return <ErrorDisplay message={'Error'} />
 
 
+  console.log(toJS(postStore.posts))
   return (
     <div className={s.container}>
       <div className={s.choose}>
@@ -38,7 +40,7 @@ export const News = observer(() => {
       </div>
       <div className={s.containerNews}>
         {isNewsGroup ?
-          groupPageStore.postsGroups.map(post => <PostPage isPostGroups={true} {...post} key={post._id} />)
+          postStore.posts.map(post => <PostPage {...post} isPostGroups={true} key={post._id} />)
           :
           newsStore.news?.map(newsItem =>
             <div className={s.news} key={newsItem.url}>

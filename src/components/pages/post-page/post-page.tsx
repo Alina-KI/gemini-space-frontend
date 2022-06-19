@@ -1,12 +1,12 @@
 import React, { useState } from 'react'
 import s from './post-page.module.scss'
-import { groupPageStore } from '../../../store/group-page-store'
-import { Comments } from '../comments/comments'
 import { Post } from '../../../types/post'
+import { observer } from 'mobx-react-lite'
+import { postStore } from '../../../store/post-store'
+import { Comments } from '../comments/comments'
 import { authStore } from '../../../store/auth-store'
 import { NavLink } from 'react-router-dom'
-import { observer } from 'mobx-react-lite'
-import { userPageStore } from '../../../store/user-page-store'
+
 
 type Props = Post & {
   isPostGroups: boolean
@@ -24,15 +24,8 @@ export const PostPage = observer((post: Props) => {
       <h3 className={s.titlePost}>{post.title}</h3>
       <div className={s.textPost}>{post.text}</div>
       <div className={s.containerCreatorButton}>
-        <NavLink to={`/${post.user.login}`} className={s.userPost}>{post.user.surname} {post.user.name}</NavLink>
-        <button onClick={() => {
-          if (post.isPostGroups){
-            groupPageStore.changeLikes(post._id).then()
-          }
-          else{
-            userPageStore.changeLikes(post._id).then()
-          }
-        }} className={s.likesPost}>
+        <NavLink to={`/${post.user.login}`} className={s.userPost}>Author: {post.user.surname} {post.user.name}</NavLink>
+        <button onClick={() => {postStore.changeLikesPost(post._id).then()}} className={s.likesPost}>
           <span style={{ color: `${isWhite ? 'white' : 'green'}` }}>&#10003;</span>
           {post.likes.length}
         </button>

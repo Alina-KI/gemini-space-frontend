@@ -3,7 +3,6 @@ import s from './user-page.module.scss'
 import setting from '../../../images/setting/setting.png'
 import { NavLink, useParams } from 'react-router-dom'
 import { MiniGallery } from './mini-gallery/mini-gallery'
-// import { Comments } from '../comments/comments'
 import { observer } from 'mobx-react-lite'
 import { Loader } from '../../shared/loader/loader'
 import { ErrorDisplay } from '../../shared/error-display/error-display'
@@ -11,6 +10,7 @@ import { userPageStore } from '../../../store/user-page-store'
 import { ModalUploadImage } from './modal-upload-image/modal-upload-image'
 import { FormPosts } from '../form-posts/form-posts'
 import { PostPage } from '../post-page/post-page'
+import { postStore } from '../../../store/post-store'
 
 export const UserPage = observer(() => {
   const [isOpenModal, setIsOpenModal] = useState(false)
@@ -36,6 +36,10 @@ export const UserPage = observer(() => {
     if (width && width <= 500) setSettingText('')
     if (width && width > 500) setSettingText('Setting')
   }, [width])
+
+  useEffect(() => {
+    postStore.fetchPostsUser().then()
+  }, [])
 
   if (userPageStore.isLoading) return <Loader />
   if (userPageStore.error) return <ErrorDisplay message={'Error'} />
@@ -68,7 +72,9 @@ export const UserPage = observer(() => {
       </div>
       <MiniGallery />
       <FormPosts isPostGroups={false}/>
-      {user?.posts.map(post => <PostPage isPostGroups={false} {...post} key={post._id}/>)}
+      {postStore.posts.map(post => {
+        return <PostPage isPostGroups={false} {...post} key={post._id} />
+      })}
     </div>
   )
 })
