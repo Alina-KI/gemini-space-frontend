@@ -1,4 +1,4 @@
-import { makeAutoObservable } from 'mobx'
+import { makeAutoObservable, when } from 'mobx'
 import { Post } from '../types/post'
 import { api } from '../api'
 import { groupStore } from './group-store'
@@ -36,6 +36,7 @@ class PostStore {
   }
 
   async fetchPostsUser() {
+    await when(() => !!authStore.user?.login)
     this.isLoading = true
     this.posts = []
     return api.get<Post[]>(`/post/user/getPosts/${authStore.user!.login}`)
