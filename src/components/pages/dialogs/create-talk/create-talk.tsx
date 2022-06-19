@@ -31,6 +31,7 @@ export const CreateTalk = observer(() => {
       users: usersTalkStore.users,
       image: data.image[0]
     })
+    console.log(dialog)
     history.push(`/dialogs/${dialog._id}`)
   }
   useEffect(() => {

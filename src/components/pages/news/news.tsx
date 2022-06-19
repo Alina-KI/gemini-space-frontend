@@ -7,7 +7,6 @@ import { observer } from 'mobx-react-lite'
 import { groupStore } from '../../../store/group-store'
 import { PostPage } from '../post-page/post-page'
 import { postStore } from '../../../store/post-store'
-import { toJS } from 'mobx'
 
 export const News = observer(() => {
   const [isNewsGroup, setIsNewsGroup] = useState(true)
@@ -23,7 +22,6 @@ export const News = observer(() => {
   if (newsStore.error) return <ErrorDisplay message={'Error'} />
 
 
-  console.log(toJS(postStore.posts))
   return (
     <div className={s.container}>
       <div className={s.choose}>

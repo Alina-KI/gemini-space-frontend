@@ -1,4 +1,4 @@
-import { makeAutoObservable } from 'mobx'
+import { makeAutoObservable, toJS } from 'mobx'
 import { Auth } from '../components/auth/auth'
 import { Registration } from '../components/registration/registration'
 import { api } from '../api'
@@ -59,6 +59,7 @@ class AuthStore {
   login(data: Auth) {
     this.logout()
     this.isLoading = true
+    console.log(toJS(data))
     return api.post('/user/login', data)
       .then(res => {
         const userLogin = jwtDecode<{ login: string }>(res.data.token).login
@@ -137,8 +138,9 @@ class AuthStore {
     return Promise.resolve()
   }
 
-  getInterlocutor(dialog: Dialog) {
-    return dialog.users.find(user => user.login !== this.user?.login)!
+  async getInterlocutor(dialog: Dialog) {
+    return await api.get(`/dialogues/getUserDialog/${dialog._id}`)
+      .then(res => res.data)
   }
 
   getUserNameSurname(user: User) {

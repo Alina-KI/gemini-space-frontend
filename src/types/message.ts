@@ -6,6 +6,7 @@ export type Dialog = {
   users: User[]
   messages: Message[]
   image?: string
+  creator: User
 }
 
 export type Message = {

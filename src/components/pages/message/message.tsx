@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import s from './message.module.scss'
 import { dialogsStore } from '../../../store/dialogs-store'
-import { useParams } from 'react-router-dom'
+import { NavLink, useParams } from 'react-router-dom'
 import { observer } from 'mobx-react-lite'
 import { newsStore } from '../../../store/news-store'
 import { Loader } from '../../shared/loader/loader'
@@ -21,7 +21,6 @@ export const Message = observer(() => {
 
   useEffect(() => {
     dialogsStore.enterDialog(dialogId).then()
-    // return () => dialogsStore.exitDialog()
   }, [dialogId])
 
   if (newsStore.isLoading) return <Loader />
@@ -36,9 +35,10 @@ export const Message = observer(() => {
       <div className={s.messages} ref={messagesRef}>
         {dialogsStore.selectedDialog?.messages.map(message =>
           <div className={`${s.message} ${message.sender.login == authStore.user?.login && s.message_own}`} key={message.date}>
-            <div className={s.name}>
-              {message.sender.name}
-            </div>
+            <NavLink to={`/${message.sender.login}`} className={s.name}>
+              <img className={s.avatar} src={message.sender.avatar} alt="avatar" />
+              <p className={s.nameText}>{message.sender.name} {message.sender.surname}</p>
+            </NavLink>
             <div className={s.text}>
               {message.text}
             </div>

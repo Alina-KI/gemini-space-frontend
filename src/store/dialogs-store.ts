@@ -4,7 +4,8 @@ import { socketStore } from './socket-store'
 import { CreateDialogPayload, CreateGroupDialogPayload } from '../types/dialog'
 import { api } from '../api'
 import { authStore } from './auth-store'
-import { getFileUrl } from '../functions/get-file-url'
+import { User } from '../types/user'
+import { userFilesStore } from './user-files-store'
 
 class DialogsStore {
   constructor() {
@@ -22,10 +23,10 @@ class DialogsStore {
 
   getMyDialogs() {
     return api.get<Dialog[]>('/dialogues')
-      .then(res => this.dialogs = res.data.map(d => d.nameTalk ? d : {
+      .then(async res => this.dialogs = await Promise.all(res.data.map(async d => d.nameTalk ? d : {
         ...d,
-        nameTalk: authStore.getUserNameSurname(authStore.getInterlocutor(d))
-      }))
+        nameTalk: authStore.getUserNameSurname(await authStore.getInterlocutor(d))
+      })))
   }
 
   async createDialog(dialog: CreateDialogPayload) {
@@ -35,10 +36,8 @@ class DialogsStore {
   }
 
   async createGroupDialog(dialog: CreateGroupDialogPayload) {
-    const formData = new FormData()
-    formData.append('image', dialog.image)
-    const imagePath = await api.post('files/upload/images', formData).then(res => res.data)
-    const newDialog = await socketStore.createGroupDialog({ ...dialog, image: imagePath })
+    const image = await userFilesStore.uploadPhotoFiles(dialog.image)
+    const newDialog = await socketStore.createGroupDialog({ ...dialog, image })
     await this.getMyDialogs()
     return newDialog
   }
@@ -48,10 +47,14 @@ class DialogsStore {
   }
 
   async enterDialog(dialogId: string) {
-    // this.selectedDialog = await api.get(`/dialogues/getDialog/${dialogId}`).then(res => res.data)
-    this.selectedDialog = this.dialogs.find(d => d._id === dialogId)
-    if (this.selectedDialog?.image)
-      this.selectedDialog.image = getFileUrl(this.selectedDialog.image)
+    this.selectedDialog = await api.get(`/dialogues/getDialog/${dialogId}`).then(res => res.data)
+    if (!this.selectedDialog?.nameTalk){
+      this.selectedDialog!.nameTalk = authStore.getUserNameSurname(await authStore.getInterlocutor(this.selectedDialog!))
+    }
+    if (!this.selectedDialog?.image) {
+      const user: User = await authStore.getInterlocutor(this.selectedDialog!).then()
+      this.selectedDialog!.image = user.avatar
+    }
   }
 
   exitDialog() {
