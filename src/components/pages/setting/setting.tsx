@@ -12,7 +12,14 @@ export const Setting = observer(() => {
   return (
     <div className={s.setting}>
       {/*Setting*/}
-      <ErrorDisplay message="Internal Server Error" code={500}/>
+      {/*<ErrorDisplay message="Internal Server Error" code={500}/>*/}
+
+      <Swiper pagination navigation scrollbar>
+        <SwiperSlide className={s.swiper_slide}>Slide 1</SwiperSlide>
+        <SwiperSlide className={s.swiper_slide}>Slide 2</SwiperSlide>
+        <SwiperSlide className={s.swiper_slide}>Slide 3</SwiperSlide>
+      </Swiper>
+
     </div>
   )
 })
