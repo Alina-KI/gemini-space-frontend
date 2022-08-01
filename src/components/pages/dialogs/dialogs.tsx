@@ -1,6 +1,5 @@
 import React from 'react'
 import s from './dialogs.module.scss'
-import photo from '../../../images/2.jpg'
 import { observer } from 'mobx-react-lite'
 import { dialogsStore } from '../../../store/dialogs-store'
 import { NavLink, useHistory } from 'react-router-dom'

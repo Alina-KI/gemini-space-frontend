@@ -48,7 +48,7 @@ export const UserPage = observer(() => {
     <div className={s.myPage}>
       <div className={s.container}>
         <div className={s.dataUser}>
-          <img className={s.avatar} src={user?.avatar} onClick={() => setIsOpenModal(true)} alt='Avatar'/>
+          <img className={s.avatar} src={user?.avatar} onClick={() => setIsOpenModal(true)} alt="Avatar" />
           <div className={s.name_data}>
             <NavLink to={`/${user?.login}`} className={s.NameUser}>
               {user?.name} {user?.surname} {user?.lastname}
@@ -71,7 +71,7 @@ export const UserPage = observer(() => {
         </div>
       </div>
       <MiniGallery />
-      <FormPosts isPostGroups={false}/>
+      <FormPosts isPostGroups={false} />
       {postStore.posts.map(post => {
         return <PostPage isPostGroups={false} {...post} key={post._id} />
       })}

@@ -1,3 +1,5 @@
+@import "src/variables";
+
 .gallery {
   max-width: 800px;
   width: 100%;
@@ -7,8 +9,14 @@
   transition: .4s linear;
   margin: 0 auto 40px;
 
-  .swiper_slide{
-    width: 150px !important;
+  .swiperContainer{
+    display: flex;
+    align-content: center;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .swiper_slide {
     height: 150px !important;
 
     .gallery_photo {
@@ -16,6 +24,7 @@
       height: 100%;
       object-fit: cover;
       transition: all 1s ease;
+      display: block;
     }
 
     &:hover {
@@ -46,6 +55,40 @@
     }
   }
 
+  .swiper_button_prev {
+    display: inline-block;
+    align-self: center;
+
+    .left {
+      object-fit: contain;
+      max-width: 25px;
+      max-height: 25px;
+      fill:transparent;
+      transition: .3s ease-in;
+
+      &:hover {
+        fill: $swiper-button-hover;
+      }
+    }
+  }
+
+  .swiper_button_next {
+    display: inline-block;
+    align-self: center;
+
+    .right {
+      object-fit: contain;
+      max-width: 25px;
+      max-height: 25px;
+      fill: transparent;
+      transition: .3s ease-in;
+
+      &:hover {
+        fill: $swiper-button-hover;
+      }
+    }
+  }
+
   .whole_gallery {
     margin: 0 20px 10px 20px;
     text-decoration: none;
@@ -64,6 +107,10 @@
   &:hover {
     border: 1px solid rgb(175, 162, 127);
     cursor: pointer;
+
+    .swiperContainer .left, .swiperContainer .right{
+      fill: $swiper-button;
+    }
   }
 }
 
@@ -79,14 +126,6 @@
   }
 }
 
-:global(.swiper) {
-  margin: 0 20px !important;
-}
-
-:global(.swiper-button-prev) {
-  left: -10px !important;
-}
-
-:global(.swiper-button-next) {
-  right: -10px !important;
-}
+//:global(.swiper) {
+//  margin: 0 25px !important;
+//}

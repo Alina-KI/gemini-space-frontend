@@ -8,7 +8,6 @@ import { useHistory } from 'react-router-dom'
 import { usersTalkStore } from '../../../../store/users-talk-store'
 import { readFile } from '../../../../functions/read-file'
 import { dialogsStore } from '../../../../store/dialogs-store'
-import ava from '../../../../images/2.jpg'
 import { ReactComponent as Cross } from '../../../../images/cross.svg'
 
 type TalkForm = {
@@ -68,7 +67,7 @@ export const CreateTalk = observer(() => {
         <button type="button" onClick={() => setIsOpenModal(true)} className={s.btnAddedUsers}>Add users</button>
         {usersTalkStore.users.map(user =>
           <div key={user._id} className={s.listUsers}>
-            <img className={s.photoUser} src={ava} alt="" />
+            <img className={s.photoUser} src={user.avatar} alt="" />
             <div className={s.nameUser}>{user.surname} {user.name} {user.lastname}</div>
             <button type="button" className={s.cross} onClick={() => {
               usersTalkStore.removeUsers(user)

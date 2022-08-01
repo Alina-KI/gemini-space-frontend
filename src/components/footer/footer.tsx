@@ -32,7 +32,7 @@ export const Footer = observer(({ smallAppHeight }: Props) => {
   const user = authStore.user
 
   return (
-    <div className={isMessagePage ? s.footerNone : s.footer}>
+    <footer className={isMessagePage ? s.footerNone : s.footer}>
       <div className={s.containerFooter}>
         <div className={`${smallAppHeight || newsStore.isLoading ? `${s.footer__show}` : ''} ${s.footer__subscribe}`}>
           <h1 className={s.title}>Subscribe</h1>
@@ -109,6 +109,6 @@ export const Footer = observer(({ smallAppHeight }: Props) => {
         <div className={s.slider} style={{ left: `${pos}%` }} />
       </div>
       }
-    </div>
+    </footer>
   )
 })

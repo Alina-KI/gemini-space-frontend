@@ -16,7 +16,7 @@ export const App = () => {
     authStore.checkAuth().then(() => {
       if (authStore.user){
         socketStore.openSocket()
-        dialogsStore.getMyDialogs()
+        dialogsStore.getMyDialogs().then()
       }
     })
   }, [])
@@ -28,7 +28,7 @@ export const App = () => {
   return (
     <div className={s.app}>
       <Header />
-      <div className={`${s.container} ${!isLoadingPage ? s.container_auth : ''}`}>
+      <body className={`${s.container} ${!isLoadingPage ? s.container_auth : ''}`}>
         {isLoadingPage &&
         <div className={s.navbar}>
           {!newsStore.isLoading && <Navbar setIsActive={() => null} />}
@@ -36,7 +36,7 @@ export const App = () => {
         <div ref={containerRef} className={s.routeContainer}>
           <Routes />
         </div>
-      </div>
+      </body>
       <Footer smallAppHeight={height < 700} />
     </div>
   )

@@ -3,7 +3,6 @@ import s from './modal.module.scss'
 import { userStore } from '../../../../../store/users-store'
 import { SetState } from '../../../../../types/set-state'
 import { observer } from 'mobx-react-lite'
-import image from '../../../../../images/10.jpg'
 import { ReactComponent as Cross } from '../../../../../images/cross.svg'
 import { ReactComponent as Tracery } from '../../../../../images/ornaments-for-comments/tracery.svg'
 import { NavLink } from 'react-router-dom'
@@ -29,7 +28,7 @@ export const Modal = observer(({ isOpen, setIsOpen }: Props) => {
           </button>
           {userStore.users.map(user =>
             <div className={s.cartUser} key={user._id}>
-              <img className={s.photoUser} src={image} alt="" />
+              <img className={s.photoUser} src={user.avatar} alt="" />
               <div className={s.containerName}>
                 <NavLink to={`/${user.login}`} className={s.nameUser}>
                   {user.surname} {user.name} {user.lastname}
